@@ -14,16 +14,119 @@
       background: #f97316;
     }
     .dropdown-group:hover .dropdown-menu { display: block; }
-    .dropdown-menu { display: none; position: absolute; top: 100%; left: 0; min-width: 280px; background: #ffffff; border-radius: 10px; border: 2px solid #1a1a1a; box-shadow: 0 20px 50px rgba(0,0,0,0.15); padding: 0.5rem 0; z-index: 50; }
+    .dropdown-menu { display: none; position: absolute; top: 100%; left: 0; min-width: 320px; background: #ffffff; border-radius: 10px; border: 2px solid #1a1a1a; box-shadow: 0 20px 50px rgba(0,0,0,0.15); padding: 0.5rem 0; z-index: 50; }
     .dropdown-menu .sub-dropdown { position: relative; }
     .dropdown-menu .sub-dropdown:hover .sub-menu { display: block; }
-    .sub-menu { display: none; position: absolute; top: -4px; left: 100%; min-width: 220px; background: #ffffff; border-radius: 10px; border: 2px solid #1a1a1a; box-shadow: 0 20px 50px rgba(0,0,0,0.15); padding: 0.5rem 0; }
+    .sub-menu { display: none; position: absolute; top: -4px; left: 100%; min-width: 250px; background: #ffffff; border-radius: 10px; border: 2px solid #1a1a1a; box-shadow: 0 20px 50px rgba(0,0,0,0.15); padding: 0.5rem 0; }
     .mega-hover:hover .mega-content { display: flex !important; }
     .mega-content { display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); background: #ffffff; border-top: 2px solid #1a1a1a; border-bottom: 2px solid #1a1a1a; padding: 1.5rem 2rem; box-shadow: 0 20px 50px rgba(0,0,0,0.12); border-radius: 0 0 12px 12px; gap: 2rem; justify-content: center; flex-wrap: wrap; z-index: 60; flex-direction: row !important; min-width: 500px; }
-    .dropdown-menu .sub-dropdown > div:hover { background: #f97316; color: #ffffff !important; }
-    .dropdown-menu .sub-dropdown > div:hover span { color: #ffffff !important; }
-    .dropdown-menu .sub-dropdown > div:hover .fa-chevron-right { color: #ffffff !important; }
-    .sub-menu a:hover { background: #f97316; color: #ffffff !important; }
+    
+    .dropdown-menu .sub-dropdown > a { 
+      color: #1a1a1a !important; 
+      padding: 8px 16px; 
+      border-radius: 6px; 
+      transition: 0.15s; 
+      cursor: pointer; 
+      background: transparent !important;
+      text-decoration: none !important;
+      display: flex !important;
+      justify-content: space-between !important;
+      align-items: center !important;
+    }
+    .dropdown-menu .sub-dropdown > a:hover { 
+      background: #f97316 !important; 
+      color: #ffffff !important; 
+    }
+    .dropdown-menu .sub-dropdown > a:hover span { 
+      color: #ffffff !important; 
+    }
+    .dropdown-menu .sub-dropdown > a:hover .fa-chevron-right { 
+      color: #ffffff !important; 
+    }
+    .dropdown-menu .sub-dropdown:hover > a { 
+      background: #f97316 !important; 
+      color: #ffffff !important; 
+    }
+    .dropdown-menu .sub-dropdown:hover > a span { 
+      color: #ffffff !important; 
+    }
+    .dropdown-menu .sub-dropdown:hover > a .fa-chevron-right { 
+      color: #ffffff !important; 
+    }
+
+    .sub-menu a { 
+      color: #1a1a1a !important; 
+      padding: 8px 16px; 
+      display: block; 
+      font-size: 0.85rem; 
+      border-radius: 6px; 
+      transition: 0.15s; 
+      font-weight: 500; 
+      background: #ffffff !important;
+      text-decoration: none !important;
+    }
+    .sub-menu a:hover { 
+      background: #f97316 !important; 
+      color: #ffffff !important; 
+    }
+
+    .main-nav-link {
+      color: #1a1a1a !important;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 4px 2px;
+      position: relative;
+      transition: 0.2s;
+      letter-spacing: 0.5px;
+      background: transparent !important;
+      text-decoration: none !important;
+    }
+    .main-nav-link:hover {
+      color: #1a1a1a !important;
+      background: transparent !important;
+    }
+    .main-nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #1a1a1a;
+      transition: width 0.25s;
+      border-radius: 2px;
+    }
+    .main-nav-link:hover::after {
+      width: 100%;
+    }
+
+    .main-nav-link-products {
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 4px 2px;
+      position: relative;
+      letter-spacing: 0.5px;
+      background: transparent !important;
+      text-decoration: none !important;
+    }
+    .main-nav-link-products:hover {
+      color: #ffffff !important;
+      background: transparent !important;
+    }
+    .main-nav-link-products::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: #1a1a1a;
+      border-radius: 2px;
+    }
+    .main-nav-link-products i {
+      color: #ffffff;
+    }
 
     .slide-text {
       position: absolute;
@@ -93,6 +196,8 @@
       .slide-text-small span { font-size: 0.6rem; }
       .slide-split { flex-direction: column; }
       .slide-split img { width: 100%; height: 50%; }
+      .dropdown-menu { min-width: 240px; }
+      .sub-menu { min-width: 200px; left: 90%; }
     }
     @media (max-width: 480px) {
       .mega-content { flex-direction: column !important; align-items: center; gap: 0.6rem; padding: 0.8rem; min-width: 180px; }
@@ -103,6 +208,8 @@
       .slide-text span { font-size: 0.55rem; }
       .slide-text-small { top: 12px; left: 12px; font-size: 0.8rem; padding: 4px 10px; }
       .slide-text-small span { font-size: 0.5rem; }
+      .dropdown-menu { min-width: 200px; }
+      .sub-menu { min-width: 180px; left: 85%; }
     }
   </style>
 </head>
@@ -130,6 +237,7 @@
             <span class="hidden sm:inline text-black/35">|</span>
             <a href="tel:+79151256157" class="text-black font-semibold text-[0.8rem] px-2 py-0.5 rounded hover:bg-black/10 hover:text-white transition flex items-center gap-1"><i class="fas fa-mobile-alt text-black text-xs"></i> +7 (915) 125 61 57</a>
           </div>
+          <!-- SOSİAL MEDİA -->
           <div class="flex items-center gap-1.5">
             <a href="#" class="w-8 h-8 rounded-full bg-black text-white text-sm flex items-center justify-center hover:bg-[#E4405F] hover:scale-105 transition shadow-md"><i class="fab fa-instagram"></i></a>
             <a href="#" class="w-8 h-8 rounded-full bg-black text-white text-sm flex items-center justify-center hover:bg-[#1877F2] hover:scale-105 transition shadow-md"><i class="fab fa-facebook-f"></i></a>
@@ -137,43 +245,155 @@
             <a href="#" class="w-8 h-8 rounded-full bg-black text-white text-sm flex items-center justify-center hover:bg-[#0A66C2] hover:scale-105 transition shadow-md"><i class="fab fa-linkedin-in"></i></a>
             <a href="https://wa.me/79151256157" target="_blank" class="w-8 h-8 rounded-full bg-black text-white text-sm flex items-center justify-center hover:bg-[#25D366] hover:scale-105 transition shadow-md"><i class="fab fa-whatsapp"></i></a>
             <a href="https://t.me/79151256157" target="_blank" class="w-8 h-8 rounded-full bg-black text-white text-sm flex items-center justify-center hover:bg-[#0088CC] hover:scale-105 transition shadow-md"><i class="fab fa-telegram-plane"></i></a>
+            <a href="https://cabinet.vkvideo.ru/dashboard/@club241148851" target="_blank" class="w-8 h-8 rounded-full bg-black text-white text-sm flex items-center justify-center hover:bg-[#0077FF] hover:scale-105 transition shadow-md"><i class="fab fa-vk"></i></a>
+            <a href="#" target="_blank" class="w-8 h-8 rounded-full bg-black text-white text-sm flex items-center justify-center hover:bg-[#EE1B24] hover:scale-105 transition shadow-md"><i class="fas fa-video"></i></a>
+            <a href="#" target="_blank" class="w-8 h-8 rounded-full bg-black text-white text-sm flex items-center justify-center hover:bg-[#F58220] hover:scale-105 transition shadow-md"><i class="fas fa-user-circle"></i></a>
           </div>
         </div>
       </div>
     </div>
   </div>
+
+  <!-- NAV -->
   <nav class="bg-orange-500 py-1.5">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <div class="flex flex-wrap items-center justify-between gap-2">
+
+        <!-- KATALOQ -->
         <div class="dropdown-group relative">
-          <button class="bg-black text-white px-4 py-1.5 rounded-lg font-bold text-[0.9rem] tracking-wide flex items-center gap-2 shadow-md hover:bg-black hover:scale-105 transition uppercase"><i class="fas fa-bars"></i> КАТАЛОГ</button>
+          <button class="bg-black text-white px-4 py-1.5 rounded-lg font-bold text-[0.9rem] tracking-wide flex items-center gap-2 shadow-md hover:bg-black hover:scale-105 transition uppercase">
+            <i class="fas fa-bars"></i> КАТАЛОГ
+          </button>
           <div class="dropdown-menu">
-            <div class="sub-dropdown px-1 py-0.5"><div class="flex justify-between items-center text-sm text-black px-3 py-1.5 rounded cursor-pointer hover:bg-orange-500 hover:text-white transition"><span class="font-medium">СТАНКИ ДЛЯ ОБРАБОТКИ МЕТАЛЛА</span><i class="fas fa-chevron-right text-orange-500 text-xs"></i></div><div class="sub-menu"><a href="#" class="block px-4 py-1.5 text-sm font-medium rounded hover:bg-orange-500 hover:text-white transition">Токарные станки</a><a href="#" class="block px-4 py-1.5 text-sm font-medium rounded hover:bg-orange-500 hover:text-white transition">Фрезерные станки</a><a href="#" class="block px-4 py-1.5 text-sm font-medium rounded hover:bg-orange-500 hover:text-white transition">Шлифовальные</a></div></div>
-            <div class="sub-dropdown px-1 py-0.5"><div class="flex justify-between items-center text-sm text-black px-3 py-1.5 rounded cursor-pointer hover:bg-orange-500 hover:text-white transition"><span class="font-medium">ПРОИЗВОДСТВЕННЫЕ ЛИНИИ</span><i class="fas fa-chevron-right text-orange-500 text-xs"></i></div><div class="sub-menu"><a href="#" class="block px-4 py-1.5 text-sm font-medium rounded hover:bg-orange-500 hover:text-white transition">Линии розлива</a><a href="#" class="block px-4 py-1.5 text-sm font-medium rounded hover:bg-orange-500 hover:text-white transition">Упаковочные линии</a></div></div>
-            <div class="sub-dropdown px-1 py-0.5"><div class="flex justify-between items-center text-sm text-black px-3 py-1.5 rounded cursor-pointer hover:bg-orange-500 hover:text-white transition"><span class="font-medium">АВТОМАТИЗАЦИЯ</span><i class="fas fa-chevron-right text-orange-500 text-xs"></i></div><div class="sub-menu"><a href="#" class="block px-4 py-1.5 text-sm font-medium rounded hover:bg-orange-500 hover:text-white transition">Промышленные автоматы</a><a href="#" class="block px-4 py-1.5 text-sm font-medium rounded hover:bg-orange-500 hover:text-white transition">Мехатронные модули</a></div></div>
-            <div class="sub-dropdown px-1 py-0.5"><div class="flex justify-between items-center text-sm text-black px-3 py-1.5 rounded cursor-pointer hover:bg-orange-500 hover:text-white transition"><span class="font-medium">РОБОТИЗАЦИЯ</span><i class="fas fa-chevron-right text-orange-500 text-xs"></i></div><div class="sub-menu"><a href="#" class="block px-4 py-1.5 text-sm font-medium rounded hover:bg-orange-500 hover:text-white transition">Промышленные роботы</a><a href="#" class="block px-4 py-1.5 text-sm font-medium rounded hover:bg-orange-500 hover:text-white transition">Робототехнические комплексы</a></div></div>
-            <div class="sub-dropdown px-1 py-0.5"><div class="flex justify-between items-center text-sm text-black px-3 py-1.5 rounded cursor-pointer hover:bg-orange-500 hover:text-white transition"><span class="font-medium">ОСНАСТКА, ИНСТРУМЕНТ</span><i class="fas fa-chevron-right text-orange-500 text-xs"></i></div><div class="sub-menu"><a href="#" class="block px-4 py-1.5 text-sm font-medium rounded hover:bg-orange-500 hover:text-white transition">Режущий инструмент</a><a href="#" class="block px-4 py-1.5 text-sm font-medium rounded hover:bg-orange-500 hover:text-white transition">Вспомогательное оснащение</a></div></div>
-            <div class="sub-dropdown px-1 py-0.5"><div class="flex justify-between items-center text-sm text-black px-3 py-1.5 rounded cursor-pointer hover:bg-orange-500 hover:text-white transition"><span class="font-medium">РЕШЕНИЯ ПО ОТРАСЛЯМ</span><i class="fas fa-chevron-right text-orange-500 text-xs"></i></div><div class="sub-menu"><a href="#" class="block px-4 py-1.5 text-sm font-medium rounded hover:bg-orange-500 hover:text-white transition">Машиностроение</a><a href="#" class="block px-4 py-1.5 text-sm font-medium rounded hover:bg-orange-500 hover:text-white transition">Нефтегаз</a></div></div>
-          </div>
-        </div>
-        <div class="hidden md:flex items-center gap-5">
-          <a href="index.html" class="text-white font-bold text-[0.9rem] relative transition hover:text-white/80 after:content-[''] after:absolute after:bottom-[-2px] after:left-0 after:w-full after:h-0.5 after:bg-black after:rounded">Главная</a>
-          <a href="kompany.html" class="text-black font-bold text-[0.9rem] relative transition hover:text-white after:content-[''] after:absolute after:bottom-[-2px] after:left-0 after:w-0 after:h-0.5 after:bg-black after:rounded hover:after:w-full after:transition-all">О компании</a>
-          <div class="relative mega-hover"><a href="#" class="text-white font-bold text-[0.9rem] relative flex items-center gap-1.5 after:content-[''] after:absolute after:bottom-[-2px] after:left-0 after:w-full after:h-0.5 after:bg-black after:rounded">Продукции <i class="fas fa-chevron-down text-[10px]"></i></a>
-            <div class="mega-content">
-              <div class="mega-item flex flex-col items-center min-w-[80px] hover:-translate-y-1 transition"><img src="https://placehold.co/80x65/f3f4f6/888?text=Станки" alt="станки" class="w-20 h-16 object-cover rounded-lg bg-gray-100 p-1 border-2 border-orange-500 hover:scale-105 hover:border-black transition" /><span class="block mt-1 font-semibold text-[0.8rem] text-black whitespace-nowrap">Станки</span></div>
-              <div class="mega-item flex flex-col items-center min-w-[80px] hover:-translate-y-1 transition"><img src="https://placehold.co/80x65/f3f4f6/888?text=Линии" alt="линии" class="w-20 h-16 object-cover rounded-lg bg-gray-100 p-1 border-2 border-orange-500 hover:scale-105 hover:border-black transition" /><span class="block mt-1 font-semibold text-[0.8rem] text-black whitespace-nowrap">Линии</span></div>
-              <div class="mega-item flex flex-col items-center min-w-[80px] hover:-translate-y-1 transition"><img src="https://placehold.co/80x65/f3f4f6/888?text=Автоматика" alt="автоматика" class="w-20 h-16 object-cover rounded-lg bg-gray-100 p-1 border-2 border-orange-500 hover:scale-105 hover:border-black transition" /><span class="block mt-1 font-semibold text-[0.8rem] text-black whitespace-nowrap">Автоматика</span></div>
-              <div class="mega-item flex flex-col items-center min-w-[80px] hover:-translate-y-1 transition"><img src="https://placehold.co/80x65/f3f4f6/888?text=Роботы" alt="роботы" class="w-20 h-16 object-cover rounded-lg bg-gray-100 p-1 border-2 border-orange-500 hover:scale-105 hover:border-black transition" /><span class="block mt-1 font-semibold text-[0.8rem] text-black whitespace-nowrap">Роботы</span></div>
-              <div class="mega-item flex flex-col items-center min-w-[80px] hover:-translate-y-1 transition"><img src="https://placehold.co/80x65/f3f4f6/888?text=Оснастка" alt="оснастка" class="w-20 h-16 object-cover rounded-lg bg-gray-100 p-1 border-2 border-orange-500 hover:scale-105 hover:border-black transition" /><span class="block mt-1 font-semibold text-[0.8rem] text-black whitespace-nowrap">Оснастка</span></div>
+            <div class="sub-dropdown px-1 py-0.5">
+              <a href="katalog.html?cat=avtomatizaciya" class="flex justify-between items-center text-sm text-black px-3 py-1.5 rounded cursor-pointer no-underline">
+                <span class="font-medium">АВТОМАТИЗАЦИЯ</span>
+                <i class="fas fa-chevron-right text-orange-500 text-xs"></i>
+              </a>
+              <div class="sub-menu">
+                <a href="subpage.html?cat=avtomatizaciya&sub=sborka">СБОРКА</a>
+                <a href="subpage.html?cat=avtomatizaciya&sub=mexanika">МЕХАНИЧЕСКАЯ ОБРАБОТКА</a>
+                <a href="subpage.html?cat=avtomatizaciya&sub=shtampovka">ШТАМПОВКА</a>
+                <a href="subpage.html?cat=avtomatizaciya&sub=ispytaniya">ИСПЫТАНИЯ</a>
+                <a href="subpage.html?cat=avtomatizaciya&sub=savarka">СВАРКА</a>
+                <a href="subpage.html?cat=avtomatizaciya&sub=upakovka">УПАКОВКА</a>
+                <a href="subpage.html?cat=avtomatizaciya&sub=standart">СТАНДАРТНЫЕ УЗЛЫ</a>
+              </div>
+            </div>
+            <div class="sub-dropdown px-1 py-0.5">
+              <a href="katalog.html?cat=robotizaciya" class="flex justify-between items-center text-sm text-black px-3 py-1.5 rounded cursor-pointer no-underline">
+                <span class="font-medium">РОБОТИЗАЦИЯ</span>
+                <i class="fas fa-chevron-right text-orange-500 text-xs"></i>
+              </a>
+              <div class="sub-menu">
+                <a href="subpage.html?cat=robotizaciya&sub=savarka_rezka">СВАРКА И РЕЗКА</a>
+                <a href="subpage.html?cat=robotizaciya&sub=zagruzka">ЗАГРУЗКА И РАЗГРУЗКА</a>
+                <a href="subpage.html?cat=robotizaciya&sub=palletirovanie">ПАЛЛЕТИРОВАНИЕ</a>
+                <a href="subpage.html?cat=robotizaciya&sub=upakovka_rob">УПАКОВКА</a>
+              </div>
+            </div>
+            <div class="sub-dropdown px-1 py-0.5">
+              <a href="katalog.html?cat=linii" class="flex justify-between items-center text-sm text-black px-3 py-1.5 rounded cursor-pointer no-underline">
+                <span class="font-medium">ЛИНИИ ПОД КЛЮЧ</span>
+                <i class="fas fa-chevron-right text-orange-500 text-xs"></i>
+              </a>
+              <div class="sub-menu">
+                <a href="subpage.html?cat=linii&sub=shtampovki">ЛИНИИ ШТАМПОВКИ</a>
+                <a href="subpage.html?cat=linii&sub=rotacion">ЛИНИИ РОТАЦИОННОЙ ПРОБИВКИ</a>
+                <a href="subpage.html?cat=linii&sub=profilirovaniya">ЛИНИИ ПРОФИЛИРОВАНИЯ</a>
+                <a href="subpage.html?cat=linii&sub=poperechnaya">ЛИНИИ ПОПЕРЕЧНОЙ РЕЗКИ</a>
+                <a href="subpage.html?cat=linii&sub=prodolnaya">ЛИНИИ ПРОДОЛЬНОЙ РЕЗКИ</a>
+                <a href="subpage.html?cat=linii&sub=truby">ЛИНИИ ДЛЯ ПРОИЗВОДСТВА ТРУБ ERW/HF</a>
+              </div>
+            </div>
+            <div class="sub-dropdown px-1 py-0.5">
+              <a href="katalog.html?cat=stanki" class="flex justify-between items-center text-sm text-black px-3 py-1.5 rounded cursor-pointer no-underline">
+                <span class="font-medium">СТАНДАРТНЫЕ СТАНКИ</span>
+                <i class="fas fa-chevron-right text-orange-500 text-xs"></i>
+              </a>
+              <div class="sub-menu">
+                <a href="subpage.html?cat=stanki&sub=shtampovochnoe">ШТАМПОВОЧНОЕ ОБОРУДОВАНИЕ</a>
+                <a href="subpage.html?cat=stanki&sub=raskroy">СТАНКИ ДЛЯ РАСКРОЯ ЛИСТА</a>
+                <a href="subpage.html?cat=stanki&sub=listogiby">ЛИСТОГИБЫ</a>
+                <a href="subpage.html?cat=stanki&sub=multiformery">МУЛЬТИФОРМЕРЫ</a>
+                <a href="subpage.html?cat=stanki&sub=truby_profil">ОБРАБОТКА ТРУБ И ПРОФИЛЯ</a>
+                <a href="subpage.html?cat=stanki&sub=lentochnye">ЛЕНТОЧНОПИЛЬНЫЕ И ДИСКОВЫЕ ОТРЕЗНЫЕ СТАНКИ</a>
+                <a href="subpage.html?cat=stanki&sub=provoloka">ОБРАБОТКА ПРОВОЛОКИ</a>
+                <a href="subpage.html?cat=stanki&sub=klepka">КЛЕПАЛЬНОЕ ОБОРУДОВАНИЕ</a>
+                <a href="subpage.html?cat=stanki&sub=litie">ОБОРУДОВАНИЕ ДЛЯ ЛИТЬЯ ПОД ДАВЛЕНИЕМ</a>
+              </div>
+            </div>
+            <div class="sub-dropdown px-1 py-0.5">
+              <a href="katalog.html?cat=osnastka" class="flex justify-between items-center text-sm text-black px-3 py-1.5 rounded cursor-pointer no-underline">
+                <span class="font-medium">ОСНАСТКА, ИНСТРУМЕНТ, ВСПОМОГАТЕЛЬНОЕ ОБОРУДОВАНИЕ</span>
+                <i class="fas fa-chevron-right text-orange-500 text-xs"></i>
+              </a>
+              <div class="sub-menu">
+                <a href="subpage.html?cat=osnastka&sub=shtampy">ШТАМПЫ, ПРЕССФОРМЫ</a>
+                <a href="subpage.html?cat=osnastka&sub=uzly_metall">УЗЛЫ ДЛЯ МЕТАЛЛОРЕЖУЩИХ СТАНКОВ</a>
+                <a href="subpage.html?cat=osnastka&sub=uzly_avtomat">УЗЛЫ ДЛЯ АВТОМАТИЗАЦИИ</a>
+                <a href="subpage.html?cat=osnastka&sub=bystro">БЫСТРОЗАЖИМНЫЕ УСТРОЙСТВА</a>
+              </div>
+            </div>
+            <div class="sub-dropdown px-1 py-0.5">
+              <a href="katalog.html?cat=otrasli" class="flex justify-between items-center text-sm text-black px-3 py-1.5 rounded cursor-pointer no-underline">
+                <span class="font-medium">РЕШЕНИЯ ПО ОТРАСЛЯМ</span>
+                <i class="fas fa-chevron-right text-orange-500 text-xs"></i>
+              </a>
+              <div class="sub-menu">
+                <a href="subpage.html?cat=otrasli&sub=avtomobil">АВТОМОБИЛЕСТРОЕНИЕ</a>
+                <a href="subpage.html?cat=otrasli&sub=bytovaya">БЫТОВАЯ ТЕХНИКА</a>
+                <a href="subpage.html?cat=otrasli&sub=zamochnye">ПРОИЗВОДСТВО ЗАМОЧНЫХ ИЗДЕЛИЙ</a>
+                <a href="subpage.html?cat=otrasli&sub=mebel">ПРОИЗВОДСТВО МЕБЕЛЬНОЙ ФУРНИТУРЫ</a>
+                <a href="subpage.html?cat=otrasli&sub=okonnaya">ПРОИЗВОДСТВО ОКОННОЙ ФУРНИТУРЫ</a>
+                <a href="subpage.html?cat=otrasli&sub=santehnika">САНТЕХНИКА, ГАЗОВАЯ АППАРАТУРА</a>
+              </div>
             </div>
           </div>
-          <a href="#" class="text-black font-bold text-[0.9rem] relative transition hover:text-white after:content-[''] after:absolute after:bottom-[-2px] after:left-0 after:w-0 after:h-0.5 after:bg-black after:rounded hover:after:w-full after:transition-all">Сервис</a>
-          <a href="#" class="text-black font-bold text-[0.9rem] relative transition hover:text-white after:content-[''] after:absolute after:bottom-[-2px] after:left-0 after:w-0 after:h-0.5 after:bg-black after:rounded hover:after:w-full after:transition-all">Новости</a>
-          <a href="kontakt.html" class="text-black font-bold text-[0.9rem] relative transition hover:text-white after:content-[''] after:absolute after:bottom-[-2px] after:left-0 after:w-0 after:h-0.5 after:bg-black after:rounded hover:after:w-full after:transition-all">Контакты</a>
         </div>
+
+        <!-- MENYU -->
+        <div class="hidden md:flex items-center gap-5">
+          <a href="index.html" class="main-nav-link">Главная</a>
+          <a href="kompany.html" class="main-nav-link">О компании</a>
+          <div class="relative mega-hover">
+            <a href="#" class="main-nav-link-products flex items-center gap-1.5">
+              Продукции <i class="fas fa-chevron-down text-[10px]"></i>
+            </a>
+            <div class="mega-content">
+              <div class="mega-item flex flex-col items-center min-w-[80px] hover:-translate-y-1 transition">
+                <img src="https://placehold.co/80x65/f3f4f6/888?text=Станки" alt="станки" class="w-20 h-16 object-cover rounded-lg bg-gray-100 p-1 border-2 border-orange-500 hover:scale-105 hover:border-black transition" />
+                <span class="block mt-1 font-semibold text-[0.8rem] text-black whitespace-nowrap">Станки</span>
+              </div>
+              <div class="mega-item flex flex-col items-center min-w-[80px] hover:-translate-y-1 transition">
+                <img src="https://placehold.co/80x65/f3f4f6/888?text=Линии" alt="линии" class="w-20 h-16 object-cover rounded-lg bg-gray-100 p-1 border-2 border-orange-500 hover:scale-105 hover:border-black transition" />
+                <span class="block mt-1 font-semibold text-[0.8rem] text-black whitespace-nowrap">Линии</span>
+              </div>
+              <div class="mega-item flex flex-col items-center min-w-[80px] hover:-translate-y-1 transition">
+                <img src="https://placehold.co/80x65/f3f4f6/888?text=Автоматика" alt="автоматика" class="w-20 h-16 object-cover rounded-lg bg-gray-100 p-1 border-2 border-orange-500 hover:scale-105 hover:border-black transition" />
+                <span class="block mt-1 font-semibold text-[0.8rem] text-black whitespace-nowrap">Автоматика</span>
+              </div>
+              <div class="mega-item flex flex-col items-center min-w-[80px] hover:-translate-y-1 transition">
+                <img src="https://placehold.co/80x65/f3f4f6/888?text=Роботы" alt="роботы" class="w-20 h-16 object-cover rounded-lg bg-gray-100 p-1 border-2 border-orange-500 hover:scale-105 hover:border-black transition" />
+                <span class="block mt-1 font-semibold text-[0.8rem] text-black whitespace-nowrap">Роботы</span>
+              </div>
+              <div class="mega-item flex flex-col items-center min-w-[80px] hover:-translate-y-1 transition">
+                <img src="https://placehold.co/80x65/f3f4f6/888?text=Оснастка" alt="оснастка" class="w-20 h-16 object-cover rounded-lg bg-gray-100 p-1 border-2 border-orange-500 hover:scale-105 hover:border-black transition" />
+                <span class="block mt-1 font-semibold text-[0.8rem] text-black whitespace-nowrap">Оснастка</span>
+              </div>
+            </div>
+          </div>
+          <a href="#" class="main-nav-link">Сервис</a>
+          <a href="#" class="main-nav-link">Новости</a>
+          <a href="kontakt.html" class="main-nav-link">Контакты</a>
+        </div>
+
+        <!-- AXTARIŞ -->
         <div class="flex items-center gap-3">
-          <div class="border-2 border-black rounded-full px-3.5 py-1 bg-white flex items-center gap-1.5 focus-within:shadow-[0_0_0_4px_rgba(0,0,0,0.08)] transition"><i class="fas fa-search text-black text-sm"></i><input type="text" placeholder="Поиск..." class="border-none outline-none bg-transparent text-[0.8rem] min-w-[120px] text-black placeholder-gray-400" /></div>
+          <div class="border-2 border-black rounded-full px-3.5 py-1 bg-white flex items-center gap-1.5 focus-within:shadow-[0_0_0_4px_rgba(0,0,0,0.08)] transition">
+            <i class="fas fa-search text-black text-sm"></i>
+            <input type="text" placeholder="Поиск..." class="border-none outline-none bg-transparent text-[0.8rem] min-w-[120px] text-black placeholder-gray-400" />
+          </div>
           <button class="md:hidden text-black text-xl"><i class="fas fa-bars"></i></button>
         </div>
       </div>
@@ -185,53 +405,52 @@
 <section class="max-w-7xl mx-auto px-4 sm:px-6 pt-6">
   <div class="relative w-full h-64 sm:h-80 md:h-96 lg:h-[420px] overflow-hidden rounded-2xl shadow-lg bg-gray-200">
     
-    <!-- 1-ci Slayd -->
+    <!-- 1 -->
     <div class="slider-slide absolute top-0 left-0 w-full h-full transition-opacity duration-1000 ease-in-out opacity-100">
       <img src="./2.jpg" alt="Slide 1" class="w-full h-full object-cover" />
       <div class="slide-text">АВТОМАТИЗАЦИЯ СБОРКИ<span>Современные решения для вашего производства</span></div>
     </div>
 
-    <!-- 2-ci Slayd: İki şəkil -->
+    <!-- 2 -->
     <div class="slider-slide absolute top-0 left-0 w-full h-full transition-opacity duration-1000 ease-in-out opacity-0">
       <div class="slide-split"><img src="./IMG_2158.gif" alt="Slide 2 sol" class="w-1/2 h-full object-cover" /><img src="./IMG_2165.gif" alt="Slide 2 sag" class="w-1/2 h-full object-cover" /></div>
       <div class="slide-text-small">АВТОМАТИЗАЦИЯ МЕХАНИЧЕСКОЙ ОБРАБОТКИ<span>Высокоточные решения для вашего производства</span></div>
     </div>
 
-    <!-- 3-cü Slayd -->
+    <!-- 3 -->
     <div class="slider-slide absolute top-0 left-0 w-full h-full transition-opacity duration-1000 ease-in-out opacity-0">
       <img src="./sistem_4.jpg" alt="Slide 3" class="w-full h-full object-cover" />
       <div class="slide-text" style="font-size:1.6rem;padding:8px 18px;">АВТОМАТИЗАЦИЯ ШТАМПОВКИ<span>Современные решения для вашего производства</span></div>
     </div>
 
-    <!-- 4-cü Slayd: İki şəkil -->
+    <!-- 4 -->
     <div class="slider-slide absolute top-0 left-0 w-full h-full transition-opacity duration-1000 ease-in-out opacity-0">
       <div class="slide-split"><img src="./А4.jpg" alt="Slide 4 sol" class="w-1/2 h-full object-cover" /><img src="./1.jpg" alt="Slide 4 sag" class="w-1/2 h-full object-cover" /></div>
       <div class="slide-text-small">РОБОТИЗАЦИЯ<span>Современные решения для вашего производства</span></div>
     </div>
 
-    <!-- 5-ci Slayd -->
+    <!-- 5 -->
     <div class="slider-slide absolute top-0 left-0 w-full h-full transition-opacity duration-1000 ease-in-out opacity-0">
-      <img src="./1.png" alt="Slide 5" class="w-full h-full object-cover" />
-      <div class="slide-text" style="font-size:1.6rem;padding:8px 18px;">ЛИНИИ ПРОДОЛЬНОЙ РЕЗКИ<span>Современные решения для вашего производства</span></div>
-    </div>
-
-    <!-- 6-cı Slayd -->
-    <div class="slider-slide absolute top-0 left-0 w-full h-full transition-opacity duration-1000 ease-in-out opacity-0">
-      <img src="./3.jpg" alt="Slide 6" class="w-full h-full object-cover" />
+      <div class="slide-split"><img src="./1.png" alt="Slide 5 sol" class="w-1/2 h-full object-cover" /><img src="./5.png" alt="Slide 5 sag" class="w-1/2 h-full object-cover" /></div>
       <div class="slide-text" style="font-size:1.6rem;padding:8px 18px;">ЛИНИИ ПРОФИЛИРОВАНИЯ<span>Современные решения для вашего производства</span></div>
     </div>
 
-    <!-- 7-ci Slayd -->
+    <!-- 6 -->
     <div class="slider-slide absolute top-0 left-0 w-full h-full transition-opacity duration-1000 ease-in-out opacity-0">
-      <img src="./4.jpg" alt="Slide 7" class="w-full h-full object-cover" />
+      <img src="./4.jpg" alt="Slide 6" class="w-full h-full object-cover" />
       <div class="slide-text" style="font-size:1.6rem;padding:8px 18px;">ЛИНИИ ШТАМПОВКИ<span>Современные решения для вашего производства</span></div>
+    </div>
+
+    <!-- 7 -->
+    <div class="slider-slide absolute top-0 left-0 w-full h-full transition-opacity duration-1000 ease-in-out opacity-0">
+      <img src="./3.jpg" alt="Slide 7" class="w-full h-full object-cover" />
+      <div class="slide-text" style="font-size:1.6rem;padding:8px 18px;">ЛИНИИ ПОПЕРЕЧНОЙ И ПРОДОЛЬНОЙ РЕЗКИ<span>Современные решения для вашего производства</span></div>
     </div>
 
     <!-- Oxlar -->
     <button onclick="changeSlide(-1)" class="absolute top-1/2 left-3 md:left-5 -translate-y-1/2 bg-black/50 hover:bg-black/75 text-white w-9 h-9 md:w-12 md:h-12 rounded-full flex items-center justify-center text-base md:text-xl transition-all duration-300 hover:scale-105 z-10 shadow-lg"><i class="fas fa-chevron-left"></i></button>
     <button onclick="changeSlide(1)" class="absolute top-1/2 right-3 md:right-5 -translate-y-1/2 bg-black/50 hover:bg-black/75 text-white w-9 h-9 md:w-12 md:h-12 rounded-full flex items-center justify-center text-base md:text-xl transition-all duration-300 hover:scale-105 z-10 shadow-lg"><i class="fas fa-chevron-right"></i></button>
 
-    <!-- Dots - 7 ədəd -->
     <div class="absolute bottom-3 md:bottom-5 left-1/2 -translate-x-1/2 flex gap-2 md:gap-3 z-10">
       <button onclick="currentSlide(0)" class="slider-dot w-2.5 h-2.5 md:w-3.5 md:h-3.5 rounded-full bg-white/70 hover:bg-white transition-all duration-300"></button>
       <button onclick="currentSlide(1)" class="slider-dot w-2.5 h-2.5 md:w-3.5 md:h-3.5 rounded-full bg-white/40 hover:bg-white/70 transition-all duration-300"></button>
@@ -244,7 +463,7 @@
   </div>
 </section>
 
-<!-- ===== ANA SƏHİFƏ MƏZMUN ===== -->
+<!-- ===== ANA SƏHİFƏ ===== -->
 <main class="max-w-7xl mx-auto px-4 sm:px-6 pt-8 pb-10">
   <h1 class="text-3xl font-bold text-gray-900 mb-2">Каталог оборудования</h1>
   <p class="text-gray-500 text-sm mb-8">Основные разделы — нажмите на изображение</p>

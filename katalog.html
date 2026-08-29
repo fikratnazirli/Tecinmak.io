@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tecinmak — Kataloq</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    .sticky-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #f97316;
+    }
+    .dropdown-group:hover .dropdown-menu { display: block; }
+    .dropdown-menu { display: none; position: absolute; top: 100%; left: 0; min-width: 320px; background: #ffffff; border-radius: 10px; border: 2px solid #1a1a1a; box-shadow: 0 20px 50px rgba(0,0,0,0.15); padding: 0.5rem 0; z-index: 50; }
+    .dropdown-menu .sub-dropdown { position: relative; }
+    .dropdown-menu .sub-dropdown:hover .sub-menu { display: block; }
+    .sub-menu { display: none; position: absolute; top: -4px; left: 100%; min-width: 250px; background: #ffffff; border-radius: 10px; border: 2px solid #1a1a1a; box-shadow: 0 20px 50px rgba(0,0,0,0.15); padding: 0.5rem 0; }
+    .mega-hover:hover .mega-content { display: flex !important; }
+    .mega-content { display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); background: #ffffff; border-top: 2px solid #1a1a1a; border-bottom: 2px solid #1a1a1a; padding: 1.5rem 2rem; box-shadow: 0 20px 50px rgba(0,0,0,0.12); border-radius: 0 0 12px 12px; gap: 2rem; justify-content: center; flex-wrap: wrap; z-index: 60; flex-direction: row !important; min-width: 500px; }
+    
+    .dropdown-menu .sub-dropdown > a { 
+      color: #1a1a1a !important; 
+      padding: 8px 16px; 
+      border-radius: 6px; 
+      transition: 0.15s; 
+      cursor: pointer; 
+      background: transparent !important;
+      text-decoration: none !important;
+      display: flex !important;
+      justify-content: space-between !important;
+      align-items: center !important;
+    }
+    .dropdown-menu .sub-dropdown > a:hover { 
+      background: #f97316 !important; 
+      color: #ffffff !important; 
+    }
+    .dropdown-menu .sub-dropdown > a:hover span { 
+      color: #ffffff !important; 
+    }
+    .dropdown-menu .sub-dropdown > a:hover .fa-chevron-right { 
+      color: #ffffff !important; 
+    }
+    .dropdown-menu .sub-dropdown:hover > a { 
+      background: #f97316 !important; 
+      color: #ffffff !important; 
+    }
+    .dropdown-menu .sub-dropdown:hover > a span { 
+      color: #ffffff !important; 
+    }
+    .dropdown-menu .sub-dropdown:hover > a .fa-chevron-right { 
+      color: #ffffff !important; 
+    }
+
+    .sub-menu a { 
+      color: #1a1a1a !important; 
+      padding: 8px 16px; 
+      display: block; 
+      font-size: 0.85rem; 
+      border-radius: 6px; 
+      transition: 0.15s; 
+      font-weight: 500; 
+      background: #ffffff !important;
+      text-decoration: none !important;
+    }
+    .sub-menu a:hover { 
+      background: #f97316 !important; 
+      color: #ffffff !important; 
+    }
+
+    .main-nav-link {
+      color: #1a1a1a !important;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 4px 2px;
+      position: relative;
+      transition: 0.2s;
+      letter-spacing: 0.5px;
+      background: transparent !important;
+      text-decoration: none !important;
+    }
+    .main-nav-link:hover {
+      color: #1a1a1a !important;
+      background: transparent !important;
+    }
+    .main-nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #1a1a1a;
+      transition: width 0.25s;
+      border-radius: 2px;
+    }
+    .main-nav-link:hover::after {
+      width: 100%;
+    }
+
+    .main-nav-link-products {
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 4px 2px;
+      position: relative;
+      letter-spacing: 0.5px;
+      background: transparent !important;
+      text-decoration: none !important;
+    }
+    .main-nav-link-products:hover {
+      color: #ffffff !important;
+      background: transparent !important;
+    }
+    .main-nav-link-products::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: #1a1a1a;
+      border-radius: 2px;
+    }
+    .main-nav-link-products i {
+      color: #ffffff;
+    }
+
+    .catalog-item-card {
+      background: white;
+      border-radius: 14px;
+      border: 2px solid #e5e7eb;
+      overflow: hidden;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+    .catalog-item-card:hover {
+      transform: translateY(-4px);
+      border-color: #f97316;
+      box-shadow: 0 12px 40px rgba(249,115,22,0.08);
+    }
+    .catalog-item-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      background: #f3f4f6;
+      border-bottom: 2px solid #e5e7eb;
+    }
+    .catalog-item-card:hover img {
+      border-bottom-color: #f97316;
+    }
+    .catalog-item-card .card-title {
+      font-weight: 700;
+      color: #1a1a1a;
+      font-size: 1.1rem;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .category-title {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #1a1a1a;
+      border-left: 6px solid #f97316;
+      padding-left: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    @media (max-width: 768px) {
+      .mega-content { min-width: auto; gap: 1rem; padding: 1rem; left: 0; transform: none; }
+      .mega-item img { width: 60px; height: 50px; }
+      .mega-item span { font-size: 0.65rem; white-space: normal; }
+      .dropdown-menu { min-width: 240px; }
+      .sub-menu { min-width: 200px; left: 90%; }
+      .catalog-item-card img { height: 140px; }
+      .category-title { font-size: 1.4rem; }
+    }
+    @media (max-width: 480px) {
+      .mega-content { flex-direction: column !important; align-items: center; gap: 0.6rem; padding: 0.8rem; min-width: 180px; }
+      .mega-item { flex-direction: row; gap: 0.8rem; width: 100%; justify-content: flex-start; }
+      .mega-item img { width: 50px; height: 40px; }
+      .mega-item span { white-space: normal; font-size: 0.8rem; }
+      .dropdown-menu { min-width: 200px; }
+      .sub-menu { min-width: 180px; left: 85%; }
+      .catalog-item-card img { height: 120px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="sticky-header">
+  <div class="bg-orange-500 border-b-2 border-black py-1.5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-wrap items-center justify-between gap-2">
+        <a href="index.html" class="flex items-center gap-3">
+          <div class="w-11 h-11 rounded-xl border-2 border-black bg-white flex items-center justify-center overflow-hidden flex-shrink-0">
+            <img src="./WhatsApp Image 2026-07-28 at 13.07.51.jpeg" alt="Tecinmak Logo" class="w-full h-full object-cover" />
+          </div>
+          <div>
+            <div class="text-2xl font-extrabold tracking-wide text-black leading-none">TECIN<span class="text-white">MAK</span></div>
+            <div class="text-[0.55rem] font-semibold text-black uppercase tracking-wider opacity-80 mt-0.5">Оборудование и технологии для обработки металла</div>
+          </div>
+        </a>
+        <div class="flex flex-wrap items-center gap-3">
+          <div class="flex flex-wrap items-center gap-1 text-sm">
+            <a href="mailto:info@tecinmak.com" class="text-black font-semibold text-[0.8rem] px-2 py-0.5 rounded hover:bg-black/10 hover:text-white transition flex items-center gap-1"><i class="fas fa-envelope text-black text-xs"></i> info@tecinmak.com</a>
+            <span class="hidden sm:inline text-black/35">|</span>
+            <a href="tel:+74996383818" class="text-black font-semibold text-[0.8rem] px-2 py-0.5 rounded hover:bg-black/10 hover:text-white transition flex items-center gap-1"><i class="fas fa-phone-alt text-black text-xs"></i> 8 (499) 638 38 18</a>
+            <span class="hidden sm:inline text-black/35">|</span>
+            <a href="tel:+79151256157" class="text-black font-semibold text-[0.8rem] px-2 py-0.5 rounded hover:bg-black/10 hover:text-white transition flex items-center gap-1"><i class="fas fa-mobile-alt text-black text-xs"></i> +7 (915) 125 61 57</a>
+          </div>
+          <div class="flex items-center gap-1.5">
+            <a href="#" class="w-8 h-8 rounded-full bg-black text-white text-sm flex items-center justify-center hover:bg-[#E4405F] hover:scale-105 transition shadow-md"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="w-8 h-8 rounded-full bg-black text-white text-sm flex items-center justify-center hover:bg-[#1877F2] hover:scale-105 transition shadow-md"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.youtube.com/@OOO-wy1xk" target="_blank" class="w-8 h-8 rounded-full bg-black text-white text-sm flex items-center justify-center hover:bg-[#FF0000] hover:scale-105 transition shadow-md"><i class="fab fa-youtube"></i></a>
+            <a href="#" class="w-8 h-8 rounded-full bg-black text-white text-sm flex items-center justify-center hover:bg-[#0A66C2] hover:scale-105 transition shadow-md"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://wa.me/79151256157" target="_blank" class="w-8 h-8 rounded-full bg-black text-white text-sm flex items-center justify-center hover:bg-[#25D366] hover:scale-105 transition shadow-md"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://t.me/79151256157" target="_blank" class="w-8 h-8 rounded-full bg-black text-white text-sm flex items-center justify-center hover:bg-[#0088CC] hover:scale-105 transition shadow-md"><i class="fab fa-telegram-plane"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <nav class="bg-orange-500 py-1.5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-wrap items-center justify-between gap-2">
+        <div class="dropdown-group relative">
+          <button class="bg-black text-white px-4 py-1.5 rounded-lg font-bold text-[0.9rem] tracking-wide flex items-center gap-2 shadow-md hover:bg-black hover:scale-105 transition uppercase">
+            <i class="fas fa-bars"></i> КАТАЛОГ
+          </button>
+          <div class="dropdown-menu">
+            <div class="sub-dropdown px-1 py-0.5">
+              <a href="katalog.html?cat=avtomatizaciya" class="flex justify-between items-center text-sm text-black px-3 py-1.5 rounded cursor-pointer no-underline">
+                <span class="font-medium">АВТОМАТИЗАЦИЯ</span>
+                <i class="fas fa-chevron-right text-orange-500 text-xs"></i>
+              </a>
+              <div class="sub-menu">
+                <a href="subpage.html?cat=avtomatizaciya&sub=sborka">СБОРКА</a>
+                <a href="subpage.html?cat=avtomatizaciya&sub=mexanika">МЕХАНИЧЕСКАЯ ОБРАБОТКА</a>
+                <a href="subpage.html?cat=avtomatizaciya&sub=shtampovka">ШТАМПОВКА</a>
+                <a href="subpage.html?cat=avtomatizaciya&sub=ispytaniya">ИСПЫТАНИЯ</a>
+                <a href="subpage.html?cat=avtomatizaciya&sub=savarka">СВАРКА</a>
+                <a href="subpage.html?cat=avtomatizaciya&sub=upakovka">УПАКОВКА</a>
+                <a href="subpage.html?cat=avtomatizaciya&sub=standart">СТАНДАРТНЫЕ УЗЛЫ</a>
+              </div>
+            </div>
+            <div class="sub-dropdown px-1 py-0.5">
+              <a href="katalog.html?cat=robotizaciya" class="flex justify-between items-center text-sm text-black px-3 py-1.5 rounded cursor-pointer no-underline">
+                <span class="font-medium">РОБОТИЗАЦИЯ</span>
+                <i class="fas fa-chevron-right text-orange-500 text-xs"></i>
+              </a>
+              <div class="sub-menu">
+                <a href="subpage.html?cat=robotizaciya&sub=savarka_rezka">СВАРКА И РЕЗКА</a>
+                <a href="subpage.html?cat=robotizaciya&sub=zagruzka">ЗАГРУЗКА И РАЗГРУЗКА</a>
+                <a href="subpage.html?cat=robotizaciya&sub=palletirovanie">ПАЛЛЕТИРОВАНИЕ</a>
+                <a href="subpage.html?cat=robotizaciya&sub=upakovka_rob">УПАКОВКА</a>
+              </div>
+            </div>
+            <div class="sub-dropdown px-1 py-0.5">
+              <a href="katalog.html?cat=linii" class="flex justify-between items-center text-sm text-black px-3 py-1.5 rounded cursor-pointer no-underline">
+                <span class="font-medium">ЛИНИИ ПОД КЛЮЧ</span>
+                <i class="fas fa-chevron-right text-orange-500 text-xs"></i>
+              </a>
+              <div class="sub-menu">
+                <a href="subpage.html?cat=linii&sub=shtampovki">ЛИНИИ ШТАМПОВКИ</a>
+                <a href="subpage.html?cat=linii&sub=rotacion">ЛИНИИ РОТАЦИОННОЙ ПРОБИВКИ</a>
+                <a href="subpage.html?cat=linii&sub=profilirovaniya">ЛИНИИ ПРОФИЛИРОВАНИЯ</a>
+                <a href="subpage.html?cat=linii&sub=poperechnaya">ЛИНИИ ПОПЕРЕЧНОЙ РЕЗКИ</a>
+                <a href="subpage.html?cat=linii&sub=prodolnaya">ЛИНИИ ПРОДОЛЬНОЙ РЕЗКИ</a>
+                <a href="subpage.html?cat=linii&sub=truby">ЛИНИИ ДЛЯ ПРОИЗВОДСТВА ТРУБ ERW/HF</a>
+              </div>
+            </div>
+            <div class="sub-dropdown px-1 py-0.5">
+              <a href="katalog.html?cat=stanki" class="flex justify-between items-center text-sm text-black px-3 py-1.5 rounded cursor-pointer no-underline">
+                <span class="font-medium">СТАНДАРТНЫЕ СТАНКИ</span>
+                <i class="fas fa-chevron-right text-orange-500 text-xs"></i>
+              </a>
+              <div class="sub-menu">
+                <a href="subpage.html?cat=stanki&sub=shtampovochnoe">ШТАМПОВОЧНОЕ ОБОРУДОВАНИЕ</a>
+                <a href="subpage.html?cat=stanki&sub=raskroy">СТАНКИ ДЛЯ РАСКРОЯ ЛИСТА</a>
+                <a href="subpage.html?cat=stanki&sub=listogiby">ЛИСТОГИБЫ</a>
+                <a href="subpage.html?cat=stanki&sub=multiformery">МУЛЬТИФОРМЕРЫ</a>
+                <a href="subpage.html?cat=stanki&sub=truby_profil">ОБРАБОТКА ТРУБ И ПРОФИЛЯ</a>
+                <a href="subpage.html?cat=stanki&sub=lentochnye">ЛЕНТОЧНОПИЛЬНЫЕ И ДИСКОВЫЕ ОТРЕЗНЫЕ СТАНКИ</a>
+                <a href="subpage.html?cat=stanki&sub=provoloka">ОБРАБОТКА ПРОВОЛОКИ</a>
+                <a href="subpage.html?cat=stanki&sub=klepka">КЛЕПАЛЬНОЕ ОБОРУДОВАНИЕ</a>
+                <a href="subpage.html?cat=stanki&sub=litie">ОБОРУДОВАНИЕ ДЛЯ ЛИТЬЯ ПОД ДАВЛЕНИЕМ</a>
+              </div>
+            </div>
+            <div class="sub-dropdown px-1 py-0.5">
+              <a href="katalog.html?cat=osnastka" class="flex justify-between items-center text-sm text-black px-3 py-1.5 rounded cursor-pointer no-underline">
+                <span class="font-medium">ОСНАСТКА, ИНСТРУМЕНТ, ВСПОМОГАТЕЛЬНОЕ ОБОРУДОВАНИЕ</span>
+                <i class="fas fa-chevron-right text-orange-500 text-xs"></i>
+              </a>
+              <div class="sub-menu">
+                <a href="subpage.html?cat=osnastka&sub=shtampy">ШТАМПЫ, ПРЕССФОРМЫ</a>
+                <a href="subpage.html?cat=osnastka&sub=uzly_metall">УЗЛЫ ДЛЯ МЕТАЛЛОРЕЖУЩИХ СТАНКОВ</a>
+                <a href="subpage.html?cat=osnastka&sub=uzly_avtomat">УЗЛЫ ДЛЯ АВТОМАТИЗАЦИИ</a>
+                <a href="subpage.html?cat=osnastka&sub=bystro">БЫСТРОЗАЖИМНЫЕ УСТРОЙСТВА</a>
+              </div>
+            </div>
+            <div class="sub-dropdown px-1 py-0.5">
+              <a href="katalog.html?cat=otrasli" class="flex justify-between items-center text-sm text-black px-3 py-1.5 rounded cursor-pointer no-underline">
+                <span class="font-medium">РЕШЕНИЯ ПО ОТРАСЛЯМ</span>
+                <i class="fas fa-chevron-right text-orange-500 text-xs"></i>
+              </a>
+              <div class="sub-menu">
+                <a href="subpage.html?cat=otrasli&sub=avtomobil">АВТОМОБИЛЕСТРОЕНИЕ</a>
+                <a href="subpage.html?cat=otrasli&sub=bytovaya">БЫТОВАЯ ТЕХНИКА</a>
+                <a href="subpage.html?cat=otrasli&sub=zamochnye">ПРОИЗВОДСТВО ЗАМОЧНЫХ ИЗДЕЛИЙ</a>
+                <a href="subpage.html?cat=otrasli&sub=mebel">ПРОИЗВОДСТВО МЕБЕЛЬНОЙ ФУРНИТУРЫ</a>
+                <a href="subpage.html?cat=otrasli&sub=okonnaya">ПРОИЗВОДСТВО ОКОННОЙ ФУРНИТУРЫ</a>
+                <a href="subpage.html?cat=otrasli&sub=santehnika">САНТЕХНИКА, ГАЗОВАЯ АППАРАТУРА</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hidden md:flex items-center gap-5">
+          <a href="index.html" class="main-nav-link">Главная</a>
+          <a href="kompany.html" class="main-nav-link">О компании</a>
+          <div class="relative mega-hover">
+            <a href="#" class="main-nav-link-products flex items-center gap-1.5">Продукции <i class="fas fa-chevron-down text-[10px]"></i></a>
+            <div class="mega-content">
+              <div class="mega-item flex flex-col items-center min-w-[80px] hover:-translate-y-1 transition"><img src="https://placehold.co/80x65/f3f4f6/888?text=Станки" alt="станки" class="w-20 h-16 object-cover rounded-lg bg-gray-100 p-1 border-2 border-orange-500 hover:scale-105 hover:border-black transition" /><span class="block mt-1 font-semibold text-[0.8rem] text-black whitespace-nowrap">Станки</span></div>
+              <div class="mega-item flex flex-col items-center min-w-[80px] hover:-translate-y-1 transition"><img src="https://placehold.co/80x65/f3f4f6/888?text=Линии" alt="линии" class="w-20 h-16 object-cover rounded-lg bg-gray-100 p-1 border-2 border-orange-500 hover:scale-105 hover:border-black transition" /><span class="block mt-1 font-semibold text-[0.8rem] text-black whitespace-nowrap">Линии</span></div>
+              <div class="mega-item flex flex-col items-center min-w-[80px] hover:-translate-y-1 transition"><img src="https://placehold.co/80x65/f3f4f6/888?text=Автоматика" alt="автоматика" class="w-20 h-16 object-cover rounded-lg bg-gray-100 p-1 border-2 border-orange-500 hover:scale-105 hover:border-black transition" /><span class="block mt-1 font-semibold text-[0.8rem] text-black whitespace-nowrap">Автоматика</span></div>
+              <div class="mega-item flex flex-col items-center min-w-[80px] hover:-translate-y-1 transition"><img src="https://placehold.co/80x65/f3f4f6/888?text=Роботы" alt="роботы" class="w-20 h-16 object-cover rounded-lg bg-gray-100 p-1 border-2 border-orange-500 hover:scale-105 hover:border-black transition" /><span class="block mt-1 font-semibold text-[0.8rem] text-black whitespace-nowrap">Роботы</span></div>
+              <div class="mega-item flex flex-col items-center min-w-[80px] hover:-translate-y-1 transition"><img src="https://placehold.co/80x65/f3f4f6/888?text=Оснастка" alt="оснастка" class="w-20 h-16 object-cover rounded-lg bg-gray-100 p-1 border-2 border-orange-500 hover:scale-105 hover:border-black transition" /><span class="block mt-1 font-semibold text-[0.8rem] text-black whitespace-nowrap">Оснастка</span></div>
+            </div>
+          </div>
+          <a href="#" class="main-nav-link">Сервис</a>
+          <a href="#" class="main-nav-link">Новости</a>
+          <a href="kontakt.html" class="main-nav-link">Контакты</a>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <div class="border-2 border-black rounded-full px-3.5 py-1 bg-white flex items-center gap-1.5 focus-within:shadow-[0_0_0_4px_rgba(0,0,0,0.08)] transition"><i class="fas fa-search text-black text-sm"></i><input type="text" placeholder="Поиск..." class="border-none outline-none bg-transparent text-[0.8rem] min-w-[120px] text-black placeholder-gray-400" /></div>
+          <button class="md:hidden text-black text-xl"><i class="fas fa-bars"></i></button>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main class="max-w-7xl mx-auto px-4 sm:px-6 py-10" id="catalogMain">
+  <h1 class="category-title" id="categoryTitle">АВТОМАТИЗАЦИЯ</h1>
+  <p class="text-gray-500 text-sm mb-8">Выберите раздел и нажмите на изображение для подробной информации</p>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="itemsGrid"></div>
+</main>
+
+<footer class="bg-gray-50 border-t-2 border-gray-200 py-5 mt-10">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 text-sm flex flex-wrap justify-between items-center gap-3">
+    <span class="text-gray-500 font-medium">© 2026 TECINMAK — оборудование и технологии для обработки металла</span>
+    <span class="flex gap-5"><a href="#" class="text-gray-500 font-medium hover:text-orange-500 transition">Политика</a><a href="#" class="text-gray-500 font-medium hover:text-orange-500 transition">Условия</a></span>
+  </div>
+</footer>
+
+<script>
+  const categories = {
+    avtomatizaciya: {
+      title: 'АВТОМАТИЗАЦИЯ',
+      items: {
+        sborka: 'СБОРКА',
+        mexanika: 'МЕХАНИЧЕСКАЯ ОБРАБОТКА',
+        shtampovka: 'ШТАМПОВКА',
+        ispytaniya: 'ИСПЫТАНИЯ',
+        savarka: 'СВАРКА',
+        upakovka: 'УПАКОВКА',
+        standart: 'СТАНДАРТНЫЕ УЗЛЫ'
+      }
+    },
+    robotizaciya: {
+      title: 'РОБОТИЗАЦИЯ',
+      items: {
+        'savarka_rezka': 'СВАРКА И РЕЗКА',
+        'zagruzka': 'ЗАГРУЗКА И РАЗГРУЗКА',
+        'palletirovanie': 'ПАЛЛЕТИРОВАНИЕ',
+        'upakovka_rob': 'УПАКОВКА'
+      }
+    },
+    linii: {
+      title: 'ЛИНИИ ПОД КЛЮЧ',
+      items: {
+        'shtampovki': 'ЛИНИИ ШТАМПОВКИ',
+        'rotacion': 'ЛИНИИ РОТАЦИОННОЙ ПРОБИВКИ',
+        'profilirovaniya': 'ЛИНИИ ПРОФИЛИРОВАНИЯ',
+        'poperechnaya': 'ЛИНИИ ПОПЕРЕЧНОЙ РЕЗКИ',
+        'prodolnaya': 'ЛИНИИ ПРОДОЛЬНОЙ РЕЗКИ',
+        'truby': 'ЛИНИИ ДЛЯ ПРОИЗВОДСТВА ТРУБ ERW/HF'
+      }
+    },
+    stanki: {
+      title: 'СТАНДАРТНЫЕ СТАНКИ',
+      items: {
+        'shtampovochnoe': 'ШТАМПОВОЧНОЕ ОБОРУДОВАНИЕ',
+        'raskroy': 'СТАНКИ ДЛЯ РАСКРОЯ ЛИСТА',
+        'listogiby': 'ЛИСТОГИБЫ',
+        'multiformery': 'МУЛЬТИФОРМЕРЫ',
+        'truby_profil': 'ОБРАБОТКА ТРУБ И ПРОФИЛЯ',
+        'lentochnye': 'ЛЕНТОЧНОПИЛЬНЫЕ И ДИСКОВЫЕ ОТРЕЗНЫЕ СТАНКИ',
+        'provoloka': 'ОБРАБОТКА ПРОВОЛОКИ',
+        'klepka': 'КЛЕПАЛЬНОЕ ОБОРУДОВАНИЕ',
+        'litie': 'ОБОРУДОВАНИЕ ДЛЯ ЛИТЬЯ ПОД ДАВЛЕНИЕМ'
+      }
+    },
+    osnastka: {
+      title: 'ОСНАСТКА, ИНСТРУМЕНТ, ВСПОМОГАТЕЛЬНОЕ ОБОРУДОВАНИЕ',
+      items: {
+        'shtampy': 'ШТАМПЫ, ПРЕССФОРМЫ',
+        'uzly_metall': 'УЗЛЫ ДЛЯ МЕТАЛЛОРЕЖУЩИХ СТАНКОВ',
+        'uzly_avtomat': 'УЗЛЫ ДЛЯ АВТОМАТИЗАЦИИ',
+        'bystro': 'БЫСТРОЗАЖИМНЫЕ УСТРОЙСТВА'
+      }
+    },
+    otrasli: {
+      title: 'РЕШЕНИЯ ПО ОТРАСЛЯМ',
+      items: {
+        'avtomobil': 'АВТОМОБИЛЕСТРОЕНИЕ',
+        'bytovaya': 'БЫТОВАЯ ТЕХНИКА',
+        'zamochnye': 'ПРОИЗВОДСТВО ЗАМОЧНЫХ ИЗДЕЛИЙ',
+        'mebel': 'ПРОИЗВОДСТВО МЕБЕЛЬНОЙ ФУРНИТУРЫ',
+        'okonnaya': 'ПРОИЗВОДСТВО ОКОННОЙ ФУРНИТУРЫ',
+        'santehnika': 'САНТЕХНИКА, ГАЗОВАЯ АППАРАТУРА'
+      }
+    }
+  };
+
+  function getParams() {
+    const params = new URLSearchParams(window.location.search);
+    return {
+      cat: params.get('cat') || 'avtomatizaciya',
+      sub: params.get('sub') || ''
+    };
+  }
+
+  function renderPage() {
+    const params = getParams();
+    const catData = categories[params.cat] || categories.avtomatizaciya;
+    const items = catData.items;
+    const itemKeys = Object.keys(items);
+
+    document.getElementById('categoryTitle').textContent = catData.title;
+
+    const grid = document.getElementById('itemsGrid');
+    grid.innerHTML = '';
+    
+    itemKeys.forEach(key => {
+      const value = items[key];
+      const isActive = (params.sub === key) ? 'border-orange-500 shadow-[0_12px_40px_rgba(249,115,22,0.08)]' : '';
+      const imgSrc = `https://placehold.co/400x180/f3f4f6/888?text=${encodeURIComponent(value)}`;
+      
+      const card = document.createElement('a');
+      card.href = `subpage.html?cat=${params.cat}&sub=${key}`;
+      card.className = 'no-underline';
+      card.innerHTML = `
+        <div class="catalog-item-card ${isActive}">
+          <img src="${imgSrc}" alt="${value}" />
+          <div class="card-title">${value}</div>
+        </div>
+      `;
+      grid.appendChild(card);
+    });
+  }
+
+  window.addEventListener('load', renderPage);
+  window.addEventListener('popstate', renderPage);
+</script>
+
+</body>
+</html>

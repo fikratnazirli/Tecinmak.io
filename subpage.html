@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tecinmak — Kataloq</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    .sticky-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #f97316;
+    }
+    .dropdown-group:hover .dropdown-menu { display: block; }
+    .dropdown-menu { display: none; position: absolute; top: 100%; left: 0; min-width: 320px; background: #ffffff; border-radius: 10px; border: 2px solid #1a1a1a; box-shadow: 0 20px 50px rgba(0,0,0,0.15); padding: 0.5rem 0; z-index: 50; }
+    .dropdown-menu .sub-dropdown { position: relative; }
+    .dropdown-menu .sub-dropdown:hover .sub-menu { display: block; }
+    .sub-menu { display: none; position: absolute; top: -4px; left: 100%; min-width: 250px; background: #ffffff; border-radius: 10px; border: 2px solid #1a1a1a; box-shadow: 0 20px 50px rgba(0,0,0,0.15); padding: 0.5rem 0; }
+    .mega-hover:hover .mega-content { display: flex !important; }
+    .mega-content { display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); background: #ffffff; border-top: 2px solid #1a1a1a; border-bottom: 2px solid #1a1a1a; padding: 1.5rem 2rem; box-shadow: 0 20px 50px rgba(0,0,0,0.12); border-radius: 0 0 12px 12px; gap: 2rem; justify-content: center; flex-wrap: wrap; z-index: 60; flex-direction: row !important; min-width: 500px; }
+    
+    .dropdown-menu .sub-dropdown > a { 
+      color: #1a1a1a !important; 
+      padding: 8px 16px; 
+      border-radius: 6px; 
+      transition: 0.15s; 
+      cursor: pointer; 
+      background: transparent !important;
+      text-decoration: none !important;
+      display: flex !important;
+      justify-content: space-between !important;
+      align-items: center !important;
+    }
+    .dropdown-menu .sub-dropdown > a:hover { 
+      background: #f97316 !important; 
+      color: #ffffff !important; 
+    }
+    .dropdown-menu .sub-dropdown > a:hover span { 
+      color: #ffffff !important; 
+    }
+    .dropdown-menu .sub-dropdown > a:hover .fa-chevron-right { 
+      color: #ffffff !important; 
+    }
+    .dropdown-menu .sub-dropdown:hover > a { 
+      background: #f97316 !important; 
+      color: #ffffff !important; 
+    }
+    .dropdown-menu .sub-dropdown:hover > a span { 
+      color: #ffffff !important; 
+    }
+    .dropdown-menu .sub-dropdown:hover > a .fa-chevron-right { 
+      color: #ffffff !important; 
+    }
+
+    .sub-menu a { 
+      color: #1a1a1a !important; 
+      padding: 8px 16px; 
+      display: block; 
+      font-size: 0.85rem; 
+      border-radius: 6px; 
+      transition: 0.15s; 
+      font-weight: 500; 
+      background: #ffffff !important;
+      text-decoration: none !important;
+    }
+    .sub-menu a:hover { 
+      background: #f97316 !important; 
+      color: #ffffff !important; 
+    }
+
+    .main-nav-link {
+      color: #1a1a1a !important;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 4px 2px;
+      position: relative;
+      transition: 0.2s;
+      letter-spacing: 0.5px;
+      background: transparent !important;
+      text-decoration: none !important;
+    }
+    .main-nav-link:hover {
+      color: #1a1a1a !important;
+      background: transparent !important;
+    }
+    .main-nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #1a1a1a;
+      transition: width 0.25s;
+      border-radius: 2px;
+    }
+    .main-nav-link:hover::after {
+      width: 100%;
+    }
+
+    .main-nav-link-products {
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 4px 2px;
+      position: relative;
+      letter-spacing: 0.5px;
+      background: transparent !important;
+      text-decoration: none !important;
+    }
+    .main-nav-link-products:hover {
+      color: #ffffff !important;
+      background: transparent !important;
+    }
+    .main-nav-link-products::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: #1a1a1a;
+      border-radius: 2px;
+    }
+    .main-nav-link-products i {
+      color: #ffffff;
+    }
+
+    .subpage-title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: #1a1a1a;
+      border-left: 6px solid #f97316;
+      padding-left: 1rem;
+      margin-bottom: 0.5rem;
+    }
+    .subpage-content {
+      background: white;
+      border-radius: 20px;
+      padding: 2rem;
+      border: 1px solid #eef2f6;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+    }
+    .subpage-content img {
+      border-radius: 12px;
+      max-width: 100%;
+      height: auto;
+      border: 1px solid #eef2f6;
+    }
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #f97316;
+      font-weight: 600;
+      transition: 0.2s;
+      text-decoration: none;
+    }
+    .back-btn:hover {
+      color: #ea580c;
+      transform: translateX(-4px);
+    }
+
+    .sub-item-card {
+      background: white;
+      border-radius: 12px;
+      border: 2px solid #e5e7eb;
+      overflow: hidden;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+    .sub-item-card:hover {
+      transform: translateY(-4px);
+      border-color: #f97316;
+      box-shadow: 0 12px 40px rgba(249,115,22,0.08);
+    }
+    .sub-item-card img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      background: #f3f4f6;
+      border-bottom: 2px solid #e5e7eb;
+    }
+    .sub-item-card:hover img {
+      border-bottom-color: #f97316;
+    }
+    .sub-item-card .card-title {
+      font-weight: 700;
+      color: #1a1a1a;
+      font-size: 1rem;
+      padding: 0.8rem 1rem;
+      text-align: center;
+    }
+    .sub-item-card .card-desc {
+      font-size: 0.85rem;
+      color: #4b5563;
+      padding: 0 1rem 0.8rem 1rem;
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .mega-content { min-width: auto; gap: 1rem; padding: 1rem; left: 0; transform: none; }
+      .mega-item img { width: 60px; height: 50px; }
+      .mega-item span { font-size: 0.65rem; white-space: normal; }
+      .dropdown-menu { min-width: 240px; }
+      .sub-menu { min-width: 200px; left: 90%; }
+      .subpage-title { font-size: 1.8rem; }
+      .subpage-content { padding: 1.2rem; }
+      .sub-item-card img { height: 110px; }
+    }
+    @media (max-width: 480px) {
+      .mega-content { flex-direction: column !important; align-items: center; gap: 0.6rem; padding: 0.8rem; min-width: 180px; }
+      .mega-item { flex-direction: row; gap: 0.8rem; width: 100%; justify-content: flex-start; }
+      .mega-item img { width: 50px; height: 40px; }
+      .mega-item span { white-space: normal; font-size: 0.8rem; }
+      .dropdown-menu { min-width: 200px; }
+      .sub-menu { min-width: 180px; left: 85%; }
+      .subpage-title { font-size: 1.4rem; }
+      .sub-item-card img { height: 90px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="sticky-header">
+  <div class="bg-orange-500 border-b-2 border-black py-1.5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-wrap items-center justify-between gap-2">
+        <a href="index.html" class="flex items-center gap-3">
+          <div class="w-11 h-11 rounded-xl border-2 border-black bg-white flex items-center justify-center overflow-hidden flex-shrink-0">
+            <img src="./WhatsApp Image 2026-07-28 at 13.07.51.jpeg" alt="Tecinmak Logo" class="w-full h-full object-cover" />
+          </div>
+          <div>
+            <div class="text-2xl font-extrabold tracking-wide text-black leading-none">TECIN<span class="text-white">MAK</span></div>
+            <div class="text-[0.55rem] font-semibold text-black uppercase tracking-wider opacity-80 mt-0.5">Оборудование и технологии для обработки металла</div>
+          </div>
+        </a>
+        <div class="flex flex-wrap items-center gap-3">
+          <div class="flex flex-wrap items-center gap-1 text-sm">
+            <a href="mailto:info@tecinmak.com" class="text-black font-semibold text-[0.8rem] px-2 py-0.5 rounded hover:bg-black/10 hover:text-white transition flex items-center gap-1"><i class="fas fa-envelope text-black text-xs"></i> info@tecinmak.com</a>
+            <span class="hidden sm:inline text-black/35">|</span>
+            <a href="tel:+74996383818" class="text-black font-semibold text-[0.8rem] px-2 py-0.5 rounded hover:bg-black/10 hover:text-white transition flex items-center gap-1"><i class="fas fa-phone-alt text-black text-xs"></i> 8 (499) 638 38 18</a>
+            <span class="hidden sm:inline text-black/35">|</span>
+            <a href="tel:+79151256157" class="text-black font-semibold text-[0.8rem] px-2 py-0.5 rounded hover:bg-black/10 hover:text-white transition flex items-center gap-1"><i class="fas fa-mobile-alt text-black text-xs"></i> +7 (915) 125 61 57</a>
+          </div>
+          <div class="flex items-center gap-1.5">
+            <a href="#" class="w-8 h-8 rounded-full bg-black text-white text-sm flex items-center justify-center hover:bg-[#E4405F] hover:scale-105 transition shadow-md"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="w-8 h-8 rounded-full bg-black text-white text-sm flex items-center justify-center hover:bg-[#1877F2] hover:scale-105 transition shadow-md"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.youtube.com/@OOO-wy1xk" target="_blank" class="w-8 h-8 rounded-full bg-black text-white text-sm flex items-center justify-center hover:bg-[#FF0000] hover:scale-105 transition shadow-md"><i class="fab fa-youtube"></i></a>
+            <a href="#" class="w-8 h-8 rounded-full bg-black text-white text-sm flex items-center justify-center hover:bg-[#0A66C2] hover:scale-105 transition shadow-md"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://wa.me/79151256157" target="_blank" class="w-8 h-8 rounded-full bg-black text-white text-sm flex items-center justify-center hover:bg-[#25D366] hover:scale-105 transition shadow-md"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://t.me/79151256157" target="_blank" class="w-8 h-8 rounded-full bg-black text-white text-sm flex items-center justify-center hover:bg-[#0088CC] hover:scale-105 transition shadow-md"><i class="fab fa-telegram-plane"></i></a>
+            <a href="https://cabinet.vkvideo.ru/dashboard/@club241148851" target="_blank" class="w-8 h-8 rounded-full bg-black text-white text-sm flex items-center justify-center hover:bg-[#0077FF] hover:scale-105 transition shadow-md"><i class="fab fa-vk"></i></a>
+            <a href="#" target="_blank" class="w-8 h-8 rounded-full bg-black text-white text-sm flex items-center justify-center hover:bg-[#EE1B24] hover:scale-105 transition shadow-md"><i class="fas fa-video"></i></a>
+            <a href="#" target="_blank" class="w-8 h-8 rounded-full bg-black text-white text-sm flex items-center justify-center hover:bg-[#F58220] hover:scale-105 transition shadow-md"><i class="fas fa-user-circle"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <nav class="bg-orange-500 py-1.5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-wrap items-center justify-between gap-2">
+        <div class="dropdown-group relative">
+          <button class="bg-black text-white px-4 py-1.5 rounded-lg font-bold text-[0.9rem] tracking-wide flex items-center gap-2 shadow-md hover:bg-black hover:scale-105 transition uppercase">
+            <i class="fas fa-bars"></i> КАТАЛОГ
+          </button>
+          <div class="dropdown-menu">
+            <div class="sub-dropdown px-1 py-0.5">
+              <a href="katalog.html?cat=avtomatizaciya" class="flex justify-between items-center text-sm text-black px-3 py-1.5 rounded cursor-pointer no-underline">
+                <span class="font-medium">АВТОМАТИЗАЦИЯ</span>
+                <i class="fas fa-chevron-right text-orange-500 text-xs"></i>
+              </a>
+              <div class="sub-menu">
+                <a href="subpage.html?cat=avtomatizaciya&sub=sborka">СБОРКА</a>
+                <a href="subpage.html?cat=avtomatizaciya&sub=mexanika">МЕХАНИЧЕСКАЯ ОБРАБОТКА</a>
+                <a href="subpage.html?cat=avtomatizaciya&sub=shtampovka">ШТАМПОВКА</a>
+                <a href="subpage.html?cat=avtomatizaciya&sub=ispytaniya">ИСПЫТАНИЯ</a>
+                <a href="subpage.html?cat=avtomatizaciya&sub=savarka">СВАРКА</a>
+                <a href="subpage.html?cat=avtomatizaciya&sub=upakovka">УПАКОВКА</a>
+                <a href="subpage.html?cat=avtomatizaciya&sub=standart">СТАНДАРТНЫЕ УЗЛЫ</a>
+              </div>
+            </div>
+            <div class="sub-dropdown px-1 py-0.5">
+              <a href="katalog.html?cat=robotizaciya" class="flex justify-between items-center text-sm text-black px-3 py-1.5 rounded cursor-pointer no-underline">
+                <span class="font-medium">РОБОТИЗАЦИЯ</span>
+                <i class="fas fa-chevron-right text-orange-500 text-xs"></i>
+              </a>
+              <div class="sub-menu">
+                <a href="subpage.html?cat=robotizaciya&sub=savarka_rezka">СВАРКА И РЕЗКА</a>
+                <a href="subpage.html?cat=robotizaciya&sub=zagruzka">ЗАГРУЗКА И РАЗГРУЗКА</a>
+                <a href="subpage.html?cat=robotizaciya&sub=palletirovanie">ПАЛЛЕТИРОВАНИЕ</a>
+                <a href="subpage.html?cat=robotizaciya&sub=upakovka_rob">УПАКОВКА</a>
+              </div>
+            </div>
+            <div class="sub-dropdown px-1 py-0.5">
+              <a href="katalog.html?cat=linii" class="flex justify-between items-center text-sm text-black px-3 py-1.5 rounded cursor-pointer no-underline">
+                <span class="font-medium">ЛИНИИ ПОД КЛЮЧ</span>
+                <i class="fas fa-chevron-right text-orange-500 text-xs"></i>
+              </a>
+              <div class="sub-menu">
+                <a href="subpage.html?cat=linii&sub=shtampovki">ЛИНИИ ШТАМПОВКИ</a>
+                <a href="subpage.html?cat=linii&sub=rotacion">ЛИНИИ РОТАЦИОННОЙ ПРОБИВКИ</a>
+                <a href="subpage.html?cat=linii&sub=profilirovaniya">ЛИНИИ ПРОФИЛИРОВАНИЯ</a>
+                <a href="subpage.html?cat=linii&sub=poperechnaya">ЛИНИИ ПОПЕРЕЧНОЙ РЕЗКИ</a>
+                <a href="subpage.html?cat=linii&sub=prodolnaya">ЛИНИИ ПРОДОЛЬНОЙ РЕЗКИ</a>
+                <a href="subpage.html?cat=linii&sub=truby">ЛИНИИ ДЛЯ ПРОИЗВОДСТВА ТРУБ ERW/HF</a>
+              </div>
+            </div>
+            <div class="sub-dropdown px-1 py-0.5">
+              <a href="katalog.html?cat=stanki" class="flex justify-between items-center text-sm text-black px-3 py-1.5 rounded cursor-pointer no-underline">
+                <span class="font-medium">СТАНДАРТНОЕ ОБОРУДОВАНИЕ</span>
+                <i class="fas fa-chevron-right text-orange-500 text-xs"></i>
+              </a>
+              <div class="sub-menu">
+                <a href="subpage.html?cat=stanki&sub=shtampovochnoe">ШТАМПОВОЧНОЕ ОБОРУДОВАНИЕ</a>
+                <a href="subpage.html?cat=stanki&sub=raskroy">СТАНКИ ДЛЯ РАСКРОЯ ЛИСТА</a>
+                <a href="subpage.html?cat=stanki&sub=listogiby">ЛИСТОГИБЫ</a>
+                <a href="subpage.html?cat=stanki&sub=multiformery">МУЛЬТИФОРМЕРЫ</a>
+                <a href="subpage.html?cat=stanki&sub=truby_profil">ОБРАБОТКА ТРУБ И ПРОФИЛЯ</a>
+                <a href="subpage.html?cat=stanki&sub=lentochnye">ЛЕНТОЧНОПИЛЬНЫЕ И ДИСКОВЫЕ ОТРЕЗНЫЕ СТАНКИ</a>
+                <a href="subpage.html?cat=stanki&sub=provoloka">ОБРАБОТКА ПРОВОЛОКИ</a>
+                <a href="subpage.html?cat=stanki&sub=klepka">КЛЕПАЛЬНОЕ ОБОРУДОВАНИЕ</a>
+                <a href="subpage.html?cat=stanki&sub=litie">ОБОРУДОВАНИЕ ДЛЯ ЛИТЬЯ ПОД ДАВЛЕНИЕМ</a>
+              </div>
+            </div>
+            <div class="sub-dropdown px-1 py-0.5">
+              <a href="katalog.html?cat=osnastka" class="flex justify-between items-center text-sm text-black px-3 py-1.5 rounded cursor-pointer no-underline">
+                <span class="font-medium">ОСНАСТКА, ИНСТРУМЕНТ, ВСПОМОГАТЕЛЬНОЕ ОБОРУДОВАНИЕ</span>
+                <i class="fas fa-chevron-right text-orange-500 text-xs"></i>
+              </a>
+              <div class="sub-menu">
+                <a href="subpage.html?cat=osnastka&sub=shtampy">ШТАМПЫ, ПРЕССФОРМЫ</a>
+                <a href="subpage.html?cat=osnastka&sub=komponenty">СТАНДАРТНЫЕ КОМПОНЕНТЫ ДЛЯ ШТАМПОВ И ПРЕССФОРМ</a>
+                <a href="subpage.html?cat=osnastka&sub=uzly_metall">УЗЛЫ ДЛЯ МЕТАЛЛОРЕЖУЩИХ СТАНКОВ</a>
+                <a href="subpage.html?cat=osnastka&sub=uzly_avtomat">УЗЛЫ ДЛЯ АВТОМАТИЗАЦИИ</a>
+                <a href="subpage.html?cat=osnastka&sub=bystro">БЫСТРОЗАЖИМНЫЕ УСТРОЙСТВА</a>
+              </div>
+            </div>
+            <div class="sub-dropdown px-1 py-0.5">
+              <a href="katalog.html?cat=otrasli" class="flex justify-between items-center text-sm text-black px-3 py-1.5 rounded cursor-pointer no-underline">
+                <span class="font-medium">РЕШЕНИЯ ПО ОТРАСЛЯМ</span>
+                <i class="fas fa-chevron-right text-orange-500 text-xs"></i>
+              </a>
+              <div class="sub-menu">
+                <a href="subpage.html?cat=otrasli&sub=avtomobil">АВТОМОБИЛЕСТРОЕНИЕ</a>
+                <a href="subpage.html?cat=otrasli&sub=bytovaya">БЫТОВАЯ ТЕХНИКА</a>
+                <a href="subpage.html?cat=otrasli&sub=zamochnye">ПРОИЗВОДСТВО ЗАМОЧНЫХ ИЗДЕЛИЙ</a>
+                <a href="subpage.html?cat=otrasli&sub=mebel">ПРОИЗВОДСТВО МЕБЕЛЬНОЙ ФУРНИТУРЫ</a>
+                <a href="subpage.html?cat=otrasli&sub=okonnaya">ПРОИЗВОДСТВО ОКОННОЙ ФУРНИТУРЫ</a>
+                <a href="subpage.html?cat=otrasli&sub=stroitel">ПРОИЗВОДСТВО СТРОИТЕЛЬНЫХ МАТЕРИАЛОВ</a>
+                <a href="subpage.html?cat=otrasli&sub=santehnika">САНТЕХНИКА, ГАЗОВАЯ АППАРАТУРА</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hidden md:flex items-center gap-5">
+          <a href="index.html" class="main-nav-link">Главная</a>
+          <a href="kompany.html" class="main-nav-link">О компании</a>
+          <div class="relative mega-hover">
+            <a href="#" class="main-nav-link-products flex items-center gap-1.5">Продукции <i class="fas fa-chevron-down text-[10px]"></i></a>
+            <div class="mega-content">
+              <div class="mega-item flex flex-col items-center min-w-[80px] hover:-translate-y-1 transition"><img src="https://placehold.co/80x65/f3f4f6/888?text=Станки" alt="станки" class="w-20 h-16 object-cover rounded-lg bg-gray-100 p-1 border-2 border-orange-500 hover:scale-105 hover:border-black transition" /><span class="block mt-1 font-semibold text-[0.8rem] text-black whitespace-nowrap">Станки</span></div>
+              <div class="mega-item flex flex-col items-center min-w-[80px] hover:-translate-y-1 transition"><img src="https://placehold.co/80x65/f3f4f6/888?text=Линии" alt="линии" class="w-20 h-16 object-cover rounded-lg bg-gray-100 p-1 border-2 border-orange-500 hover:scale-105 hover:border-black transition" /><span class="block mt-1 font-semibold text-[0.8rem] text-black whitespace-nowrap">Линии</span></div>
+              <div class="mega-item flex flex-col items-center min-w-[80px] hover:-translate-y-1 transition"><img src="https://placehold.co/80x65/f3f4f6/888?text=Автоматика" alt="автоматика" class="w-20 h-16 object-cover rounded-lg bg-gray-100 p-1 border-2 border-orange-500 hover:scale-105 hover:border-black transition" /><span class="block mt-1 font-semibold text-[0.8rem] text-black whitespace-nowrap">Автоматика</span></div>
+              <div class="mega-item flex flex-col items-center min-w-[80px] hover:-translate-y-1 transition"><img src="https://placehold.co/80x65/f3f4f6/888?text=Роботы" alt="роботы" class="w-20 h-16 object-cover rounded-lg bg-gray-100 p-1 border-2 border-orange-500 hover:scale-105 hover:border-black transition" /><span class="block mt-1 font-semibold text-[0.8rem] text-black whitespace-nowrap">Роботы</span></div>
+              <div class="mega-item flex flex-col items-center min-w-[80px] hover:-translate-y-1 transition"><img src="https://placehold.co/80x65/f3f4f6/888?text=Оснастка" alt="оснастка" class="w-20 h-16 object-cover rounded-lg bg-gray-100 p-1 border-2 border-orange-500 hover:scale-105 hover:border-black transition" /><span class="block mt-1 font-semibold text-[0.8rem] text-black whitespace-nowrap">Оснастка</span></div>
+            </div>
+          </div>
+          <a href="#" class="main-nav-link">Сервис</a>
+          <a href="#" class="main-nav-link">Новости</a>
+          <a href="kontakt.html" class="main-nav-link">Контакты</a>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <div class="border-2 border-black rounded-full px-3.5 py-1 bg-white flex items-center gap-1.5 focus-within:shadow-[0_0_0_4px_rgba(0,0,0,0.08)] transition"><i class="fas fa-search text-black text-sm"></i><input type="text" placeholder="Поиск..." class="border-none outline-none bg-transparent text-[0.8rem] min-w-[120px] text-black placeholder-gray-400" /></div>
+          <button class="md:hidden text-black text-xl"><i class="fas fa-bars"></i></button>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<!-- ===== SUBPAGE MƏZMUN ===== -->
+<main class="max-w-7xl mx-auto px-4 sm:px-6 py-10">
+  <div class="subpage-content" id="subpageContent">
+    <!-- JavaScript ilə doldurulacaq -->
+  </div>
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="bg-gray-50 border-t-2 border-gray-200 py-5 mt-10">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 text-sm flex flex-wrap justify-between items-center gap-3">
+    <span class="text-gray-500 font-medium">© 2026 TECINMAK — оборудование и технологии для обработки металла</span>
+    <span class="flex gap-5"><a href="#" class="text-gray-500 font-medium hover:text-orange-500 transition">Политика</a><a href="#" class="text-gray-500 font-medium hover:text-orange-500 transition">Условия</a></span>
+  </div>
+</footer>
+
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+  const data = {
+    avtomatizaciya: {
+      title: 'АВТОМАТИЗАЦИЯ',
+      items: {
+        sborka: {
+          name: 'СБОРКА',
+          desc: 'Avtomatlaşdırılmış yığma prosesləri üçün avadanlıq və həllər.',
+          img: './images/sborka.jpg',
+          subItems: [
+            'Клепальные автоматы',
+            'Автоматические шуруповёрты',
+            'Сборочные комплексы'
+          ]
+        },
+        mexanika: {
+          name: 'МЕХАНИЧЕСКАЯ ОБРАБОТКА',
+          desc: 'Mexaniki emal üçün avtomatik sistemlər.',
+          img: './images/mexanika.jpg',
+          subItems: [
+            'Автоматы для сверления, нарезки резьбы и зенковки',
+            'Агрегатные станки',
+            'Специальные станки'
+          ]
+        },
+        shtampovka: {
+          name: 'ШТАМПОВКА',
+          desc: 'Ştamplama prosesləri üçün avtomatlaşdırılmış həllər.',
+          img: './images/shtampovka.jpg',
+          subItems: [
+            'Автоматизация подачи заготовки',
+            'Прогрессивные и трансферные штампы'
+          ]
+        },
+        ispytaniya: { name: 'ИСПЫТАНИЯ', desc: 'Sınaq və test avadanlıqları.', img: './images/ispytaniya.jpg', subItems: [] },
+        savarka: { name: 'СВАРКА', desc: 'Avtomatik qaynaq sistemləri.', img: './images/savarka.jpg', subItems: [] },
+        upakovka: { name: 'УПАКОВКА', desc: 'Avtomatik qablaşdırma xətləri.', img: './images/upakovka.jpg', subItems: [] },
+        standart: {
+          name: 'СТАНДАРТНЫЕ УЗЛЫ',
+          desc: 'Standart avtomatlaşdırma qovşaqları.',
+          img: './images/standart.jpg',
+          subItems: [
+            'Вибробункеры',
+            'Конвейеры',
+            'Манипуляторы',
+            'Поворотные столы',
+            'Обрабатывающие головки'
+          ]
+        }
+      }
+    },
+    robotizaciya: {
+      title: 'РОБОТИЗАЦИЯ',
+      items: {
+        'savarka_rezka': { name: 'СВАРКА И РЕЗКА', desc: 'Robotlaşdırılmış qaynaq və kəsmə sistemləri.', img: './images/savarka_rezka.jpg', subItems: [] },
+        'zagruzka': { name: 'ЗАГРУЗКА И РАЗГРУЗКА', desc: 'Robotla yükləmə-boşaltma sistemləri.', img: './images/zagruzka.jpg', subItems: [] },
+        'palletirovanie': { name: 'ПАЛЛЕТИРОВАНИЕ', desc: 'Robotla paletləmə sistemləri.', img: './images/palletirovanie.jpg', subItems: [] },
+        'upakovka_rob': { name: 'УПАКОВКА', desc: 'Robotla qablaşdırma sistemləri.', img: './images/upakovka_rob.jpg', subItems: [] }
+      }
+    },
+    linii: {
+      title: 'ЛИНИИ ПОД КЛЮЧ',
+      items: {
+        'shtampovki': { name: 'ЛИНИИ ШТАМПОВКИ', desc: 'Tam avtomatlaşdırılmış ştamplama xətləri.', img: './images/shtampovki.jpg', subItems: [] },
+        'rotacion': { name: 'ЛИНИИ РОТАЦИОННОЙ ПРОБИВКИ', desc: 'Rotasiyalı probivka xətləri.', img: './images/rotacion.jpg', subItems: [] },
+        'profilirovaniya': { name: 'ЛИНИИ ПРОФИЛИРОВАНИЯ', desc: 'Profilləşdirmə xətləri.', img: './images/profilirovaniya.jpg', subItems: [] },
+        'poperechnaya': { name: 'ЛИНИИ ПОПЕРЕЧНОЙ РЕЗКИ', desc: 'Eninə kəsmə xətləri.', img: './images/poperechnaya.jpg', subItems: [] },
+        'prodolnaya': { name: 'ЛИНИИ ПРОДОЛЬНОЙ РЕЗКИ', desc: 'Uzununa kəsmə xətləri.', img: './images/prodolnaya.jpg', subItems: [] },
+        'truby': { name: 'ЛИНИИ ДЛЯ ПРОИЗВОДСТВА ТРУБ ERW/HF', desc: 'ERW/HF boru istehsalı xətləri.', img: './images/truby.jpg', subItems: [] }
+      }
+    },
+    stanki: {
+      title: 'СТАНДАРТНОЕ ОБОРУДОВАНИЕ',
+      items: {
+        'shtampovochnoe': {
+          name: 'ШТАМПОВОЧНОЕ ОБОРУДОВАНИЕ',
+          desc: 'Ştamplama avadanlığı.',
+          img: './images/shtampovochnoe.jpg',
+          subItems: [
+            'Кривошипные прессы',
+            'Гидравлические прессы',
+            'Валковые подачи',
+            'Правильные устройства',
+            'Разматыватели',
+            'Штампы',
+            'Стандартные компоненты для штампов и прессформ'
+          ]
+        },
+        'raskroy': {
+          name: 'СТАНКИ ДЛЯ РАСКРОЯ ЛИСТА',
+          desc: 'Təbəqə kəsmə dəzgahları.',
+          img: './images/raskroy.jpg',
+          subItems: [
+            'Комплексы лазерной резки',
+            'Гильотинные ножницы',
+            'Станки гидроабразивной резки',
+            'Станки плазменной и газокислородной резки'
+          ]
+        },
+        'listogiby': { name: 'ЛИСТОГИБЫ', desc: 'Təbəqə bükmə dəzgahları.', img: './images/listogiby.jpg', subItems: [] },
+        'multiformery': { name: 'МУЛЬТИФОРМЕРЫ', desc: 'Multiformer dəzgahları.', img: './images/multiformery.jpg', subItems: [] },
+        'truby_profil': {
+          name: 'ОБРАБОТКА ТРУБ И ПРОФИЛЯ',
+          desc: 'Boru və profil emalı dəzgahları.',
+          img: './images/truby_profil.jpg',
+          subItems: [
+            'Трубогибы',
+            'Станки для редуцирования концов труб',
+            'Станки для пробивки и сверления труб, профилей',
+            'Лазерная резка труб и профиля',
+            'Отрезные станки'
+          ]
+        },
+        'lentochnye': { name: 'ЛЕНТОЧНОПИЛЬНЫЕ И ДИСКОВЫЕ ОТРЕЗНЫЕ СТАНКИ', desc: 'Lent mişarlı və diskli kəsmə dəzgahları.', img: './images/lentochnye.jpg', subItems: [] },
+        'provoloka': { name: 'ОБРАБОТКА ПРОВОЛОКИ', desc: 'Məftil emalı dəzgahları.', img: './images/provoloka.jpg', subItems: [] },
+        'klepka': {
+          name: 'КЛЕПАЛЬНОЕ ОБОРУДОВАНИЕ',
+          desc: 'Pərçimləmə avadanlığı.',
+          img: './images/klepka.jpg',
+          subItems: [
+            'Орбитально-клепальные машины',
+            'Радиально-клепальные машины',
+            'Специальные клепальные машины',
+            'Координатно-клепальный центр с ЧПУ типа CNC',
+            'Клепальные головки'
+          ]
+        },
+        'litie': {
+          name: 'ОБОРУДОВАНИЕ ДЛЯ ЛИТЬЯ ПОД ДАВЛЕНИЕМ',
+          desc: 'Təzyiqli tökmə avadanlığı.',
+          img: './images/litie.jpg',
+          subItems: [
+            'Оборудование для литья под давлением цветных металлов',
+            'Прессформы',
+            'Стандартные компоненты для прессформ'
+          ]
+        }
+      }
+    },
+    osnastka: {
+      title: 'ОСНАСТКА, ИНСТРУМЕНТ, ВСПОМОГАТЕЛЬНОЕ ОБОРУДОВАНИЕ',
+      items: {
+        'shtampy': { name: 'ШТАМПЫ, ПРЕССФОРМЫ', desc: 'Ştamplar və presformalar.', img: './images/shtampy.jpg', subItems: [] },
+        'komponenty': { name: 'СТАНДАРТНЫЕ КОМПОНЕНТЫ ДЛЯ ШТАМПОВ И ПРЕССФОРМ', desc: 'Standart komponentlər.', img: './images/komponenty.jpg', subItems: [] },
+        'uzly_metall': { name: 'УЗЛЫ ДЛЯ МЕТАЛЛОРЕЖУЩИХ СТАНКОВ', desc: 'Metal kəsən dəzgahlar üçün qovşaqlar.', img: './images/uzly_metall.jpg', subItems: [] },
+        'uzly_avtomat': { name: 'УЗЛЫ ДЛЯ АВТОМАТИЗАЦИИ', desc: 'Avtomatlaşdırma üçün qovşaqlar.', img: './images/uzly_avtomat.jpg', subItems: [] },
+        'bystro': { name: 'БЫСТРОЗАЖИМНЫЕ УСТРОЙСТВА', desc: 'Tez sıxma qurğuları.', img: './images/bystro.jpg', subItems: [] }
+      }
+    },
+    otrasli: {
+      title: 'РЕШЕНИЯ ПО ОТРАСЛЯМ',
+      items: {
+        'avtomobil': { name: 'АВТОМОБИЛЕСТРОЕНИЕ', desc: 'Avtomobil sənayesi üçün həllər.', img: './images/avtomobil.jpg', subItems: [] },
+        'bytovaya': { name: 'БЫТОВАЯ ТЕХНИКА', desc: 'Məişət texnikası istehsalı üçün həllər.', img: './images/bytovaya.jpg', subItems: [] },
+        'zamochnye': { name: 'ПРОИЗВОДСТВО ЗАМОЧНЫХ ИЗДЕЛИЙ', desc: 'Qıfıl istehsalı üçün həllər.', img: './images/zamochnye.jpg', subItems: [] },
+        'mebel': { name: 'ПРОИЗВОДСТВО МЕБЕЛЬНОЙ ФУРНИТУРЫ', desc: 'Mebel aksesuarları istehsalı üçün həllər.', img: './images/mebel.jpg', subItems: [] },
+        'okonnaya': { name: 'ПРОИЗВОДСТВО ОКОННОЙ ФУРНИТУРЫ', desc: 'Pəncərə aksesuarları istehsalı üçün həllər.', img: './images/okonnaya.jpg', subItems: [] },
+        'stroitel': { name: 'ПРОИЗВОДСТВО СТРОИТЕЛЬНЫХ МАТЕРИАЛОВ', desc: 'Tikinti materialları istehsalı üçün həllər.', img: './images/stroitel.jpg', subItems: [] },
+        'santehnika': { name: 'САНТЕХНИКА, ГАЗОВАЯ АППАРАТУРА', desc: 'Santexnika və qaz avadanlığı üçün həllər.', img: './images/santehnika.jpg', subItems: [] }
+      }
+    }
+  };
+
+  function getParams() {
+    const params = new URLSearchParams(window.location.search);
+    return {
+      cat: params.get('cat') || '',
+      sub: params.get('sub') || ''
+    };
+  }
+
+  function renderSubItems(subItems, catKey, subKey) {
+    if (!subItems || subItems.length === 0) return '';
+    
+    let html = `
+      <div class="mt-8">
+        <h3 class="text-xl font-bold text-gray-800 mb-4">Alt kateqoriyalar</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+    `;
+    
+    subItems.forEach((item, index) => {
+      const imgPath = `./images/${catKey}_${subKey}_${index}.jpg`;
+      let name = item;
+      let desc = '';
+      
+      if (item.includes(':')) {
+        const parts = item.split(':');
+        name = parts[0].trim();
+        desc = parts.slice(1).join(':').trim();
+      }
+      
+      html += `
+        <div class="sub-item-card">
+          <img src="${imgPath}" alt="${name}" onerror="this.src='https://placehold.co/400x160/f3f4f6/888?text=${encodeURIComponent(name)}'" />
+          <div class="card-title">${name}</div>
+          ${desc ? `<p class="card-desc">${desc}</p>` : ''}
+        </div>
+      `;
+    });
+    
+    html += `
+        </div>
+      </div>
+    `;
+    return html;
+  }
+
+  function renderPage() {
+    const params = getParams();
+    const catData = data[params.cat];
+    const subData = catData ? catData.items[params.sub] : null;
+
+    const container = document.getElementById('subpageContent');
+
+    if (!catData || !subData) {
+      container.innerHTML = `
+        <div class="text-center py-10">
+          <h2 class="text-2xl font-bold text-gray-700">Məlumat tapılmadı</h2>
+          <p class="text-gray-500 mt-2">Zəhmət olmasa düzgün linkdən istifadə edin.</p>
+          <a href="index.html" class="mt-4 inline-block text-orange-500 hover:text-orange-600 font-semibold">← Ana səhifəyə qayıt</a>
+        </div>
+      `;
+      return;
+    }
+
+    container.innerHTML = `
+      <a href="katalog.html?cat=${params.cat}" class="back-btn">
+        <i class="fas fa-arrow-left"></i> ${catData.title} -ə qayıt
+      </a>
+      <h1 class="subpage-title mt-4">${subData.name}</h1>
+      <p class="text-gray-600 text-sm mb-4">${catData.title} / ${subData.name}</p>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+        <div>
+          <img src="${subData.img}" alt="${subData.name}" class="w-full rounded-xl border border-gray-200" onerror="this.src='https://placehold.co/600x400/f3f4f6/888?text=${encodeURIComponent(subData.name)}'" />
+        </div>
+        <div>
+          <h3 class="text-xl font-bold text-gray-800">Təsvir</h3>
+          <p class="text-gray-600 mt-2 leading-relaxed">${subData.desc}</p>
+          <div class="mt-6 p-4 bg-orange-50 rounded-xl border-l-4 border-orange-500">
+            <p class="text-sm text-gray-600"><i class="fas fa-info-circle text-orange-500 mr-2"></i> Bu bölmə üçün əlavə məlumat, texniki sənədlər və ya şəkillər əlavə etmək istəyirsinizsə, bizimlə əlaqə saxlayın.</p>
+          </div>
+        </div>
+      </div>
+      ${renderSubItems(subData.subItems, params.cat, params.sub)}
+    `;
+  }
+
+  window.addEventListener('load', renderPage);
+  window.addEventListener('popstate', renderPage);
+</script>
+
+</body>
+</html>
