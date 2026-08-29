@@ -199,6 +199,13 @@
       padding: 0 1rem 0.8rem 1rem;
       text-align: center;
     }
+    .sub-item-card .sub-badge {
+      font-size: 0.7rem;
+      color: #f97316;
+      text-align: center;
+      padding-bottom: 0.5rem;
+      font-weight: 600;
+    }
 
     @media (max-width: 768px) {
       .mega-content { min-width: auto; gap: 1rem; padding: 1rem; left: 0; transform: none; }
@@ -401,55 +408,91 @@
   </div>
 </footer>
 
-<!-- ===== JAVASCRIPT ===== -->
+<!-- ===== JAVASCRIPT (TAM MƏLUMATLAR) ===== -->
 <script>
-  // BÜTÜN MƏLUMATLAR
   const data = {
     avtomatizaciya: {
       title: 'АВТОМАТИЗАЦИЯ',
       items: {
         sborka: {
           name: 'СБОРКА',
-          desc: 'Avtomatlaşdırılmış yığma prosesləri üçün avadanlıq və həllər.',
+          desc: 'Автоматизированные сборочные системы и оборудование.',
           img: './images/sborka.jpg',
           subItems: [
-            { name: 'Клепальные автоматы', desc: 'Avtomatik pərçimləmə maşınları', img: './images/klepalnye.jpg' },
-            { name: 'Автоматические шуруповёрты', desc: 'Avtomatik vidalama sistemləri', img: './images/sharupoverty.jpg' },
-            { name: 'Сборочные комплексы', desc: 'Tam avtomatlaşdırılmış yığma kompleksləri', img: './images/sborochnye.jpg' }
+            { name: 'Клепальные автоматы', desc: 'Автоматические машины для клепки', img: './images/klepalnye.jpg' },
+            { name: 'Автоматические шуруповёрты', desc: 'Автоматические винтоверты', img: './images/sharupoverty.jpg' },
+            { name: 'Сборочные комплексы', desc: 'Комплексные сборочные линии', img: './images/sborochnye.jpg' }
           ]
         },
         mexanika: {
           name: 'МЕХАНИЧЕСКАЯ ОБРАБОТКА',
-          desc: 'Mexaniki emal üçün avtomatik sistemlər.',
+          desc: 'Оборудование для механической обработки металлов.',
           img: './images/mexanika.jpg',
           subItems: [
-            { name: 'Автоматы для сверления, нарезки резьбы и зенковки', desc: '', img: './images/sverlenie.jpg' },
-            { name: 'Агрегатные станки', desc: '', img: './images/agregatnye.jpg' },
-            { name: 'Специальные станки', desc: '', img: './images/specialnye.jpg' }
+            {
+              name: 'Агрегатные (трансферные) станки',
+              desc: 'Многофункциональные агрегатные станки',
+              img: './images/agregatnye.jpg',
+              subItems: [
+                { name: 'Агрегатные станки с линейным трансфером', desc: 'Станки с линейной передачей', img: './images/lineyniy.jpg' },
+                { name: 'Агрегатные станки с поворотным столом', desc: 'Станки с поворотным столом', img: './images/povorotniy.jpg' }
+              ]
+            },
+            { name: 'Специальные станки', desc: 'Станки специального назначения', img: './images/specialnye.jpg' },
+            {
+              name: 'Стандартные узлы',
+              desc: 'Стандартные узлы и компоненты',
+              img: './images/standart_uzly.jpg',
+              subItems: [
+                { name: 'Сверлильные головки', desc: 'Сверлильные головки', img: './images/sverlilnye.jpg' },
+                { name: 'Резьбонарезные головки', desc: 'Резьбонарезные головки', img: './images/rezboreznie.jpg' },
+                { name: 'Шпиндели', desc: 'Шпиндели', img: './images/shpindeli.jpg' },
+                { name: 'Многоголовые узлы', desc: 'Многоголовые узлы', img: './images/mnogogolovie.jpg' },
+                { name: 'Поворотные столы', desc: 'Поворотные столы', img: './images/povorotnie.jpg' },
+                { name: 'Кулачковые патроны', desc: 'Кулачковые патроны', img: './images/kulachkovie.jpg' },
+                { name: 'Направляющие', desc: 'Направляющие', img: './images/napravlyayushie.jpg' }
+              ]
+            }
           ]
         },
         shtampovka: {
           name: 'ШТАМПОВКА',
-          desc: 'Ştamplama prosesləri üçün avtomatlaşdırılmış həllər.',
+          desc: 'Автоматизированные решения для штамповки.',
           img: './images/shtampovka.jpg',
           subItems: [
-            { name: 'Автоматизация подачи заготовки', desc: '', img: './images/podacha.jpg' },
-            { name: 'Прогрессивные и трансферные штампы', desc: '', img: './images/progressivnye.jpg' }
+            {
+              name: 'Автоматизация подачи заготовки',
+              desc: 'Системы автоматической подачи',
+              img: './images/podacha.jpg',
+              subItems: [
+                { name: 'Автоматизация подачи рулонной стали', desc: 'https://macromak.com/rulonlist.php', img: './images/rulon.jpg' },
+                { name: 'Автоматизация подачи отдельных заготовок', desc: 'Подача отдельных заготовок', img: './images/otdelnye.jpg' }
+              ]
+            },
+            {
+              name: 'Прогрессивные и трансферные штампы',
+              desc: 'Современные штамповочные системы',
+              img: './images/progressivnye.jpg',
+              subItems: [
+                { name: 'Проектирование прогрессивных штампов', desc: 'Разработка прогрессивных штампов', img: './images/progressiv.jpg' },
+                { name: 'Проектирование трансферных штампов', desc: 'Разработка трансферных штампов', img: './images/transfer.jpg' }
+              ]
+            }
           ]
         },
-        ispytaniya: { name: 'ИСПЫТАНИЯ', desc: 'Sınaq və test avadanlıqları.', img: './images/ispytaniya.jpg', subItems: [] },
-        savarka: { name: 'СВАРКА', desc: 'Avtomatik qaynaq sistemləri.', img: './images/savarka.jpg', subItems: [] },
-        upakovka: { name: 'УПАКОВКА', desc: 'Avtomatik qablaşdırma xətləri.', img: './images/upakovka.jpg', subItems: [] },
+        ispytaniya: { name: 'ИСПЫТАНИЯ', desc: 'Оборудование для испытаний и тестирования.', img: './images/ispytaniya.jpg', subItems: [] },
+        savarka: { name: 'СВАРКА', desc: 'Автоматические сварочные системы.', img: './images/savarka.jpg', subItems: [] },
+        upakovka: { name: 'УПАКОВКА', desc: 'Автоматические упаковочные линии.', img: './images/upakovka.jpg', subItems: [] },
         standart: {
           name: 'СТАНДАРТНЫЕ УЗЛЫ',
-          desc: 'Standart avtomatlaşdırma qovşaqları.',
+          desc: 'Стандартные узлы автоматизации.',
           img: './images/standart.jpg',
           subItems: [
-            { name: 'Вибробункеры', desc: '', img: './images/vibrobunkery.jpg' },
-            { name: 'Конвейеры', desc: '', img: './images/konveyery.jpg' },
-            { name: 'Манипуляторы', desc: '', img: './images/manipulyatory.jpg' },
-            { name: 'Поворотные столы', desc: '', img: './images/povorotnye.jpg' },
-            { name: 'Обрабатывающие головки', desc: '', img: './images/golovki.jpg' }
+            { name: 'Вибробункеры', desc: 'Вибрационные бункеры', img: './images/vibrobunkery.jpg' },
+            { name: 'Конвейеры', desc: 'Конвейерные системы', img: './images/konveyery.jpg' },
+            { name: 'Манипуляторы', desc: 'Промышленные манипуляторы', img: './images/manipulyatory.jpg' },
+            { name: 'Поворотные столы', desc: 'Поворотные столы', img: './images/povorotnye.jpg' },
+            { name: 'Обрабатывающие головки', desc: 'Обрабатывающие головки', img: './images/golovki.jpg' }
           ]
         }
       }
@@ -457,21 +500,21 @@
     robotizaciya: {
       title: 'РОБОТИЗАЦИЯ',
       items: {
-        'savarka_rezka': { name: 'СВАРКА И РЕЗКА', desc: 'Robotlaşdırılmış qaynaq və kəsmə sistemləri.', img: './images/savarka_rezka.jpg', subItems: [] },
-        'zagruzka': { name: 'ЗАГРУЗКА И РАЗГРУЗКА', desc: 'Robotla yükləmə-boşaltma sistemləri.', img: './images/zagruzka.jpg', subItems: [] },
-        'palletirovanie': { name: 'ПАЛЛЕТИРОВАНИЕ', desc: 'Robotla paletləmə sistemləri.', img: './images/palletirovanie.jpg', subItems: [] },
-        'upakovka_rob': { name: 'УПАКОВКА', desc: 'Robotla qablaşdırma sistemləri.', img: './images/upakovka_rob.jpg', subItems: [] }
+        'savarka_rezka': { name: 'СВАРКА И РЕЗКА', desc: 'Роботизированная сварка и резка.', img: './images/savarka_rezka.jpg', subItems: [] },
+        'zagruzka': { name: 'ЗАГРУЗКА И РАЗГРУЗКА', desc: 'Роботизированные системы загрузки/разгрузки.', img: './images/zagruzka.jpg', subItems: [] },
+        'palletirovanie': { name: 'ПАЛЛЕТИРОВАНИЕ', desc: 'Роботизированное паллетирование.', img: './images/palletirovanie.jpg', subItems: [] },
+        'upakovka_rob': { name: 'УПАКОВКА', desc: 'Роботизированные упаковочные системы.', img: './images/upakovka_rob.jpg', subItems: [] }
       }
     },
     linii: {
       title: 'ЛИНИИ ПОД КЛЮЧ',
       items: {
-        'shtampovki': { name: 'ЛИНИИ ШТАМПОВКИ', desc: 'Tam avtomatlaşdırılmış ştamplama xətləri.', img: './images/shtampovki.jpg', subItems: [] },
-        'rotacion': { name: 'ЛИНИИ РОТАЦИОННОЙ ПРОБИВКИ', desc: 'Rotasiyalı probivka xətləri.', img: './images/rotacion.jpg', subItems: [] },
-        'profilirovaniya': { name: 'ЛИНИИ ПРОФИЛИРОВАНИЯ', desc: 'Profilləşdirmə xətləri.', img: './images/profilirovaniya.jpg', subItems: [] },
-        'poperechnaya': { name: 'ЛИНИИ ПОПЕРЕЧНОЙ РЕЗКИ', desc: 'Eninə kəsmə xətləri.', img: './images/poperechnaya.jpg', subItems: [] },
-        'prodolnaya': { name: 'ЛИНИИ ПРОДОЛЬНОЙ РЕЗКИ', desc: 'Uzununa kəsmə xətləri.', img: './images/prodolnaya.jpg', subItems: [] },
-        'truby': { name: 'ЛИНИИ ДЛЯ ПРОИЗВОДСТВА ТРУБ ERW/HF', desc: 'ERW/HF boru istehsalı xətləri.', img: './images/truby.jpg', subItems: [] }
+        'shtampovki': { name: 'ЛИНИИ ШТАМПОВКИ', desc: 'Комплексные линии штамповки.', img: './images/shtampovki.jpg', subItems: [] },
+        'rotacion': { name: 'ЛИНИИ РОТАЦИОННОЙ ПРОБИВКИ', desc: 'Линии ротационной пробивки.', img: './images/rotacion.jpg', subItems: [] },
+        'profilirovaniya': { name: 'ЛИНИИ ПРОФИЛИРОВАНИЯ', desc: 'Линии профилирования.', img: './images/profilirovaniya.jpg', subItems: [] },
+        'poperechnaya': { name: 'ЛИНИИ ПОПЕРЕЧНОЙ РЕЗКИ', desc: 'Линии поперечной резки.', img: './images/poperechnaya.jpg', subItems: [] },
+        'prodolnaya': { name: 'ЛИНИИ ПРОДОЛЬНОЙ РЕЗКИ', desc: 'Линии продольной резки.', img: './images/prodolnaya.jpg', subItems: [] },
+        'truby': { name: 'ЛИНИИ ДЛЯ ПРОИЗВОДСТВА ТРУБ ERW/HF', desc: 'Линии производства труб ERW/HF.', img: './images/truby.jpg', subItems: [] }
       }
     },
     stanki: {
@@ -479,65 +522,73 @@
       items: {
         'shtampovochnoe': {
           name: 'ШТАМПОВОЧНОЕ ОБОРУДОВАНИЕ',
-          desc: 'Ştamplama avadanlığı.',
+          desc: 'Оборудование для штамповки.',
           img: './images/shtampovochnoe.jpg',
           subItems: [
-            { name: 'Кривошипные прессы', desc: '', img: './images/krivoshypnye.jpg' },
-            { name: 'Гидравлические прессы', desc: '', img: './images/gidravlicheskie.jpg' },
-            { name: 'Валковые подачи', desc: '', img: './images/valkovye.jpg' },
-            { name: 'Правильные устройства', desc: '', img: './images/pravilnye.jpg' },
-            { name: 'Разматыватели', desc: '', img: './images/razmatyvateli.jpg' },
-            { name: 'Штампы', desc: '', img: './images/shtampy.jpg' },
-            { name: 'Стандартные компоненты для штампов и прессформ', desc: '', img: './images/komponenty_shtampov.jpg' }
+            { name: 'Кривошипные прессы', desc: 'Кривошипные прессы', img: './images/krivoshypnye.jpg' },
+            { name: 'Гидравлические прессы', desc: 'Гидравлические прессы', img: './images/gidravlicheskie.jpg' },
+            { name: 'Валковые подачи', desc: 'Валковые подачи', img: './images/valkovye.jpg' },
+            { name: 'Правильные устройства', desc: 'Правильные устройства', img: './images/pravilnye.jpg' },
+            { name: 'Разматыватели', desc: 'Разматыватели', img: './images/razmatyvateli.jpg' },
+            { name: 'Штампы', desc: 'Штампы', img: './images/shtampy_oborud.jpg' },
+            { name: 'Стандартные компоненты для штампов и прессформ', desc: 'Стандартные компоненты', img: './images/komponenty_shtampov.jpg' }
           ]
         },
         'raskroy': {
           name: 'СТАНКИ ДЛЯ РАСКРОЯ ЛИСТА',
-          desc: 'Təbəqə kəsmə dəzgahları.',
+          desc: 'Станки для раскроя листового металла.',
           img: './images/raskroy.jpg',
           subItems: [
-            { name: 'Комплексы лазерной резки', desc: '', img: './images/lazernaya.jpg' },
-            { name: 'Гильотинные ножницы', desc: '', img: './images/gilotinnye.jpg' },
-            { name: 'Станки гидроабразивной резки', desc: '', img: './images/gidroabrazivnaya.jpg' },
-            { name: 'Станки плазменной и газокислородной резки', desc: '', img: './images/plazmennaya.jpg' }
+            { name: 'Комплексы лазерной резки', desc: 'Лазерная резка', img: './images/lazernaya.jpg' },
+            { name: 'Гильотинные ножницы', desc: 'Гильотинные ножницы', img: './images/gilotinnye.jpg' },
+            { name: 'Станки гидроабразивной резки', desc: 'Гидроабразивная резка', img: './images/gidroabrazivnaya.jpg' },
+            { name: 'Станки плазменной и газокислородной резки', desc: 'Плазменная и газокислородная резка', img: './images/plazmennaya.jpg' }
           ]
         },
-        'listogiby': { name: 'ЛИСТОГИБЫ', desc: 'Təbəqə bükmə dəzgahları.', img: './images/listogiby.jpg', subItems: [] },
-        'multiformery': { name: 'МУЛЬТИФОРМЕРЫ', desc: 'Multiformer dəzgahları.', img: './images/multiformery.jpg', subItems: [] },
+        'listogiby': { name: 'ЛИСТОГИБЫ', desc: 'Листогибочные станки.', img: './images/listogiby.jpg', subItems: [] },
+        'multiformery': { name: 'МУЛЬТИФОРМЕРЫ', desc: 'Мультиформеры.', img: './images/multiformery.jpg', subItems: [] },
         'truby_profil': {
           name: 'ОБРАБОТКА ТРУБ И ПРОФИЛЯ',
-          desc: 'Boru və profil emalı dəzgahları.',
+          desc: 'Оборудование для обработки труб и профиля.',
           img: './images/truby_profil.jpg',
           subItems: [
-            { name: 'Трубогибы', desc: '', img: './images/trubogiby.jpg' },
-            { name: 'Станки для редуцирования концов труб', desc: '', img: './images/reducirovanie.jpg' },
-            { name: 'Станки для пробивки и сверления труб, профилей', desc: '', img: './images/probivka.jpg' },
-            { name: 'Лазерная резка труб и профиля', desc: '', img: './images/lazernaya_trub.jpg' },
-            { name: 'Отрезные станки', desc: '', img: './images/otreznye.jpg' }
+            {
+              name: 'Трубогибы',
+              desc: 'Станки для гибки труб',
+              img: './images/trubogiby.jpg',
+              subItems: [
+                { name: 'Дорновые трубогибы с ЧПУ', desc: 'Дорновые трубогибы с ЧПУ', img: './images/dornovye.jpg' },
+                { name: 'Бездорновые трубогибы', desc: 'Бездорновые трубогибы', img: './images/bezdornovye.jpg' }
+              ]
+            },
+            { name: 'Станки для редуцирования концов труб', desc: 'Редуцирование труб', img: './images/reducirovanie.jpg' },
+            { name: 'Станки для пробивки и сверления труб, профилей', desc: 'Пробивка и сверление труб', img: './images/probivka.jpg' },
+            { name: 'Лазерная резка труб и профиля', desc: 'Лазерная резка труб', img: './images/lazernaya_trub.jpg' },
+            { name: 'Отрезные станки', desc: 'Отрезные станки', img: './images/otreznye.jpg' }
           ]
         },
-        'lentochnye': { name: 'ЛЕНТОЧНОПИЛЬНЫЕ И ДИСКОВЫЕ ОТРЕЗНЫЕ СТАНКИ', desc: 'Lent mişarlı və diskli kəsmə dəzgahları.', img: './images/lentochnye.jpg', subItems: [] },
-        'provoloka': { name: 'ОБРАБОТКА ПРОВОЛОКИ', desc: 'Məftil emalı dəzgahları.', img: './images/provoloka.jpg', subItems: [] },
+        'lentochnye': { name: 'ЛЕНТОЧНОПИЛЬНЫЕ И ДИСКОВЫЕ ОТРЕЗНЫЕ СТАНКИ', desc: 'Ленточнопильные и дисковые станки.', img: './images/lentochnye.jpg', subItems: [] },
+        'provoloka': { name: 'ОБРАБОТКА ПРОВОЛОКИ', desc: 'Оборудование для обработки проволоки.', img: './images/provoloka.jpg', subItems: [] },
         'klepka': {
           name: 'КЛЕПАЛЬНОЕ ОБОРУДОВАНИЕ',
-          desc: 'Pərçimləmə avadanlığı.',
+          desc: 'Оборудование для клепки.',
           img: './images/klepka.jpg',
           subItems: [
-            { name: 'Орбитально-клепальные машины', desc: '', img: './images/orbitalnye.jpg' },
-            { name: 'Радиально-клепальные машины', desc: '', img: './images/radialnye.jpg' },
-            { name: 'Специальные клепальные машины', desc: '', img: './images/specialnye_klep.jpg' },
-            { name: 'Координатно-клепальный центр с ЧПУ типа CNC', desc: '', img: './images/cnc_klep.jpg' },
-            { name: 'Клепальные головки', desc: '', img: './images/golovki_klep.jpg' }
+            { name: 'Орбитально-клепальные машины', desc: 'Орбитальная клепка', img: './images/orbitalnye.jpg' },
+            { name: 'Радиально-клепальные машины', desc: 'Радиальная клепка', img: './images/radialnye.jpg' },
+            { name: 'Специальные клепальные машины', desc: 'Специальная клепка', img: './images/specialnye_klep.jpg' },
+            { name: 'Координатно-клепальный центр с ЧПУ типа CNC', desc: 'CNC клепка', img: './images/cnc_klep.jpg' },
+            { name: 'Клепальные головки', desc: 'Клепальные головки', img: './images/golovki_klep.jpg' }
           ]
         },
         'litie': {
           name: 'ОБОРУДОВАНИЕ ДЛЯ ЛИТЬЯ ПОД ДАВЛЕНИЕМ',
-          desc: 'Təzyiqli tökmə avadanlığı.',
+          desc: 'Оборудование для литья под давлением.',
           img: './images/litie.jpg',
           subItems: [
-            { name: 'Оборудование для литья под давлением цветных металлов', desc: '', img: './images/litie_cvet.jpg' },
-            { name: 'Прессформы', desc: '', img: './images/pressformy.jpg' },
-            { name: 'Стандартные компоненты для прессформ', desc: '', img: './images/komponenty_press.jpg' }
+            { name: 'Оборудование для литья под давлением цветных металлов', desc: 'Литье цветных металлов', img: './images/litie_cvet.jpg' },
+            { name: 'Прессформы', desc: 'Прессформы', img: './images/pressformy.jpg' },
+            { name: 'Стандартные компоненты для прессформ', desc: 'Стандартные компоненты', img: './images/komponenty_press.jpg' }
           ]
         }
       }
@@ -545,23 +596,23 @@
     osnastka: {
       title: 'ОСНАСТКА, ИНСТРУМЕНТ, ВСПОМОГАТЕЛЬНОЕ ОБОРУДОВАНИЕ',
       items: {
-        'shtampy': { name: 'ШТАМПЫ, ПРЕССФОРМЫ', desc: 'Ştamplar və presformalar.', img: './images/shtampy.jpg', subItems: [] },
-        'komponenty': { name: 'СТАНДАРТНЫЕ КОМПОНЕНТЫ ДЛЯ ШТАМПОВ И ПРЕССФОРМ', desc: 'Standart komponentlər.', img: './images/komponenty.jpg', subItems: [] },
-        'uzly_metall': { name: 'УЗЛЫ ДЛЯ МЕТАЛЛОРЕЖУЩИХ СТАНКОВ', desc: 'Metal kəsən dəzgahlar üçün qovşaqlar.', img: './images/uzly_metall.jpg', subItems: [] },
-        'uzly_avtomat': { name: 'УЗЛЫ ДЛЯ АВТОМАТИЗАЦИИ', desc: 'Avtomatlaşdırma üçün qovşaqlar.', img: './images/uzly_avtomat.jpg', subItems: [] },
-        'bystro': { name: 'БЫСТРОЗАЖИМНЫЕ УСТРОЙСТВА', desc: 'Tez sıxma qurğuları.', img: './images/bystro.jpg', subItems: [] }
+        'shtampy': { name: 'ШТАМПЫ, ПРЕССФОРМЫ', desc: 'Штампы и прессформы.', img: './images/shtampy.jpg', subItems: [] },
+        'komponenty': { name: 'СТАНДАРТНЫЕ КОМПОНЕНТЫ ДЛЯ ШТАМПОВ И ПРЕССФОРМ', desc: 'Стандартные компоненты.', img: './images/komponenty.jpg', subItems: [] },
+        'uzly_metall': { name: 'УЗЛЫ ДЛЯ МЕТАЛЛОРЕЖУЩИХ СТАНКОВ', desc: 'Узлы для станков.', img: './images/uzly_metall.jpg', subItems: [] },
+        'uzly_avtomat': { name: 'УЗЛЫ ДЛЯ АВТОМАТИЗАЦИИ', desc: 'Узлы для автоматизации.', img: './images/uzly_avtomat.jpg', subItems: [] },
+        'bystro': { name: 'БЫСТРОЗАЖИМНЫЕ УСТРОЙСТВА', desc: 'Быстрозажимные устройства.', img: './images/bystro.jpg', subItems: [] }
       }
     },
     otrasli: {
       title: 'РЕШЕНИЯ ПО ОТРАСЛЯМ',
       items: {
-        'avtomobil': { name: 'АВТОМОБИЛЕСТРОЕНИЕ', desc: 'Avtomobil sənayesi üçün həllər.', img: './images/avtomobil.jpg', subItems: [] },
-        'bytovaya': { name: 'БЫТОВАЯ ТЕХНИКА', desc: 'Məişət texnikası istehsalı üçün həllər.', img: './images/bytovaya.jpg', subItems: [] },
-        'zamochnye': { name: 'ПРОИЗВОДСТВО ЗАМОЧНЫХ ИЗДЕЛИЙ', desc: 'Qıfıl istehsalı üçün həllər.', img: './images/zamochnye.jpg', subItems: [] },
-        'mebel': { name: 'ПРОИЗВОДСТВО МЕБЕЛЬНОЙ ФУРНИТУРЫ', desc: 'Mebel aksesuarları istehsalı üçün həllər.', img: './images/mebel.jpg', subItems: [] },
-        'okonnaya': { name: 'ПРОИЗВОДСТВО ОКОННОЙ ФУРНИТУРЫ', desc: 'Pəncərə aksesuarları istehsalı üçün həllər.', img: './images/okonnaya.jpg', subItems: [] },
-        'stroitel': { name: 'ПРОИЗВОДСТВО СТРОИТЕЛЬНЫХ МАТЕРИАЛОВ', desc: 'Tikinti materialları istehsalı üçün həllər.', img: './images/stroitel.jpg', subItems: [] },
-        'santehnika': { name: 'САНТЕХНИКА, ГАЗОВАЯ АППАРАТУРА', desc: 'Santexnika və qaz avadanlığı üçün həllər.', img: './images/santehnika.jpg', subItems: [] }
+        'avtomobil': { name: 'АВТОМОБИЛЕСТРОЕНИЕ', desc: 'Решения для автомобильной промышленности.', img: './images/avtomobil.jpg', subItems: [] },
+        'bytovaya': { name: 'БЫТОВАЯ ТЕХНИКА', desc: 'Решения для производства бытовой техники.', img: './images/bytovaya.jpg', subItems: [] },
+        'zamochnye': { name: 'ПРОИЗВОДСТВО ЗАМОЧНЫХ ИЗДЕЛИЙ', desc: 'Решения для производства замков.', img: './images/zamochnye.jpg', subItems: [] },
+        'mebel': { name: 'ПРОИЗВОДСТВО МЕБЕЛЬНОЙ ФУРНИТУРЫ', desc: 'Решения для производства мебельной фурнитуры.', img: './images/mebel.jpg', subItems: [] },
+        'okonnaya': { name: 'ПРОИЗВОДСТВО ОКОННОЙ ФУРНИТУРЫ', desc: 'Решения для производства оконной фурнитуры.', img: './images/okonnaya.jpg', subItems: [] },
+        'stroitel': { name: 'ПРОИЗВОДСТВО СТРОИТЕЛЬНЫХ МАТЕРИАЛОВ', desc: 'Решения для производства стройматериалов.', img: './images/stroitel.jpg', subItems: [] },
+        'santehnika': { name: 'САНТЕХНИКА, ГАЗОВАЯ АППАРАТУРА', desc: 'Решения для сантехники и газового оборудования.', img: './images/santehnika.jpg', subItems: [] }
       }
     }
   };
@@ -571,14 +622,15 @@
     return {
       cat: params.get('cat') || '',
       sub: params.get('sub') || '',
-      subsub: params.get('subsub') || ''
+      subsub: params.get('subsub') || '',
+      subsubsub: params.get('subsubsub') || ''
     };
   }
 
-  // Alt kateqoriyaları KART şəklində göstər (hər biri ayrıca link)
-  function renderSubItems(subItems, catKey, subKey) {
+  function renderSubItems(subItems, catKey, subKey, level, parentSubKey = null) {
     if (!subItems || subItems.length === 0) return '';
     
+    const paramName = level;
     let html = `
       <div class="mt-8">
         <h3 class="text-xl font-bold text-gray-800 mb-4">Подкатегории</h3>
@@ -590,13 +642,23 @@
       const imgPath = item.img || `./images/${catKey}_${subKey}_${index}.jpg`;
       const name = item.name || item;
       const desc = item.desc || '';
+      const hasSubItems = item.subItems && item.subItems.length > 0;
+      
+      let href;
+      if (hasSubItems) {
+        const nextLevel = level === 'subsub' ? 'subsubsub' : 'subsubsubsub';
+        href = `subpage.html?cat=${catKey}&sub=${subKey}&${level}=${itemKey}&${nextLevel}=show`;
+      } else {
+        href = `subpage.html?cat=${catKey}&sub=${subKey}&${level}=${itemKey}`;
+      }
       
       html += `
-        <a href="subpage.html?cat=${catKey}&sub=${subKey}&subsub=${itemKey}" class="no-underline">
+        <a href="${href}" class="no-underline">
           <div class="sub-item-card">
             <img src="${imgPath}" alt="${name}" onerror="this.src='https://placehold.co/400x160/f3f4f6/888?text=${encodeURIComponent(name)}'" />
             <div class="card-title">${name}</div>
             ${desc ? `<p class="card-desc">${desc}</p>` : ''}
+            ${hasSubItems ? `<div class="sub-badge">▼ Alt kateqoriyalar</div>` : ''}
           </div>
         </a>
       `;
@@ -609,24 +671,6 @@
     return html;
   }
 
-  // Alt kateqoriya səhifəsini göstər
-  function renderSubSubPage(catKey, subKey, subSubKey) {
-    const catData = data[catKey];
-    const subData = catData ? catData.items[subKey] : null;
-    if (!subData) return null;
-    
-    const parts = subSubKey.split('_');
-    const index = parseInt(parts[parts.length - 1]);
-    const item = subData.subItems && subData.subItems[index] ? subData.subItems[index] : null;
-    if (!item) return null;
-    
-    return {
-      name: item.name || item,
-      desc: item.desc || '',
-      img: item.img || `./images/${subSubKey}.jpg`
-    };
-  }
-
   function renderPage() {
     const params = getParams();
     const catData = data[params.cat];
@@ -634,35 +678,87 @@
 
     const container = document.getElementById('subpageContent');
 
-    // Əgər subsub parametri varsa, alt kateqoriya səhifəsini göstər
-    if (params.subsub && subData && subData.subItems) {
-      const subSubData = renderSubSubPage(params.cat, params.sub, params.subsub);
-      if (subSubData) {
-        container.innerHTML = `
-          <a href="subpage.html?cat=${params.cat}&sub=${params.sub}" class="back-btn">
-            <i class="fas fa-arrow-left"></i> ${subData.name} -ə qayıt
-          </a>
-          <h1 class="subpage-title mt-4">${subSubData.name}</h1>
-          <p class="text-gray-600 text-sm mb-4">${catData.title} / ${subData.name} / ${subSubData.name}</p>
-          
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-            <div>
-              <img src="${subSubData.img}" alt="${subSubData.name}" class="w-full rounded-xl border border-gray-200" onerror="this.src='https://placehold.co/600x400/f3f4f6/888?text=${encodeURIComponent(subSubData.name)}'" />
-            </div>
-            <div>
-              <h3 class="text-xl font-bold text-gray-800">Təsvir</h3>
-              <p class="text-gray-600 mt-2 leading-relaxed">${subSubData.desc || 'Bu bölmə üçün ətraflı məlumat əlavə olunacaq.'}</p>
-              <div class="mt-6 p-4 bg-orange-50 rounded-xl border-l-4 border-orange-500">
-                <p class="text-sm text-gray-600"><i class="fas fa-info-circle text-orange-500 mr-2"></i> Bu bölmə üçün əlavə məlumat, texniki sənədlər və ya şəkillər əlavə etmək istəyirsinizsə, bizimlə əlaqə saxlayın.</p>
+    // 4-cü səviyyə
+    if (params.subsubsub && params.subsubsub !== 'show' && subData) {
+      const subSubKey = params.subsub;
+      const subSubIndex = parseInt(subSubKey.split('_').pop());
+      const subSubItem = subData.subItems && subData.subItems[subSubIndex] ? subData.subItems[subSubIndex] : null;
+      
+      if (subSubItem && subSubItem.subItems) {
+        const subSubSubIndex = parseInt(params.subsubsub.split('_').pop());
+        const subSubSubItem = subSubItem.subItems[subSubSubIndex] ? subSubItem.subItems[subSubSubIndex] : null;
+        
+        if (subSubSubItem) {
+          container.innerHTML = `
+            <a href="subpage.html?cat=${params.cat}&sub=${params.sub}&subsub=${params.subsub}" class="back-btn">
+              <i class="fas fa-arrow-left"></i> ${subSubItem.name} -ə qayıt
+            </a>
+            <h1 class="subpage-title mt-4">${subSubSubItem.name}</h1>
+            <p class="text-gray-600 text-sm mb-4">${catData.title} / ${subData.name} / ${subSubItem.name} / ${subSubSubItem.name}</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+              <div>
+                <img src="${subSubSubItem.img || `./images/${params.subsubsub}.jpg`}" alt="${subSubSubItem.name}" class="w-full rounded-xl border border-gray-200" onerror="this.src='https://placehold.co/600x400/f3f4f6/888?text=${encodeURIComponent(subSubSubItem.name)}'" />
+              </div>
+              <div>
+                <h3 class="text-xl font-bold text-gray-800">Təsvir</h3>
+                <p class="text-gray-600 mt-2 leading-relaxed">${subSubSubItem.desc || 'Bu bölmə üçün ətraflı məlumat əlavə olunacaq.'}</p>
+                <div class="mt-6 p-4 bg-orange-50 rounded-xl border-l-4 border-orange-500">
+                  <p class="text-sm text-gray-600"><i class="fas fa-info-circle text-orange-500 mr-2"></i> Bu bölmə üçün əlavə məlumat, texniki sənədlər və ya şəkillər əlavə etmək istəyirsinizsə, bizimlə əlaqə saxlayın.</p>
+                </div>
               </div>
             </div>
-          </div>
-        `;
-        return;
+          `;
+          return;
+        }
       }
     }
 
-    // Əsas subpage (alt kateqoriyalar siyahısı ilə)
+    // 3-cü səviyyə
+    if (params.subsub && subData) {
+      const subSubIndex = parseInt(params.subsub.split('_').pop());
+      const subSubItem = subData.subItems && subData.subItems[subSubIndex] ? subData.subItems[subSubIndex] : null;
+      
+      if (subSubItem) {
+        const hasSubItems = subSubItem.subItems && subSubItem.subItems.length > 0;
+        
+        if (hasSubItems && params.subsubsub === 'show') {
+          container.innerHTML = `
+            <a href="subpage.html?cat=${params.cat}&sub=${params.sub}" class="back-btn">
+              <i class="fas fa-arrow-left"></i> ${subData.name} -ə qayıt
+            </a>
+            <h1 class="subpage-title mt-4">${subSubItem.name}</h1>
+            <p class="text-gray-600 text-sm mb-4">${catData.title} / ${subData.name} / ${subSubItem.name}</p>
+            ${renderSubItems(subSubItem.subItems, params.cat, params.sub, 'subsubsub', params.subsub)}
+          `;
+          return;
+        } else {
+          container.innerHTML = `
+            <a href="subpage.html?cat=${params.cat}&sub=${params.sub}" class="back-btn">
+              <i class="fas fa-arrow-left"></i> ${subData.name} -ə qayıt
+            </a>
+            <h1 class="subpage-title mt-4">${subSubItem.name}</h1>
+            <p class="text-gray-600 text-sm mb-4">${catData.title} / ${subData.name} / ${subSubItem.name}</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+              <div>
+                <img src="${subSubItem.img || `./images/${params.subsub}.jpg`}" alt="${subSubItem.name}" class="w-full rounded-xl border border-gray-200" onerror="this.src='https://placehold.co/600x400/f3f4f6/888?text=${encodeURIComponent(subSubItem.name)}'" />
+              </div>
+              <div>
+                <h3 class="text-xl font-bold text-gray-800">Təsvir</h3>
+                <p class="text-gray-600 mt-2 leading-relaxed">${subSubItem.desc || 'Bu bölmə üçün ətraflı məlumat əlavə olunacaq.'}</p>
+                <div class="mt-6 p-4 bg-orange-50 rounded-xl border-l-4 border-orange-500">
+                  <p class="text-sm text-gray-600"><i class="fas fa-info-circle text-orange-500 mr-2"></i> Bu bölmə üçün əlavə məlumat, texniki sənədlər və ya şəkillər əlavə etmək istəyirsinizsə, bizimlə əlaqə saxlayın.</p>
+                </div>
+              </div>
+            </div>
+          `;
+          return;
+        }
+      }
+    }
+
+    // Əsas subpage
     if (!catData || !subData) {
       container.innerHTML = `
         <div class="text-center py-10">
@@ -693,7 +789,7 @@
           </div>
         </div>
       </div>
-      ${renderSubItems(subData.subItems, params.cat, params.sub)}
+      ${renderSubItems(subData.subItems, params.cat, params.sub, 'subsub')}
     `;
   }
 
