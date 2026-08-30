@@ -7,12 +7,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <style>
-    .sticky-header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: #f97316;
-    }
+    .sticky-header { position: sticky; top: 0; z-index: 100; background: #f97316; }
     .dropdown-group:hover .dropdown-menu { display: block; }
     .dropdown-menu { display: none; position: absolute; top: 100%; left: 0; min-width: 320px; background: #ffffff; border-radius: 10px; border: 2px solid #1a1a1a; box-shadow: 0 20px 50px rgba(0,0,0,0.15); padding: 0.5rem 0; z-index: 50; }
     .dropdown-menu .sub-dropdown { position: relative; }
@@ -20,201 +15,46 @@
     .sub-menu { display: none; position: absolute; top: -4px; left: 100%; min-width: 250px; background: #ffffff; border-radius: 10px; border: 2px solid #1a1a1a; box-shadow: 0 20px 50px rgba(0,0,0,0.15); padding: 0.5rem 0; }
     .mega-hover:hover .mega-content { display: flex !important; }
     .mega-content { display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); background: #ffffff; border-top: 2px solid #1a1a1a; border-bottom: 2px solid #1a1a1a; padding: 1.5rem 2rem; box-shadow: 0 20px 50px rgba(0,0,0,0.12); border-radius: 0 0 12px 12px; gap: 2rem; justify-content: center; flex-wrap: wrap; z-index: 60; flex-direction: row !important; min-width: 500px; }
-    
-    .dropdown-menu .sub-dropdown > a { 
-      color: #1a1a1a !important; 
-      padding: 8px 16px; 
-      border-radius: 6px; 
-      transition: 0.15s; 
-      cursor: pointer; 
-      background: transparent !important;
-      text-decoration: none !important;
-      display: flex !important;
-      justify-content: space-between !important;
-      align-items: center !important;
-    }
-    .dropdown-menu .sub-dropdown > a:hover { 
-      background: #f97316 !important; 
-      color: #ffffff !important; 
-    }
-    .dropdown-menu .sub-dropdown > a:hover span { 
-      color: #ffffff !important; 
-    }
-    .dropdown-menu .sub-dropdown > a:hover .fa-chevron-right { 
-      color: #ffffff !important; 
-    }
-    .dropdown-menu .sub-dropdown:hover > a { 
-      background: #f97316 !important; 
-      color: #ffffff !important; 
-    }
-    .dropdown-menu .sub-dropdown:hover > a span { 
-      color: #ffffff !important; 
-    }
-    .dropdown-menu .sub-dropdown:hover > a .fa-chevron-right { 
-      color: #ffffff !important; 
-    }
-
-    .sub-menu a { 
-      color: #1a1a1a !important; 
-      padding: 8px 16px; 
-      display: block; 
-      font-size: 0.85rem; 
-      border-radius: 6px; 
-      transition: 0.15s; 
-      font-weight: 500; 
-      background: #ffffff !important;
-      text-decoration: none !important;
-    }
-    .sub-menu a:hover { 
-      background: #f97316 !important; 
-      color: #ffffff !important; 
-    }
-
-    .main-nav-link {
-      color: #1a1a1a !important;
-      font-weight: 700;
-      font-size: 0.9rem;
-      padding: 4px 2px;
-      position: relative;
-      transition: 0.2s;
-      letter-spacing: 0.5px;
-      background: transparent !important;
-      text-decoration: none !important;
-    }
-    .main-nav-link:hover {
-      color: #1a1a1a !important;
-      background: transparent !important;
-    }
-    .main-nav-link::after {
-      content: '';
-      position: absolute;
-      bottom: -2px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: #1a1a1a;
-      transition: width 0.25s;
-      border-radius: 2px;
-    }
-    .main-nav-link:hover::after {
-      width: 100%;
-    }
-
-    .main-nav-link-products {
-      color: #ffffff;
-      font-weight: 700;
-      font-size: 0.9rem;
-      padding: 4px 2px;
-      position: relative;
-      letter-spacing: 0.5px;
-      background: transparent !important;
-      text-decoration: none !important;
-    }
-    .main-nav-link-products:hover {
-      color: #ffffff !important;
-      background: transparent !important;
-    }
-    .main-nav-link-products::after {
-      content: '';
-      position: absolute;
-      bottom: -2px;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      background: #1a1a1a;
-      border-radius: 2px;
-    }
-    .main-nav-link-products i {
-      color: #ffffff;
-    }
-
-    .subpage-title {
-      font-size: 2.5rem;
-      font-weight: 800;
-      color: #1a1a1a;
-      border-left: 6px solid #f97316;
-      padding-left: 1rem;
-      margin-bottom: 0.5rem;
-    }
-    .subpage-content {
-      background: white;
-      border-radius: 20px;
-      padding: 2rem;
-      border: 1px solid #eef2f6;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.04);
-    }
-    .subpage-content img {
-      border-radius: 12px;
-      max-width: 100%;
-      height: auto;
-      border: 1px solid #eef2f6;
-    }
-    .back-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      color: #f97316;
-      font-weight: 600;
-      transition: 0.2s;
-      text-decoration: none;
-    }
-    .back-btn:hover {
-      color: #ea580c;
-      transform: translateX(-4px);
-    }
-
-    .sub-item-card {
-      background: white;
-      border-radius: 12px;
-      border: 2px solid #e5e7eb;
-      overflow: hidden;
-      transition: 0.3s;
-      cursor: pointer;
-    }
-    .sub-item-card:hover {
-      transform: translateY(-4px);
-      border-color: #f97316;
-      box-shadow: 0 12px 40px rgba(249,115,22,0.08);
-    }
-    .sub-item-card img {
-      width: 100%;
-      height: 140px;
-      object-fit: cover;
-      background: #f3f4f6;
-      border-bottom: 2px solid #e5e7eb;
-    }
-    .sub-item-card:hover img {
-      border-bottom-color: #f97316;
-    }
-    .sub-item-card .card-title {
-      font-weight: 700;
-      color: #1a1a1a;
-      font-size: 1rem;
-      padding: 0.8rem 1rem;
-      text-align: center;
-    }
-    .sub-item-card .card-desc {
-      font-size: 0.85rem;
-      color: #4b5563;
-      padding: 0 1rem 0.8rem 1rem;
-      text-align: center;
-    }
-    .sub-item-card .sub-badge {
-      font-size: 0.7rem;
-      color: #f97316;
-      text-align: center;
-      padding-bottom: 0.5rem;
-      font-weight: 600;
-    }
-
+    .dropdown-menu .sub-dropdown > a { color: #1a1a1a !important; padding: 8px 16px; border-radius: 6px; transition: 0.15s; cursor: pointer; background: transparent !important; text-decoration: none !important; display: flex !important; justify-content: space-between !important; align-items: center !important; }
+    .dropdown-menu .sub-dropdown > a:hover { background: #f97316 !important; color: #ffffff !important; }
+    .dropdown-menu .sub-dropdown > a:hover span { color: #ffffff !important; }
+    .dropdown-menu .sub-dropdown > a:hover .fa-chevron-right { color: #ffffff !important; }
+    .dropdown-menu .sub-dropdown:hover > a { background: #f97316 !important; color: #ffffff !important; }
+    .dropdown-menu .sub-dropdown:hover > a span { color: #ffffff !important; }
+    .dropdown-menu .sub-dropdown:hover > a .fa-chevron-right { color: #ffffff !important; }
+    .sub-menu a { color: #1a1a1a !important; padding: 8px 16px; display: block; font-size: 0.85rem; border-radius: 6px; transition: 0.15s; font-weight: 500; background: #ffffff !important; text-decoration: none !important; }
+    .sub-menu a:hover { background: #f97316 !important; color: #ffffff !important; }
+    .main-nav-link { color: #1a1a1a !important; font-weight: 700; font-size: 0.9rem; padding: 4px 2px; position: relative; transition: 0.2s; letter-spacing: 0.5px; background: transparent !important; text-decoration: none !important; }
+    .main-nav-link:hover { color: #1a1a1a !important; background: transparent !important; }
+    .main-nav-link::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 2px; background: #1a1a1a; transition: width 0.25s; border-radius: 2px; }
+    .main-nav-link:hover::after { width: 100%; }
+    .main-nav-link-products { color: #ffffff; font-weight: 700; font-size: 0.9rem; padding: 4px 2px; position: relative; letter-spacing: 0.5px; background: transparent !important; text-decoration: none !important; }
+    .main-nav-link-products:hover { color: #ffffff !important; background: transparent !important; }
+    .main-nav-link-products::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 100%; height: 2px; background: #1a1a1a; border-radius: 2px; }
+    .main-nav-link-products i { color: #ffffff; }
+    .subpage-title { font-size: 2rem; font-weight: 800; color: #1a1a1a; border-left: 6px solid #f97316; padding-left: 1rem; margin-bottom: 0.3rem; }
+    .subpage-content { background: white; border-radius: 20px; padding: 1.5rem 2rem; border: 1px solid #eef2f6; box-shadow: 0 4px 20px rgba(0,0,0,0.04); }
+    .subpage-content img { border-radius: 12px; max-width: 100%; height: auto; border: 1px solid #eef2f6; }
+    .back-btn { display: inline-flex; align-items: center; gap: 8px; color: #f97316; font-weight: 600; transition: 0.2s; text-decoration: none; font-size: 0.9rem; }
+    .back-btn:hover { color: #ea580c; transform: translateX(-4px); }
+    .sub-item-card { background: white; border-radius: 12px; border: 2px solid #e5e7eb; overflow: hidden; transition: 0.3s; cursor: pointer; }
+    .sub-item-card:hover { transform: translateY(-4px); border-color: #f97316; box-shadow: 0 12px 40px rgba(249,115,22,0.08); }
+    .sub-item-card img { width: 100%; height: 140px; object-fit: cover; background: #f3f4f6; border-bottom: 2px solid #e5e7eb; }
+    .sub-item-card:hover img { border-bottom-color: #f97316; }
+    .sub-item-card .card-title { font-weight: 700; color: #1a1a1a; font-size: 1rem; padding: 0.8rem 1rem; text-align: center; }
+    .sub-item-card .card-desc { font-size: 0.85rem; color: #4b5563; padding: 0 1rem 0.8rem 1rem; text-align: center; }
+    .sub-item-card .sub-badge { font-size: 0.7rem; color: #f97316; text-align: center; padding-bottom: 0.5rem; font-weight: 600; }
+    /* Məzmunu yuxarı çəkmək üçün */
+    .subpage-content .breadcrumb { font-size: 0.85rem; color: #6b7280; margin-bottom: 0.25rem; }
+    .subpage-content .description { font-size: 0.95rem; color: #4b5563; line-height: 1.6; margin-top: 0.3rem; }
     @media (max-width: 768px) {
       .mega-content { min-width: auto; gap: 1rem; padding: 1rem; left: 0; transform: none; }
       .mega-item img { width: 60px; height: 50px; }
       .mega-item span { font-size: 0.65rem; white-space: normal; }
       .dropdown-menu { min-width: 240px; }
       .sub-menu { min-width: 200px; left: 90%; }
-      .subpage-title { font-size: 1.8rem; }
-      .subpage-content { padding: 1.2rem; }
+      .subpage-title { font-size: 1.5rem; }
+      .subpage-content { padding: 1rem; }
       .sub-item-card img { height: 110px; }
     }
     @media (max-width: 480px) {
@@ -224,14 +64,14 @@
       .mega-item span { white-space: normal; font-size: 0.8rem; }
       .dropdown-menu { min-width: 200px; }
       .sub-menu { min-width: 180px; left: 85%; }
-      .subpage-title { font-size: 1.4rem; }
+      .subpage-title { font-size: 1.2rem; }
       .sub-item-card img { height: 90px; }
     }
   </style>
 </head>
 <body>
 
-<!-- ===== HEADER ===== -->
+<!-- ===== HEADER (Eyni) ===== -->
 <header class="sticky-header">
   <div class="bg-orange-500 border-b-2 border-black py-1.5">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
@@ -393,22 +233,22 @@
   </nav>
 </header>
 
-<!-- ===== SUBPAGE MƏZMUN ===== -->
-<main class="max-w-7xl mx-auto px-4 sm:px-6 py-10">
+<!-- ===== SUBPAGE MƏZMUN (YUXARI ÇƏKİLDİ) ===== -->
+<main class="max-w-7xl mx-auto px-4 sm:px-6 py-4">
   <div class="subpage-content" id="subpageContent">
     <!-- JavaScript ilə doldurulacaq -->
   </div>
 </main>
 
 <!-- ===== FOOTER ===== -->
-<footer class="bg-gray-50 border-t-2 border-gray-200 py-5 mt-10">
+<footer class="bg-gray-50 border-t-2 border-gray-200 py-3 mt-6">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 text-sm flex flex-wrap justify-between items-center gap-3">
     <span class="text-gray-500 font-medium">© 2026 TECINMAK — оборудование и технологии для обработки металла</span>
     <span class="flex gap-5"><a href="#" class="text-gray-500 font-medium hover:text-orange-500 transition">Политика</a><a href="#" class="text-gray-500 font-medium hover:text-orange-500 transition">Условия</a></span>
   </div>
 </footer>
 
-<!-- ===== JAVASCRIPT (TAM MƏLUMATLAR) ===== -->
+<!-- ===== JAVASCRIPT ===== -->
 <script>
   const data = {
     avtomatizaciya: {
@@ -630,10 +470,8 @@
   function renderSubItems(subItems, catKey, subKey, level, parentSubKey = null) {
     if (!subItems || subItems.length === 0) return '';
     
-    const paramName = level;
     let html = `
-      <div class="mt-8">
-        <h3 class="text-xl font-bold text-gray-800 mb-4">Подкатегории</h3>
+      <div class="mt-6">
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
     `;
     
@@ -646,10 +484,9 @@
       
       let href;
       if (hasSubItems) {
-        const nextLevel = level === 'subsub' ? 'subsubsub' : 'subsubsubsub';
-        href = `subpage.html?cat=${catKey}&sub=${subKey}&${level}=${itemKey}&${nextLevel}=show`;
+        href = `subpage.html?cat=${catKey}&sub=${subKey}&subsub=${itemKey}&subsubsub=show`;
       } else {
-        href = `subpage.html?cat=${catKey}&sub=${subKey}&${level}=${itemKey}`;
+        href = `subpage.html?cat=${catKey}&sub=${subKey}&subsub=${parentSubKey || subKey}&subsubsub=${itemKey}`;
       }
       
       html += `
@@ -658,7 +495,7 @@
             <img src="${imgPath}" alt="${name}" onerror="this.src='https://placehold.co/400x160/f3f4f6/888?text=${encodeURIComponent(name)}'" />
             <div class="card-title">${name}</div>
             ${desc ? `<p class="card-desc">${desc}</p>` : ''}
-            ${hasSubItems ? `<div class="sub-badge">▼ Alt kateqoriyalar</div>` : ''}
+            ${hasSubItems ? `<div class="sub-badge">▼</div>` : ''}
           </div>
         </a>
       `;
@@ -691,20 +528,20 @@
         if (subSubSubItem) {
           container.innerHTML = `
             <a href="subpage.html?cat=${params.cat}&sub=${params.sub}&subsub=${params.subsub}" class="back-btn">
-              <i class="fas fa-arrow-left"></i> ${subSubItem.name} -ə qayıt
+              <i class="fas fa-arrow-left"></i> ${subSubItem.name}
             </a>
-            <h1 class="subpage-title mt-4">${subSubSubItem.name}</h1>
-            <p class="text-gray-600 text-sm mb-4">${catData.title} / ${subData.name} / ${subSubItem.name} / ${subSubSubItem.name}</p>
+            <h1 class="subpage-title mt-2">${subSubSubItem.name}</h1>
+            <p class="breadcrumb">${catData.title} / ${subData.name} / ${subSubItem.name} / ${subSubSubItem.name}</p>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
               <div>
                 <img src="${subSubSubItem.img || `./images/${params.subsubsub}.jpg`}" alt="${subSubSubItem.name}" class="w-full rounded-xl border border-gray-200" onerror="this.src='https://placehold.co/600x400/f3f4f6/888?text=${encodeURIComponent(subSubSubItem.name)}'" />
               </div>
               <div>
-                <h3 class="text-xl font-bold text-gray-800">Təsvir</h3>
-                <p class="text-gray-600 mt-2 leading-relaxed">${subSubSubItem.desc || 'Bu bölmə üçün ətraflı məlumat əlavə olunacaq.'}</p>
-                <div class="mt-6 p-4 bg-orange-50 rounded-xl border-l-4 border-orange-500">
-                  <p class="text-sm text-gray-600"><i class="fas fa-info-circle text-orange-500 mr-2"></i> Bu bölmə üçün əlavə məlumat, texniki sənədlər və ya şəkillər əlavə etmək istəyirsinizsə, bizimlə əlaqə saxlayın.</p>
+                <h3 class="text-lg font-bold text-gray-800">Описание</h3>
+                <p class="description">${subSubSubItem.desc || 'Информация о данной категории будет добавлена позже.'}</p>
+                <div class="mt-4 p-4 bg-orange-50 rounded-xl border-l-4 border-orange-500">
+                  <p class="text-sm text-gray-600"><i class="fas fa-info-circle text-orange-500 mr-2"></i> Для получения дополнительной информации свяжитесь с нами.</p>
                 </div>
               </div>
             </div>
@@ -725,30 +562,30 @@
         if (hasSubItems && params.subsubsub === 'show') {
           container.innerHTML = `
             <a href="subpage.html?cat=${params.cat}&sub=${params.sub}" class="back-btn">
-              <i class="fas fa-arrow-left"></i> ${subData.name} -ə qayıt
+              <i class="fas fa-arrow-left"></i> ${subData.name}
             </a>
-            <h1 class="subpage-title mt-4">${subSubItem.name}</h1>
-            <p class="text-gray-600 text-sm mb-4">${catData.title} / ${subData.name} / ${subSubItem.name}</p>
+            <h1 class="subpage-title mt-2">${subSubItem.name}</h1>
+            <p class="breadcrumb">${catData.title} / ${subData.name} / ${subSubItem.name}</p>
             ${renderSubItems(subSubItem.subItems, params.cat, params.sub, 'subsubsub', params.subsub)}
           `;
           return;
         } else {
           container.innerHTML = `
             <a href="subpage.html?cat=${params.cat}&sub=${params.sub}" class="back-btn">
-              <i class="fas fa-arrow-left"></i> ${subData.name} -ə qayıt
+              <i class="fas fa-arrow-left"></i> ${subData.name}
             </a>
-            <h1 class="subpage-title mt-4">${subSubItem.name}</h1>
-            <p class="text-gray-600 text-sm mb-4">${catData.title} / ${subData.name} / ${subSubItem.name}</p>
+            <h1 class="subpage-title mt-2">${subSubItem.name}</h1>
+            <p class="breadcrumb">${catData.title} / ${subData.name} / ${subSubItem.name}</p>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
               <div>
                 <img src="${subSubItem.img || `./images/${params.subsub}.jpg`}" alt="${subSubItem.name}" class="w-full rounded-xl border border-gray-200" onerror="this.src='https://placehold.co/600x400/f3f4f6/888?text=${encodeURIComponent(subSubItem.name)}'" />
               </div>
               <div>
-                <h3 class="text-xl font-bold text-gray-800">Təsvir</h3>
-                <p class="text-gray-600 mt-2 leading-relaxed">${subSubItem.desc || 'Bu bölmə üçün ətraflı məlumat əlavə olunacaq.'}</p>
-                <div class="mt-6 p-4 bg-orange-50 rounded-xl border-l-4 border-orange-500">
-                  <p class="text-sm text-gray-600"><i class="fas fa-info-circle text-orange-500 mr-2"></i> Bu bölmə üçün əlavə məlumat, texniki sənədlər və ya şəkillər əlavə etmək istəyirsinizsə, bizimlə əlaqə saxlayın.</p>
+                <h3 class="text-lg font-bold text-gray-800">Описание</h3>
+                <p class="description">${subSubItem.desc || 'Информация о данной категории будет добавлена позже.'}</p>
+                <div class="mt-4 p-4 bg-orange-50 rounded-xl border-l-4 border-orange-500">
+                  <p class="text-sm text-gray-600"><i class="fas fa-info-circle text-orange-500 mr-2"></i> Для получения дополнительной информации свяжитесь с нами.</p>
                 </div>
               </div>
             </div>
@@ -758,13 +595,13 @@
       }
     }
 
-    // Əsas subpage
+    // 2-ci səviyyə
     if (!catData || !subData) {
       container.innerHTML = `
         <div class="text-center py-10">
-          <h2 class="text-2xl font-bold text-gray-700">Məlumat tapılmadı</h2>
-          <p class="text-gray-500 mt-2">Zəhmət olmasa düzgün linkdən istifadə edin.</p>
-          <a href="index.html" class="mt-4 inline-block text-orange-500 hover:text-orange-600 font-semibold">← Ana səhifəyə qayıt</a>
+          <h2 class="text-2xl font-bold text-gray-700">Информация не найдена</h2>
+          <p class="text-gray-500 mt-2">Пожалуйста, используйте правильную ссылку.</p>
+          <a href="index.html" class="mt-4 inline-block text-orange-500 hover:text-orange-600 font-semibold">← На главную</a>
         </div>
       `;
       return;
@@ -772,20 +609,20 @@
 
     container.innerHTML = `
       <a href="katalog.html?cat=${params.cat}" class="back-btn">
-        <i class="fas fa-arrow-left"></i> ${catData.title} -ə qayıt
+        <i class="fas fa-arrow-left"></i> ${catData.title}
       </a>
-      <h1 class="subpage-title mt-4">${subData.name}</h1>
-      <p class="text-gray-600 text-sm mb-4">${catData.title} / ${subData.name}</p>
+      <h1 class="subpage-title mt-2">${subData.name}</h1>
+      <p class="breadcrumb">${catData.title} / ${subData.name}</p>
       
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
         <div>
           <img src="${subData.img}" alt="${subData.name}" class="w-full rounded-xl border border-gray-200" onerror="this.src='https://placehold.co/600x400/f3f4f6/888?text=${encodeURIComponent(subData.name)}'" />
         </div>
         <div>
-          <h3 class="text-xl font-bold text-gray-800">Təsvir</h3>
-          <p class="text-gray-600 mt-2 leading-relaxed">${subData.desc}</p>
-          <div class="mt-6 p-4 bg-orange-50 rounded-xl border-l-4 border-orange-500">
-            <p class="text-sm text-gray-600"><i class="fas fa-info-circle text-orange-500 mr-2"></i> Bu bölmə üçün əlavə məlumat, texniki sənədlər və ya şəkillər əlavə etmək istəyirsinizsə, bizimlə əlaqə saxlayın.</p>
+          <h3 class="text-lg font-bold text-gray-800">Описание</h3>
+          <p class="description">${subData.desc}</p>
+          <div class="mt-4 p-4 bg-orange-50 rounded-xl border-l-4 border-orange-500">
+            <p class="text-sm text-gray-600"><i class="fas fa-info-circle text-orange-500 mr-2"></i> Для получения дополнительной информации свяжитесь с нами.</p>
           </div>
         </div>
       </div>
