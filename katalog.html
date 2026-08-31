@@ -515,33 +515,40 @@
     return {
       cat: params.get('cat') || '',
       sub: params.get('sub') || '',
-      subsub: params.get('subsub') || '',
-      subsubsub: params.get('subsubsub') || ''
+      path: params.get('path') || ''
     };
   }
 
-  function renderSubItems(subItems, catKey, subKey, level, parentSubKey = null) {
+  // path = "2" ya da "2.0" kimi indekslər zənciri (subDataItem.subItems daxilində)
+  function resolveByPath(subDataItem, path) {
+    if (!path) return null;
+    const indices = path.split('.').map(Number);
+    let current = subDataItem;
+    const chain = [];
+    for (const idx of indices) {
+      if (!current || !current.subItems || !current.subItems[idx]) return null;
+      current = current.subItems[idx];
+      chain.push(current);
+    }
+    return { item: current, chain };
+  }
+
+  function renderItemGrid(subItems, catKey, subKey, parentPath) {
     if (!subItems || subItems.length === 0) return '';
-    
+
     let html = `
       <div class="mt-6">
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
     `;
-    
+
     subItems.forEach((item, index) => {
-      const itemKey = `${catKey}_${subKey}_${index}`;
-      const imgPath = item.img || `./images/${catKey}_${subKey}_${index}.jpg`;
+      const path = parentPath ? `${parentPath}.${index}` : `${index}`;
+      const imgPath = item.img || `./images/${catKey}_${subKey}_${path.replace(/\./g,'_')}.jpg`;
       const name = item.name || item;
       const desc = item.desc || '';
       const hasSubItems = item.subItems && item.subItems.length > 0;
-      
-      let href;
-      if (hasSubItems) {
-        href = `katalog.html?cat=${catKey}&sub=${subKey}&subsub=${itemKey}&subsubsub=show`;
-      } else {
-        href = `katalog.html?cat=${catKey}&sub=${subKey}&subsub=${parentSubKey || subKey}&subsubsub=${itemKey}`;
-      }
-      
+      const href = `katalog.html?cat=${catKey}&sub=${subKey}&path=${path}`;
+
       html += `
         <a href="${href}" class="no-underline">
           <div class="sub-item-card">
@@ -553,7 +560,7 @@
         </a>
       `;
     });
-    
+
     html += `
         </div>
       </div>
@@ -561,127 +568,81 @@
     return html;
   }
 
-  function renderDetailPage(catKey, subKey, subSubKey, subSubSubKey) {
-    const catData = data[catKey];
-    if (!catData) return null;
-    
-    const subDataItem = catData.items[subKey];
-    if (!subDataItem) return null;
-    
-    const subSubIndex = parseInt(subSubKey.split('_').pop());
-    const subSubItem = subDataItem.subItems[subSubIndex];
-    if (!subSubItem) return null;
-    
-    const subSubSubIndex = parseInt(subSubSubKey.split('_').pop());
-    const subSubSubItem = subSubItem.subItems ? subSubItem.subItems[subSubSubIndex] : null;
-    if (!subSubSubItem) return null;
-    
-    return {
-      title: subSubSubItem.name,
-      desc: subSubSubItem.desc || subSubSubItem,
-      img: subSubSubItem.img || `./images/${subSubSubKey}.jpg`,
-      detail: subSubSubItem.detail || 'Информация о данной категории будет добавлена позже.',
-      breadcrumb: `${catData.title} / ${subDataItem.name} / ${subSubItem.name} / ${subSubSubItem.name}`,
-      backLink: `katalog.html?cat=${catKey}&sub=${subKey}&subsub=${subSubKey}`
-    };
-  }
-
   function renderCatalog() {
     const params = getParams();
     const container = document.getElementById('catalogContent');
 
-    // ===== 4-cü SƏVİYYƏ - ƏN DƏRİN =====
-    if (params.subsubsub && params.subsubsub !== 'show') {
-      const detail = renderDetailPage(params.cat, params.sub, params.subsub, params.subsubsub);
-      if (detail) {
-        container.innerHTML = `
-          <a href="${detail.backLink}" class="back-btn">
-            <i class="fas fa-arrow-left"></i> ${detail.breadcrumb.split(' / ')[2] || 'Əvvəlki'}
-          </a>
-          <h1 class="subpage-title mt-2">${detail.title}</h1>
-          <p class="breadcrumb">${detail.breadcrumb}</p>
-          
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
-            <div>
-              <img src="${detail.img}" alt="${detail.title}" class="w-full rounded-xl border border-gray-200" onerror="this.src='https://placehold.co/600x400/f3f4f6/888?text=${encodeURIComponent(detail.title)}'" />
-            </div>
-            <div>
-              <h3 class="text-lg font-bold text-gray-800">Описание</h3>
-              <p class="description">${detail.detail}</p>
-              <div class="mt-4 p-4 bg-orange-50 rounded-xl border-l-4 border-orange-500">
-                <p class="text-sm text-gray-600"><i class="fas fa-info-circle text-orange-500 mr-2"></i> Для получения дополнительной информации свяжитесь с нами.</p>
-              </div>
-            </div>
-          </div>
-        `;
-        return;
-      }
-    }
-
-    // ===== 3-cü SƏVİYYƏ =====
-    if (params.subsub && params.subsub !== 'show') {
+    // ===== ƏN DƏRİN SƏVİYYƏ (path ilə) =====
+    if (params.cat && params.sub && params.path) {
       const catData = data[params.cat];
-      if (catData) {
-        const subDataItem = catData.items[params.sub];
-        if (subDataItem) {
-          const subSubIndex = parseInt(params.subsub.split('_').pop());
-          const subSubItem = subDataItem.subItems[subSubIndex];
-          if (subSubItem) {
-            const hasSubItems = subSubItem.subItems && subSubItem.subItems.length > 0;
-            
-            if (hasSubItems && params.subsubsub === 'show') {
-              container.innerHTML = `
-                <a href="katalog.html?cat=${params.cat}&sub=${params.sub}" class="back-btn">
-                  <i class="fas fa-arrow-left"></i> ${subDataItem.name}
-                </a>
-                <h1 class="subpage-title mt-2">${subSubItem.name}</h1>
-                <p class="breadcrumb">${catData.title} / ${subDataItem.name} / ${subSubItem.name}</p>
-                ${renderSubItems(subSubItem.subItems, params.cat, params.sub, 'subsubsub', params.subsub)}
-              `;
-              return;
-            } else {
-              container.innerHTML = `
-                <a href="katalog.html?cat=${params.cat}&sub=${params.sub}" class="back-btn">
-                  <i class="fas fa-arrow-left"></i> ${subDataItem.name}
-                </a>
-                <h1 class="subpage-title mt-2">${subSubItem.name}</h1>
-                <p class="breadcrumb">${catData.title} / ${subDataItem.name} / ${subSubItem.name}</p>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
-                  <div>
-                    <img src="${subSubItem.img || `./images/${params.subsub}.jpg`}" alt="${subSubItem.name}" class="w-full rounded-xl border border-gray-200" onerror="this.src='https://placehold.co/600x400/f3f4f6/888?text=${encodeURIComponent(subSubItem.name)}'" />
-                  </div>
-                  <div>
-                    <h3 class="text-lg font-bold text-gray-800">Описание</h3>
-                    <p class="description">${subSubItem.desc || 'Информация о данной категории будет добавлена позже.'}</p>
-                    <div class="mt-4 p-4 bg-orange-50 rounded-xl border-l-4 border-orange-500">
-                      <p class="text-sm text-gray-600"><i class="fas fa-info-circle text-orange-500 mr-2"></i> Для получения дополнительной информации свяжитесь с нами.</p>
-                    </div>
+      const subDataItem = catData ? catData.items[params.sub] : null;
+
+      if (catData && subDataItem) {
+        const resolved = resolveByPath(subDataItem, params.path);
+
+        if (resolved && resolved.item) {
+          const item = resolved.item;
+          const chain = resolved.chain;
+          const hasSubItems = item.subItems && item.subItems.length > 0;
+
+          const segments = params.path.split('.');
+          const parentPath = segments.slice(0, -1).join('.');
+          const backHref = parentPath
+            ? `katalog.html?cat=${params.cat}&sub=${params.sub}&path=${parentPath}`
+            : `katalog.html?cat=${params.cat}&sub=${params.sub}`;
+          const backLabel = chain.length > 1 ? chain[chain.length - 2].name : subDataItem.name;
+          const breadcrumb = [catData.title, subDataItem.name].concat(chain.map(c => c.name)).join(' / ');
+          const imgFallback = `./images/${params.cat}_${params.sub}_${params.path.replace(/\./g,'_')}.jpg`;
+
+          if (hasSubItems) {
+            container.innerHTML = `
+              <a href="${backHref}" class="back-btn"><i class="fas fa-arrow-left"></i> ${backLabel}</a>
+              <h1 class="subpage-title mt-2">${item.name}</h1>
+              <p class="breadcrumb">${breadcrumb}</p>
+              ${renderItemGrid(item.subItems, params.cat, params.sub, params.path)}
+            `;
+            return;
+          } else {
+            container.innerHTML = `
+              <a href="${backHref}" class="back-btn"><i class="fas fa-arrow-left"></i> ${backLabel}</a>
+              <h1 class="subpage-title mt-2">${item.name}</h1>
+              <p class="breadcrumb">${breadcrumb}</p>
+
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+                <div>
+                  <img src="${item.img || imgFallback}" alt="${item.name}" class="w-full rounded-xl border border-gray-200" onerror="this.src='https://placehold.co/600x400/f3f4f6/888?text=${encodeURIComponent(item.name)}'" />
+                </div>
+                <div>
+                  <h3 class="text-lg font-bold text-gray-800">Описание</h3>
+                  <p class="description">${item.detail || item.desc || 'Информация о данной категории будет добавлена позже.'}</p>
+                  <div class="mt-4 p-4 bg-orange-50 rounded-xl border-l-4 border-orange-500">
+                    <p class="text-sm text-gray-600"><i class="fas fa-info-circle text-orange-500 mr-2"></i> Для получения дополнительной информации свяжитесь с нами.</p>
                   </div>
                 </div>
-              `;
-              return;
-            }
+              </div>
+            `;
+            return;
           }
         }
       }
+      // path düzgün deyil — aşağıdakı "sub" səviyyəsinə düşür
     }
 
-    // ===== 2-ci SƏVİYYƏ =====
-    if (params.sub) {
+    // ===== 2-ci SƏVİYYƏ (yalnız cat + sub) =====
+    if (params.cat && params.sub) {
       const catData = data[params.cat];
       if (catData) {
         const subDataItem = catData.items[params.sub];
         if (subDataItem) {
           const hasSubItems = subDataItem.subItems && subDataItem.subItems.length > 0;
-          
+
           container.innerHTML = `
             <a href="katalog.html?cat=${params.cat}" class="back-btn">
               <i class="fas fa-arrow-left"></i> ${catData.title}
             </a>
             <h1 class="subpage-title mt-2">${subDataItem.name}</h1>
             <p class="breadcrumb">${catData.title} / ${subDataItem.name}</p>
-            
+
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
               <div>
                 <img src="${subDataItem.img}" alt="${subDataItem.name}" class="w-full rounded-xl border border-gray-200" onerror="this.src='https://placehold.co/600x400/f3f4f6/888?text=${encodeURIComponent(subDataItem.name)}'" />
@@ -694,7 +655,7 @@
                 </div>
               </div>
             </div>
-            ${hasSubItems ? renderSubItems(subDataItem.subItems, params.cat, params.sub, 'subsub') : ''}
+            ${hasSubItems ? renderItemGrid(subDataItem.subItems, params.cat, params.sub, '') : ''}
           `;
           return;
         }
@@ -707,7 +668,7 @@
       if (catData) {
         const items = catData.items;
         const itemKeys = Object.keys(items);
-        
+
         let itemsHTML = `
           <a href="katalog.html" class="back-btn">
             <i class="fas fa-arrow-left"></i> Все продукты
@@ -716,12 +677,12 @@
           <p class="breadcrumb">${catData.title}</p>
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-4">
         `;
-        
+
         itemKeys.forEach(key => {
           const item = items[key];
           const imgPath = item.img || `./images/${key}.jpg`;
           const hasSubItems = item.subItems && item.subItems.length > 0;
-          
+
           itemsHTML += `
             <a href="katalog.html?cat=${params.cat}&sub=${key}" class="no-underline">
               <div class="sub-item-card">
@@ -733,7 +694,7 @@
             </a>
           `;
         });
-        
+
         itemsHTML += `</div>`;
         container.innerHTML = itemsHTML;
         return;
@@ -749,7 +710,7 @@
       <p class="text-gray-500 text-sm mb-4">Выберите раздел для просмотра продукции</p>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
     `;
-    
+
     Object.keys(data).forEach(key => {
       const cat = data[key];
       html += `
@@ -763,7 +724,7 @@
         </a>
       `;
     });
-    
+
     html += `</div>`;
     container.innerHTML = html;
   }
