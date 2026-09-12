@@ -270,9 +270,69 @@ name: 'СБОРКА',
 desc: 'Автоматизированные сборочные системы и оборудование.',
 img: './images/sborka.jpg',
 subItems: [
-{ name: 'Клепальные автоматы', desc: 'Автоматические машины для клепки', img: './images/klepalnye.jpg' },
-{ name: 'Автоматические шуруповёрты', desc: 'Автоматические винтоверты', img: './images/sharupoverty.jpg' },
-{ name: 'Сборочные комплексы', desc: 'Комплексные сборочные линии', img: './images/sborochnye.jpg' }
+{ name: 'Клепальные автоматы', desc: 'Автоматические машины для клепки в составе сборочных линий.', img: './images/klepalnye.jpg', subItems: [
+  { name: 'Клепальные комплексы с автоматизацией оснастки', shortDesc: 'Клепальные машины с ЧПУ типа PLC.', desc: 'Клепальные машины с ЧПУ типа PLC. Источник: macromak.com/klepalcpu.php', img: './klepal_cpu.gif', images: ['./klepal_cpu.gif'], videoLinks: [
+    {label:'Видео 1', url:'https://www.youtube.com/embed/5efnZ2RcNnc'},
+    {label:'Видео 2', url:'https://www.youtube.com/embed/Zia--2qsnZM'},
+    {label:'Видео 3', url:'https://www.youtube.com/embed/vFlteMl5T8Y'}
+  ], specTable: { headers: ['Модель','Мин/Макс диаметр заклёпки','Двигатель','Напряжение (V)','Рабочий ход','Ход корпуса'], rows: [
+    ['RP-6-AG','Ø 2,5 – Ø 6 мм','0,25 кВт','220/380','40 мм','80/230 мм'],
+    ['RP-8-AG','Ø 5 – Ø 8 мм','0,37 кВт','220/380','50 мм','80/230 мм'],
+    ['RP-12-AG','Ø 7 – Ø 12 мм','0,55 кВт','220/380','50 мм','100/250 мм'],
+    ['RP-16-AG','Ø 10 – Ø 16 мм','0,75 кВт','220/380','50 мм','100/250 мм'],
+    ['RP-20-AG','Ø 14 – Ø 20 мм','1,1 кВт','220/380','50 мм','100/250 мм']
+  ] } },
+  { name: 'Координатно-клепальные центры', shortDesc: 'Координатно-клепальный центр с ЧПУ типа CNC.', desc: 'Координатно-клепальный центр с ЧПУ типа CNC. Рабочая площадь: по оси X — 300 мм, по оси Y — 200 мм, механический ход по оси Z — 150 мм, скорость хода по осям X и Y — 20 000 мм/мин. Станционно-поворотный стол: диаметр стола 850 мм, количество станций 2/4, длительность передвижения станции 1,5 сек, масса станции 4×9 кг. Основное напряжение: 400В ±10%, частота: 50/60Гц ±1%, сжатый воздух: 6 бар. Источник: macromak.com/klepalcnc.php', img: './klepa_cnc.gif', images: ['./klepa_cnc.gif'], videoLinks: [
+    {label:'Видео 1', url:'https://www.youtube.com/embed/kZoMPcVolTA'},
+    {label:'Видео 2', url:'https://www.youtube.com/embed/Vqy2O-gA_mQ'},
+    {label:'Видео 3', url:'https://www.youtube.com/embed/Ebh7cZ_awdI'},
+    {label:'Видео 4', url:'https://www.youtube.com/embed/mcHFecNVR2U'},
+    {label:'Видео 5', url:'https://www.youtube.com/embed/8yu0mOZ1gNw'},
+    {label:'Видео 6', url:'https://www.youtube.com/embed/fpPAlGjqTFk'},
+    {label:'Видео 7', url:'https://www.youtube.com/embed/Q6P-KhnXwhM'}
+  ], specTable: { headers: ['Радиально-клепальный механизм','Ед.','RPC 600','RPC 1100','RPC 2200'], rows: [
+    ['Макс. диаметр заклёпки','мм','8','12','16'],
+    ['Двигатель','кВт','0,37','0,55','1,1'],
+    ['Макс. усилие','кН','12','17','33'],
+    ['Длительность склёпывания','с','0,1–10','0,1–10','0,1–10'],
+    ['Рабочий ход','мм','10–50','10–50','10–80'],
+    ['Макс. объём цилиндра','см³','796','1140','2640'],
+    ['Общий расход энергии','кВт','3,5','3,7','4,2'],
+    ['Общий вес','кг','850','900','1000']
+  ] } },
+  { name: 'Мульти-станочные конвейерные линии', shortDesc: 'Мульти-станочные конвейерные линии.', desc: 'Мульти-станочные конвейерные линии — наши проекты.', videoLinks: [
+    {label:'Видео 1', url:'https://www.youtube.com/embed/sJSLd4rfj3A'},
+    {label:'Видео 2', url:'https://www.youtube.com/embed/PsmjvFatOmg'},
+    {label:'Видео 3', url:'https://www.youtube.com/embed/xBrTbsn2p8s'}
+  ] }
+] },
+{ name: 'Автоматические шуруповёрты', desc: 'Автоматические винтоверты. Источник: factorh.com.tr', videoLinks: [
+  {label:'Видео 1', url:'https://www.youtube.com/embed/V-5OEvPh-qA'},
+  {label:'Видео 2', url:'https://www.youtube.com/embed/wMdLOpWcRe4'}
+] },
+{ name: 'Сборочные комплексы', desc: 'Комплексные сборочные линии — наши проекты.', videoLinks: [
+  {label:'Видео 1', url:'https://www.youtube.com/embed/_5HDN-sRX0o'},
+  {label:'Видео 2', url:'https://www.youtube.com/embed/eGLlHKKxaAU'},
+  {label:'Видео 3', url:'https://www.youtube.com/embed/lMMqTVa9Stw'},
+  {label:'Видео 4', url:'https://www.youtube.com/embed/pkGz5UOR9dk'},
+  {label:'Видео 5', url:'https://www.youtube.com/embed/PNBMHpZYMso'},
+  {label:'Видео 6', url:'https://www.youtube.com/embed/BF70si2zPuU'},
+  {label:'Видео 7', url:'https://www.youtube.com/embed/kLNYb8wrQ3s'},
+  {label:'Видео 8', url:'https://www.youtube.com/embed/dwg_uKTEFzg'},
+  {label:'Видео 9', url:'https://www.youtube.com/embed/8S6LdfM5Lxg'},
+  {label:'Видео 10', url:'https://www.youtube.com/embed/Dq0_BOtOD30'},
+  {label:'Видео 11', url:'https://www.youtube.com/embed/WNlACpS4_EU'},
+  {label:'Видео 12', url:'https://www.youtube.com/embed/jCBPOe8JD0Y'},
+  {label:'Видео 13', url:'https://www.youtube.com/embed/lFGx6n1CM3c'},
+  {label:'Видео 14', url:'https://www.youtube.com/embed/IpwU7C-E1jc'},
+  {label:'Видео 15', url:'https://www.youtube.com/embed/B5RlGgPob3E'},
+  {label:'Видео 16', url:'https://www.youtube.com/embed/aPu0bpMiBUQ'},
+  {label:'Видео 17', url:'https://www.youtube.com/embed/Hg3A8jvaKQw'},
+  {label:'Видео 18', url:'https://www.youtube.com/embed/c4s2yj2Hb58'},
+  {label:'Видео 19', url:'https://www.youtube.com/embed/hMFAoY32zM8'},
+  {label:'Видео 20', url:'https://www.youtube.com/embed/Iq12lLzgjCQ'},
+  {label:'Видео 21', url:'https://www.youtube.com/embed/Oc7dSdLf9ro'}
+] }
 ]
 },
 mexanika: {
@@ -285,11 +345,55 @@ name: 'Агрегатные (трансферные) станки',
 desc: 'Многофункциональные агрегатные станки',
 img: './images/agregatnye.jpg',
 subItems: [
-{ name: 'Агрегатные станки с линейным трансфером', desc: 'Станки с линейной передачей', img: './images/lineyniy.jpg' },
-{ name: 'Агрегатные станки с поворотным столом', desc: 'Станки с поворотным столом', img: './images/povorotniy.jpg' }
+{ name: 'Агрегатные станки с линейным трансфером', desc: 'Станки с линейной передачей — наши проекты.', videoLinks: [
+  {label:'Видео 1', url:'https://www.youtube.com/embed/qzPeVshsjp8'},
+  {label:'Видео 2', url:'https://www.youtube.com/embed/PNBMHpZYMso'},
+  {label:'Видео 3', url:'https://www.youtube.com/embed/_F9r31tymmA'},
+  {label:'Видео 4', url:'https://www.youtube.com/embed/8tjDt9ayQd0'},
+  {label:'Видео 5', url:'https://www.youtube.com/embed/yz7ufq6iW2E'},
+  {label:'Видео 6', url:'https://www.youtube.com/embed/NoCo6AnluUU'},
+  {label:'Видео 7', url:'https://www.youtube.com/embed/bYyT5Ka79jc'},
+  {label:'Видео 8', url:'https://www.youtube.com/embed/7hkIWmUasMg'},
+  {label:'Видео 9', url:'https://www.youtube.com/embed/jZ5AhWGNI_I'},
+  {label:'Видео 10', url:'https://www.youtube.com/embed/CD98T2sD7NY'},
+  {label:'Видео 11', url:'https://www.youtube.com/embed/y2M6uE79ruU'},
+  {label:'Видео 12', url:'https://www.youtube.com/embed/g9Lx7x20nNc'},
+  {label:'Видео 13', url:'https://www.youtube.com/embed/iYL8v5oqqRs'},
+  {label:'Видео 14', url:'https://www.youtube.com/embed/zSiVq1tOTIE'},
+  {label:'Видео 15', url:'https://www.youtube.com/embed/QEDmZvh0md4'},
+  {label:'Видео 16', url:'https://www.youtube.com/embed/6EP_q88xC_c'}
+] },
+{ name: 'Агрегатные станки с поворотным столом', desc: 'Станки с поворотным столом — наши проекты.', videoLinks: [
+  {label:'Видео 1', url:'https://www.youtube.com/embed/Un_hsl82PdA'},
+  {label:'Видео 2', url:'https://www.youtube.com/embed/-f0T97WhkdM'},
+  {label:'Видео 3', url:'https://www.youtube.com/embed/zxLAMdeQdx4'},
+  {label:'Видео 4', url:'https://www.youtube.com/embed/oH1Gj1H45PM'},
+  {label:'Видео 5', url:'https://www.youtube.com/embed/PfDHacTj8hU'},
+  {label:'Видео 6', url:'https://www.youtube.com/embed/pmKjKKS2kJ4'},
+  {label:'Видео 7', url:'https://www.youtube.com/embed/Alx0NmymBgg'},
+  {label:'Видео 8', url:'https://www.youtube.com/embed/T_zZusm53Fc'}
+] }
 ]
 },
-{ name: 'Специальные станки', desc: 'Станки специального назначения', img: './images/specialnye.jpg' },
+{ name: 'Специальные станки', desc: 'Станки специального назначения. Источник: macromak.com/trans_tezg.php', videoLinks: [
+  {label:'Видео 1', url:'https://www.youtube.com/embed/QfcKYhsI59Y'},
+  {label:'Видео 2', url:'https://www.youtube.com/embed/QlJaVAWJCkM'},
+  {label:'Видео 3', url:'https://www.youtube.com/embed/H8DU4EScE6I'},
+  {label:'Видео 4', url:'https://www.youtube.com/embed/RR6YVepxlCE'},
+  {label:'Видео 5', url:'https://www.youtube.com/embed/10w78fj-x_0'},
+  {label:'Видео 6', url:'https://www.youtube.com/embed/-3VIJyxx8FQ'},
+  {label:'Видео 7', url:'https://www.youtube.com/embed/vbw1AEbVfmg'},
+  {label:'Видео 8', url:'https://www.youtube.com/embed/EX3Dzl24Pus'},
+  {label:'Видео 9', url:'https://www.youtube.com/embed/U2pq86z1GNM'},
+  {label:'Видео 10', url:'https://www.youtube.com/embed/hn4-XGa_AeQ'},
+  {label:'Видео 11', url:'https://www.youtube.com/embed/BXN9o0oFO88'}
+] },
+{ name: 'Накатка резьбы', desc: 'Накатка резьбы — наши проекты.', videoLinks: [
+  {label:'Видео 1', url:'https://www.youtube.com/embed/XvKV52XhA0s'},
+  {label:'Видео 2', url:'https://www.youtube.com/embed/9TrM_aE8xp8'},
+  {label:'Видео 3', url:'https://www.youtube.com/embed/txMdJ863xi8'},
+  {label:'Видео 4', url:'https://www.youtube.com/embed/gb3hg9NXuTk'}
+] },
 {
 name: 'Стандартные узлы',
 desc: 'Стандартные узлы и компоненты',
@@ -352,8 +456,140 @@ name: 'Автоматизация подачи заготовки',
 desc: 'Системы автоматической подачи',
 img: './images/podacha.jpg',
 subItems: [
-{ name: 'Автоматизация подачи рулонной стали', desc: 'https://macromak.com/rulonlist.php', img: './images/rulon.jpg' },
-{ name: 'Автоматизация подачи отдельных заготовок', desc: 'Подача отдельных заготовок', img: './images/otdelnye.jpg' }
+{ name: 'Автоматизация подачи рулонной стали', desc: 'Полная линейка оборудования для подачи, разматывания и правки рулонной стали — от механических до сервоприводных систем с ЧПУ. Производитель: MACROMAK (Турция). Источник: macromak.com/rulonlist.php', img: './tecinmak_assets/servo1.jpg', subItems: [
+  { name: 'Серво валковые подающие устройства', shortDesc: 'Электронные серво валковые подающие устройства с ЧПУ.', desc: 'Серво валковые подающие устройства обеспечивают шаговую валковую подачу с ЧПУ рулонного листового металла на эксцентричные или гидравлические пресса, гильотинные ножницы и т.д. Серво валковые подающие устройства самым подходящим образом обеспечивают подачу разных шагов подряд с высокой точностью. Это автоматизация производства, цифровое управление, высокая рентабельность и работоспособность, большой объём производства за короткое время, страховка от сбоев нестандартного и неавтоматизированного производства. Электронные детали, использованные в наших устройствах, имеют гарантию от фирм SEW и BOSCH (Германия).', img: './tecinmak_assets/servo1.jpg', images: ['./tecinmak_assets/servo1.jpg','./tecinmak_assets/servo2.jpg','./tecinmak_assets/servo3.gif','./tecinmak_assets/servo4.gif','./tecinmak_assets/servo5.gif'], seriesTables: [
+      { name: 'Серия 1', thickness: 'Толщина 0,2–1,80 мм', note: 'Толщина ленты 0,2–1,80 мм, диаметр валов 45 мм. Прижим валов — пневматический. Точность подачи — ± 0,02. Максимальная длина шага подачи — 19782 мм. Вертикальный ход корпуса для регулировки высоты выхода ленты — 50 мм. Возможность освобождения ленты под ловители — есть.', videoLinks: [{label:'Видео 1', url:'./tecinmak_assets/servo_1.php'},{label:'Видео 2', url:'./tecinmak_assets/servo_2.php'},{label:'Видео 3', url:'./tecinmak_assets/servo_3.php'},{label:'Видео 4', url:'./tecinmak_assets/servo_4.php'}], pdfs: [
+          {label:'ECF-45-50 (PDF)', url:'./tecinmak_assets/ECF-45-50.pdf'},{label:'ECF-45-100 (PDF)', url:'./tecinmak_assets/ECF-45-100.pdf'},{label:'ECF-45-150 (PDF)', url:'./tecinmak_assets/ECF-45-150.pdf'},{label:'ECF-45-200 (PDF)', url:'./tecinmak_assets/ECF-45-200.pdf'},{label:'ECF-45-300 (PDF)', url:'./tecinmak_assets/ECF-45-300.pdf'},{label:'ECF-45-400 (PDF)', url:'./tecinmak_assets/ECF-45-400.pdf'}
+        ], specTable: { headers: ['Модель','Система ЧПУ и серво мотор','Выходной момент, Nm','Макс. ширина рулона','Мин/Макс толщина ленты','Макс. толщина при макс. ширине','Макс. сечение материала','Площадь сечения','Диаметр валов','Макс. скорость (м/мин)'], rows: [
+          ['ECF-45-50','SEW','3,3','50 мм','0,2–1,80 мм','1,5 мм','50 x 1,5 мм','75 мм²','45 мм','150'],
+          ['ECF-45-100','SEW','3,3','100 мм','0,2–1,80 мм','1,5 мм','100 x 1,5 мм','150 мм²','45 мм','150'],
+          ['ECF-45-150','SEW','3,3','150 мм','0,2–1,80 мм','1,5 мм','150 x 1,5 мм','225 мм²','45 мм','150'],
+          ['ECF-45-200','SEW','3,3','200 мм','0,2–1,80 мм','1,5 мм','200 x 1,5 мм','300 мм²','45 мм','150'],
+          ['ECF-45-300','SEW','3,3','300 мм','0,2–1,80 мм','1,5 мм','300 x 1,5 мм','450 мм²','45 мм','110'],
+          ['ECF-45-400','SEW','—','400 мм','0,2–1,80 мм','1,5 мм','400 x 1,5 мм','600 мм²','45 мм','110']
+        ] } },
+      { name: 'Серия 2', thickness: 'Толщина 0,2–2,5 мм', note: 'Толщина ленты 0,2–2,5 мм, диаметр валов 60 мм. Прижим валов — пневматический. Точность подачи — ± 0,02. Максимальная длина шага подачи — 26362 мм. Вертикальный ход корпуса для регулировки высоты выхода ленты — 50 мм. Возможность освобождения ленты под ловители — есть.', videoLinks: [{label:'Видео 5', url:'./tecinmak_assets/servo_5.php'},{label:'Видео 6', url:'./tecinmak_assets/servo_6.php'},{label:'Видео 7', url:'./tecinmak_assets/servo_7.php'}], pdfs: [
+          {label:'ECF-60-100 (PDF)', url:'./tecinmak_assets/ECF-60-100.pdf'},{label:'ECF-60-150 (PDF)', url:'./tecinmak_assets/ECF-60-150.pdf'},{label:'ECF-60-200 (PDF)', url:'./tecinmak_assets/ECF-60-200.pdf'},{label:'ECF-60-300 (PDF)', url:'./tecinmak_assets/ECF-60-300.pdf'},{label:'ECF-60-400 (PDF)', url:'./tecinmak_assets/ECF-60-400.pdf'},{label:'ECF-60-500 (PDF)', url:'./tecinmak_assets/ECF-60-500.pdf'}
+        ], specTable: { headers: ['Модель','Система ЧПУ и серво мотор','Выходной момент, Nm','Макс. ширина рулона','Мин/Макс толщина ленты','Макс. толщина при макс. ширине','Макс. сечение материала','Площадь сечения','Диаметр валов','Макс. скорость (м/мин)'], rows: [
+          ['ECF-60-100','SEW','4','100 мм','0,2–2,5 мм','2 мм','100 x 2 мм','200 мм²','60 мм','150'],
+          ['ECF-60-150','SEW','4','150 мм','0,2–2,5 мм','2 мм','150 x 2 мм','300 мм²','60 мм','150'],
+          ['ECF-60-200','SEW','4','200 мм','0,2–2,5 мм','2 мм','200 x 2 мм','400 мм²','60 мм','150'],
+          ['ECF-60-300','SEW','4','300 мм','0,2–2,5 мм','2 мм','300 x 2 мм','600 мм²','60 мм','110'],
+          ['ECF-60-400','SEW','8 / 9,5','400 мм','0,2–2,5 мм','2 мм','400 x 2 мм','800 мм²','60 мм','110'],
+          ['ECF-60-500','SEW','8 / 9,5','500 мм','0,2–2,5 мм','2 мм','500 x 2 мм','1000 мм²','60 мм','110']
+        ] } },
+      { name: 'Серия 3', thickness: 'Толщина 0,2–3,5 мм', note: 'Толщина ленты 0,2–3,5 мм, диаметр валов 80 мм, с редуктором без люфта. Точность подачи — ± 0,03. Прижим валов — пневматический. Максимальная длина шага подачи — 14544 мм. Вертикальный ход корпуса для регулировки высоты выхода ленты — 80 мм. Возможность освобождения ленты под ловители — есть.', videoLinks: [{label:'Видео 8', url:'./tecinmak_assets/servo_8.php'},{label:'Видео 9', url:'./tecinmak_assets/servo_9.php'},{label:'Видео 10', url:'./tecinmak_assets/servo_10.php'}], pdfs: [
+          {label:'ECF-80-210 (PDF)', url:'./tecinmak_assets/ECF-80-210.pdf'},{label:'ECF-80-310 (PDF)', url:'./tecinmak_assets/ECF-80-310.pdf'},{label:'ECF-80-420 (PDF)', url:'./tecinmak_assets/ECF-80-420.pdf'},{label:'ECF-80-520 (PDF)', url:'./tecinmak_assets/ECF-80-520.pdf'},{label:'ECF-80-665 (PDF)', url:'./tecinmak_assets/ECF-80-665.pdf'},{label:'ECF-80-800 (PDF)', url:'./tecinmak_assets/ECF-80-800.pdf'},{label:'ECF-80-1000 (PDF)', url:'./tecinmak_assets/ECF-80-1000.pdf'}
+        ], specTable: { headers: ['Модель','Система ЧПУ и серво мотор','Выходной момент, Nm','Макс. ширина рулона','Мин/Макс толщина ленты','Макс. сечение материала','Площадь сечения','Диаметр валов','Макс. скорость (м/мин)','Редуктор'], rows: [
+          ['ECF-80-210','SEW','8 / 9,5','210 мм','0,2–3,5 мм','210 x 3 мм','630 мм²','80 мм','150','Rexroth BOSCH'],
+          ['ECF-80-310','SEW','8 / 9,5','310 мм','0,2–3,5 мм','310 x 3 мм','930 мм²','80 мм','150','Rexroth BOSCH'],
+          ['ECF-80-420','SEW','8 / 9,5','420 мм','0,2–3,5 мм','420 x 3 мм','1260 мм²','80 мм','150','Rexroth BOSCH'],
+          ['ECF-80-520','SEW','8 / 9,5','520 мм','0,2–3,5 мм','520 x 3 мм','1560 мм²','80 мм','150','Rexroth BOSCH'],
+          ['ECF-80-665','SEW','17 / 21','665 мм','0,2–3,5 мм','665 x 3 мм','1995 мм²','80 мм','150','Rexroth BOSCH'],
+          ['ECF-80-800','SEW','>21','800 мм','0,2–3,5 мм','800 x 3 мм','2400 мм²','80 мм','150','Rexroth BOSCH'],
+          ['ECF-80-1000','SEW','>21','1000 мм','0,2–3,5 мм','1000 x 3 мм','3000 мм²','80 мм','150','Rexroth BOSCH']
+        ] } }
+    ] },
+  { name: 'Разматыватели рулонов', desc: 'Разматыватели рулонов металла — механические и гидравлические, одноголовые и двухголовые, вертикальные и горизонтальные конструкции.', img: './tecinmak_assets/razrul.gif', subItems: [
+      { name: 'Вертикальные разматыватели с механическим разжимом', desc: 'Система удерживания рулона: разжим изнутри. Максимальная скорость разматывания: 40 мт/мин. Рабочее напряжение: 380 V. Привод: AC мотор с редуктором.', img: './tecinmak_assets/razrul.gif', images: ['./tecinmak_assets/razrul.gif'], specTable: { headers: ['Модель','Макс. вес рулона (кг)','Макс. ширина рулона (мм)','Макс. наружный диаметр (мм)','Мин.-Макс. внутренний диаметр рулона (мм)','Мин.-Макс. толщина ленты (мм)','Инвертор регулировки скорости','Мощность двигателя'], rows: [
+        ['DRA-300','300','200','1000','300–600','0,1–2','Нет','0,25 кВт'],
+        ['DRA-1000','1000','250','1300','400–550','0,1–2','Нет','0,55 кВт'],
+        ['DRA-1500','1500','300','1300','340–550','0,2–3','Есть','0,75 кВт'],
+        ['DRA-2000','2000','400','1300','340–550','0,2–3','Есть','1,5 кВт'],
+        ['DRA-3000','3000','500','1300','400–550','0,2–3','Есть','1,5 кВт'],
+        ['DRA-4500','4500','650','1300','400–550','0,2–3','Есть','2,2 кВт']
+      ] } },
+      { name: 'Вертикальные разматыватели с гидравлическим разжимом', desc: 'Система удерживания рулона: гидравлический разжим. Максимальная скорость разматывания: 40 мт/мин. Рабочее напряжение: 380 V. Привод: AC мотор с редуктором, с инвертором регулировки скорости. Гидравлическая загрузочная тележка: опционально.', img: './tecinmak_assets/razaq.gif', images: ['./tecinmak_assets/razaq.gif'], specTable: { headers: ['Модель','Макс. вес рулона (кг)','Макс. ширина рулона (мм)','Макс. наружный диаметр (мм)','Мин.-Макс. внутренний диаметр рулона (мм)','Мин.-Макс. толщина ленты (мм)','Мощность двигателя'], rows: [
+        ['DRA-4500H','4500','650','1300','450–550','0,2–3','2,2 кВт'],
+        ['DRA-4500HA','4500','650','1300','450–550','0,2–3','2,2 кВт'],
+        ['DRA-5500HA','5500','650','1300','450–550','0,2–3','2,2 кВт'],
+        ['DRA-6000HA','6000','700','1400','450–550','0,2–3','3 кВт'],
+        ['DRA-7000HA','7000','600–1200','1400','450–550','0,2–3','3 кВт'],
+        ['DRA-8000HA','8000','800–1200','1400','450–550','0,2–3','4 кВт'],
+        ['DRA-10000HA','10000','1000–1200','1400','450–550','0,2–3','5 кВт'],
+        ['DRA-15000HA','15000','1000–1500','1400','450–550','0,2–3','6 кВт']
+      ] } },
+      { name: 'Вертикальные двухголовые разматыватели', desc: 'Система удерживания рулона: механический разжим. Максимальная скорость разматывания: 40 мт/мин. Рабочее напряжение: 380 V. Привод: AC мотор с редуктором.', img: './tecinmak_assets/razdvux.gif', images: ['./tecinmak_assets/razdvux.gif'], specTable: { headers: ['Модель','Макс. вес рулона','Макс. ширина рулона (мм)','Макс. наружный диаметр (мм)','Мин.-Макс. внутренний диаметр рулона (мм)','Мин.-Макс. толщина ленты (мм)','Инвертор регулировки скорости','Мощность двигателя'], rows: [
+        ['DRA-300×2','300 кг×2','200','1000','300–600','0,1–2','Нет','0,25 кВт'],
+        ['DRA-1000×2','1000 кг×2','250','1300','400–550','0,1–2','Нет','0,55 кВт'],
+        ['DRA-1500×2','1500 кг×2','300','1300','340–550','0,2–3','Есть','0,75 кВт'],
+        ['DRA-2000×2','2000 кг×2','400','1300','340–550','0,2–3','Есть','1,5 кВт'],
+        ['DRA-3000×2','3000 кг×2','500','1300','450–550','0,2–3','Есть','1,5 кВт'],
+        ['DRA-4500×2','4500 кг×2','650','1300','400–450','0,2–3','Есть','2,2 кВт']
+      ] } },
+      { name: 'Горизонтальные разматыватели', desc: 'Максимальная скорость разматывания: 25 мт/мин. Рабочее напряжение: 380 V. Привод: редуктор с коробкой передач, с инвертором регулировки скорости.', img: './tecinmak_assets/razmatqor.gif', images: ['./tecinmak_assets/razmatqor.gif'], specTable: { headers: ['Модель','Макс. вес рулона (кг)','Макс. ширина рулона (мм)','Макс. наружный диаметр (мм)','Мин.-Макс. толщина ленты (мм)','Двигатель с регулировкой скорости','Потягивающий привод','Потягивающие валы','Потягивающий ролик сжима сверху'], rows: [
+        ['YRA-1000','1000','150','1200','0,1–1','0,75 кВт','—','—','—'],
+        ['YRA-2000','2000','200','1200','0,1–1','1,1 кВт','—','—','—'],
+        ['YRA-3000','3000','200','1200','0,1–1','2,2 кВт','—','—','—'],
+        ['YRA-1000C','1000','150','1200','0,1–1','0,75 кВт','0,25 кВт','100 мм','50 мм'],
+        ['YRA-2000C','2000','200','1200','0,1–1','1,5 кВт','0,25 кВт','100 мм','50 мм'],
+        ['YRA-3000C','3000','200','1200','0,1–1','2,2 кВт','0,25 кВт','100 мм','50 мм']
+      ] } }
+  ] },
+  { name: 'Листоправильные станки', desc: 'Листоправильные станки для точного выравнивания рулонной ленты перед подачей в производственную линию.', img: './tecinmak_assets/lp.gif', images: ['./tecinmak_assets/lp.gif'], videoLinks: [{label:'Видео', url:'./tecinmak_assets/bantdogrultma.php'}], videoGridLayout: true, pdfs: [
+      {label:'BD-210/40 (PDF)', url:'./tecinmak_assets/bd21040.pdf'},{label:'BD-210/60 (PDF)', url:'./tecinmak_assets/bd21060.pdf'},{label:'BD-310/40 (PDF)', url:'./tecinmak_assets/bd31040.pdf'},{label:'BD-310/60 (PDF)', url:'./tecinmak_assets/bd31060.pdf'},{label:'BD-420/40 (PDF)', url:'./tecinmak_assets/bd42040.pdf'},{label:'BD-420/60 (PDF)', url:'./tecinmak_assets/bd42060.pdf'},{label:'BD-520/40 (PDF)', url:'./tecinmak_assets/bd52040.pdf'},{label:'BD-520/60 (PDF)', url:'./tecinmak_assets/bd52060.pdf'},{label:'BD-665/40 (PDF)', url:'./tecinmak_assets/bd66540.pdf'},{label:'BD-665/60 (PDF)', url:'./tecinmak_assets/bd66560.pdf'}
+    ], specTable: { headers: ['Модель','Макс. ширина рулона','Мин.-Макс. толщина ленты','Вырезка материала','Кол-во выпрямляющих валов','Диаметр валов','Макс. скорость','Мотор','Напряжение','Привод'], rows: [
+      ['BD-210/40','210 мм','0,3–2,5 мм','Макс. 210 x 2 мм','5/7/9/11','40 мм','25 мт/мин','0,55 кВт','380 В','AC мотор с редуктором'],
+      ['BD-210/60','210 мм','0,5–3,5 мм','Макс. 210 x 3 мм','5/7/9/11','60 мм','25 мт/мин','0,75 кВт','380 В','AC мотор с редуктором'],
+      ['BD-310/40','310 мм','0,3–2,5 мм','Макс. 310 x 1,8 мм','5/7/9/11','40 мм','25 мт/мин','0,75 кВт','380 В','AC мотор с редуктором'],
+      ['BD-310/60','310 мм','0,5–3,5 мм','Макс. 310 x 3 мм','5/7/9/11','60 мм','25 мт/мин','1,5 кВт','380 В','AC мотор с редуктором'],
+      ['BD-420/40','420 мм','0,3–2,5 мм','Макс. 420 x 1,8 мм','5/7/9/11','40 мм','25 мт/мин','1,5 кВт','380 В','AC мотор с редуктором'],
+      ['BD-420/60','420 мм','0,5–3,5 мм','Макс. 420 x 2,5 мм','5/7/9/11','60 мм','25 мт/мин','2 кВт','380 В','AC мотор с редуктором'],
+      ['BD-520/40','520 мм','0,3–2,2 мм','Макс. 520 x 1,6 мм','5/7/9/11','40 мм','25 мт/мин','2 кВт','380 В','AC мотор с редуктором'],
+      ['BD-520/60','520 мм','0,5–3,5 мм','Макс. 520 x 3 мм','5/7/9/11','60 мм','25 мт/мин','2,2 кВт','380 В','AC мотор с редуктором'],
+      ['BD-665/40','665 мм','0,3–2 мм','Макс. 665 x 1,5 мм','5/7/9/11','40 мм','25 мт/мин','2 кВт','380 В','AC мотор с редуктором'],
+      ['BD-665/60','665 мм','0,5–3,5 мм','Макс. 665 x 3 мм','5/7/9/11','60 мм','25 мт/мин','3 кВт','380 В','AC мотор с редуктором']
+  ] } },
+  { name: 'Правильно-разматывающие устройства', desc: 'Комбинированные устройства, объединяющие разматыватель рулона и правильный механизм в одном узле.', img: './tecinmak_assets/pravila.gif', subItems: [
+      { name: 'Стандартные правильно-разматывающие устройства', desc: 'Рабочее напряжение: 380 V. Привод: AC мотор с редуктором, с инвертором регулировки скорости.', img: './tecinmak_assets/pravila.gif', images: ['./tecinmak_assets/pravila.gif'], specTable: { headers: ['Модель','Макс. вес рулона (кг)','Макс. ширина рулона (мм)','Макс. наружный диаметр (мм)','Мин.-Макс. внутренний диаметр (мм)','Мин.-Макс. толщина ленты (мм)','Система разжима','Макс. площадь вырезки (мм²)','Макс. вырезка материала (мм)','Правильные валы шт×Ø','Тянущие валы шт×Ø','Макс. скорость разматывания','Мощность двигателя'], rows: [
+        ['CFDRA-1000 UB','1000','250','1100','400–550','0,5–3','Механический','625','250×2,5','5×47 мм','2×58 мм','16 мт/мин','1,5 кВт'],
+        ['CFDRA-500','500','200','1100','400–550','0,5–3','Механический','600','200×3','5×60 мм','2×60 мм','25 мт/мин','0,75 кВт'],
+        ['CFDRA-1000','1000','250','1300','400–550','0,5–3','Механический','750','250×3','5×60 мм','2×60 мм','25 мт/мин','1,5 кВт'],
+        ['CFDRA-2000','2000','300','1300','400–550','0,8–3,5','Механический','900','300×3','5×60 мм','2×60 мм','25 мт/мин','1,5 кВт'],
+        ['CFDRA-3000','3000','400','1300','400–550','0,8–3,5','Механический','1200','400×3','5×60 мм','2×60 мм','25 мт/мин','2,2 кВт'],
+        ['CFDRA-4000','4000','500','1300','400–550','0,8–3,5','Механический','1500','500×3','5×60 мм','2×60 мм','25 мт/мин','3 кВт'],
+        ['CFDRA-5000 H','5000','650','1300','400–550','0,8–3,5','Гидравлический','1950','650×3','5×60 мм','2×60 мм','25 мт/мин','3 кВт'],
+        ['CFDRA-6000 H','6000','800','1300','400–550','0,8–3,5','Гидравлический','2400','800×3','5×60 мм','2×60 мм','25 мт/мин','4 кВт'],
+        ['BTA-3000','3000','400','1200','—','1–3','Механический','1200','400×3','5×60 мм','2×60 мм','16 мт/мин','2,2 кВт']
+      ] } },
+      { name: 'Правильно-разматывающие устройства с двухголовым разматывателем', desc: 'Система удерживания рулона: механический разжим. Максимальная скорость разматывания: 25 мт/мин. Рабочее напряжение: 380 V. Привод: AC мотор с редуктором, с инвертором регулировки скорости.', img: './tecinmak_assets/pravilb.gif', images: ['./tecinmak_assets/pravilb.gif'], specTable: { headers: ['Модель','Макс. вес рулона','Макс. ширина рулона (мм)','Макс. наружный диаметр (мм)','Мин.-Макс. внутренний диаметр (мм)','Мин.-Макс. толщина ленты (мм)','Макс. площадь вырезки (мм²)','Макс. вырезка материала (мм)','Правильные валы шт×Ø','Тянущие валы шт×Ø','Мощность двигателя'], rows: [
+        ['CFDRA-500×2','500 кг×2','200','1100','400–550','0,5–3','600','200×3','5×60 мм','2×60 мм','0,75 кВт'],
+        ['CFDRA-1000×2','1000 кг×2','250','1300','400–550','0,5–3','750','250×3','5×60 мм','2×60 мм','1,5 кВт'],
+        ['CFDRA-2000×2','2000 кг×2','300','1300','400–550','0,8–3,5','900','300×3','5×60 мм','2×60 мм','1,5 кВт'],
+        ['CFDRA-3000×2','3000 кг×2','400','1300','400–550','0,8–3,5','1200','400×3','5×60 мм','2×60 мм','2,2 кВт'],
+        ['CFDRA-4000×2','4000 кг×2','500','1300','400–550','0,8–3,5','1500','500×3','5×60 мм','2×60 мм','3 кВт']
+      ] } }
+  ] },
+  { name: 'Комбинированные разматывающие и правильно-подающие устройства (3 в 1)', desc: 'Комбинированные устройства «3 в 1» — разматыватель, правильный механизм и подающее устройство в одном узле.', img: './tecinmak_assets/kombin.gif', images: ['./tecinmak_assets/kombin.gif'], videoLinks: [
+      {label:'Видео 1', url:'./tecinmak_assets/kombinraz1.php'},{label:'Видео 2', url:'./tecinmak_assets/kombinraz2.php'},{label:'Видео 3', url:'./tecinmak_assets/kombinraz3.php'},{label:'Видео 4', url:'./tecinmak_assets/kombinraz4.php'}
+    ], videoGridLayout: true, specTable: { headers: ['Модель','Макс. ширина рулона (мм)','Мин.-Макс. толщина ленты (мм)','Макс. вес рулона (кг)','Загрузочная тележка'], rows: [
+      ['CFL-1','300 / 400 / 500 / 600','0,6–3,2','2000 / 5000','Опционально'],
+      ['CFL-2','300 / 400 / 500 / 600 / 800 / 1000 / 1300','0,3–4,5','2000 / 5000 / 7000','Опционально']
+  ] } },
+  { name: 'Механические подающие устройства', desc: 'Механические податчики обеспечивают подачу рулонов металла на эксцентриковые прессы и на прессформы Н.', img: './tecinmak_assets/mp.jpg', images: ['./tecinmak_assets/mp.jpg'], videoLinks: [{label:'Видео', url:'./tecinmak_assets/mbs.php'}], videoGridLayout: true, pdfs: [
+      {label:'MBS-100 (PDF)', url:'./tecinmak_assets/mbs-100.pdf'},{label:'MBS-150 (PDF)', url:'./tecinmak_assets/mbs-150.pdf'},{label:'MBS-225 (PDF)', url:'./tecinmak_assets/mbs-225.pdf'}
+    ], specTable: { headers: ['Модель','Макс. ширина рулона','Мин.-Макс. толщина ленты','Вырезка материала','Площадь вырезки материала','Макс. об/мин','Мин.-Макс. ход','Макс. ход опоры','Точность подачи'], rows: [
+      ['MBS-100','100 мм','0,2–2 мм','макс. 100 x 2 мм','200 мм²','600 шт.','3–100 мм','80 мм','± 0,01'],
+      ['MBS-150','150 мм','0,2–2,5 мм','макс. 150 x 2,5 мм','375 мм²','400 шт.','3–150 мм','80 мм','± 0,01'],
+      ['MBS-225','225 мм','0,2–3,0 мм','макс. 225 x 3 мм','675 мм²','250 шт.','5–225 мм','100 мм','± 0,01']
+  ] } },
+  { name: 'Сервоприводы с выпрямителем', desc: 'Сервоприводные подающие устройства со встроенной функцией правки материала.', img: './DogrultmaliServoSuruculerORTA.jpg', images: ['./DogrultmaliServoSuruculerORTA.jpg'], seriesTables: [
+    { name: 'Сервоприводы с выпрямителем средней серии', note: '', img: './DogrultmaliServoSuruculerORTA.jpg', images: ['./DogrultmaliServoSuruculerORTA.jpg'] },
+    { name: 'Сервоприводы с выпрямителем толстой серии', note: '', img: './DogrultmaliServoSuruculerKALIN.jpg', images: ['./DogrultmaliServoSuruculerKALIN.jpg'] }
+  ] }
+] },
+{ name: 'Автоматизация подачи отдельных заготовок', desc: 'Подача отдельных заготовок', img: './images/otdelnye.jpg', subItems: [
+  { name: 'Роботизированная загрузка/выгрузка', desc: 'Наши проекты.', videoLinks: [
+    {label:'Видео 1', url:'https://www.youtube.com/embed/Hnkj06fJJuU'},
+    {label:'Видео 2', url:'https://www.youtube.com/embed/wvuq3QfvlHQ'}
+  ] },
+  { name: 'Системы трансфера заготовки', desc: 'Источник: coiltech.com.tr/pres-transfer-robotlari/', subItems: [
+    { name: 'Дестакеры', desc: 'Устройства для разделения стопок заготовок.', subItems: [] },
+    { name: 'Трансфер внутри штампа', desc: 'Системы внутриштамповой передачи заготовки.', subItems: [] },
+    { name: 'Трансфер между прессами', desc: 'Системы передачи заготовки между прессами. Источник: germakmakina.com.tr/Groups/Default.aspx?LanguageID=1&GroupID=3&ContentID=91', subItems: [] }
+  ] }
+] },
+{ name: 'Комбинированные системы', desc: 'Комбинированные системы подачи и трансфера.', subItems: [] }
 ]
 },
 {
@@ -361,15 +597,28 @@ name: 'Прогрессивные и трансферные штампы',
 desc: 'Современные штамповочные системы',
 img: './images/progressivnye.jpg',
 subItems: [
-{ name: 'Проектирование прогрессивных штампов', desc: 'Разработка прогрессивных штампов', img: './images/progressiv.jpg' },
-{ name: 'Проектирование трансферных штампов', desc: 'Разработка трансферных штампов', img: './images/transfer.jpg' }
-]
-}
+{ name: 'Прогрессивные штампы', desc: 'Разработка прогрессивных штампов.', img: './images/progressiv.jpg' },
+{ name: 'Трансферные штампы', desc: 'Разработка трансферных штампов.', img: './images/transfer.jpg' }
 ]
 },
-ispytaniya: { name: 'ИСПЫТАНИЯ', desc: 'Оборудование для испытаний и тестирования.', img: './images/ispytaniya.jpg', subItems: [] },
+{ name: 'Штамповочные комплексы', desc: 'Наши проекты.', videoLinks: [
+  {label:'Видео 1', url:'https://www.youtube.com/embed/0c2iKW12n64'}
+] }
+]
+},
+ispytaniya: { name: 'ИСПЫТАНИЯ', desc: 'Оборудование для испытаний и тестирования.', img: './images/ispytaniya.jpg', subItems: [
+  { name: 'Видео', desc: 'Наши проекты.', videoLinks: [
+    {label:'Видео 1', url:'https://www.youtube.com/embed/9AguYjWmDOI'},
+    {label:'Видео 2', url:'https://www.youtube.com/embed/FUn3cjVXreQ'},
+    {label:'Видео 3', url:'https://www.youtube.com/embed/Oe81oVPkDaU'}
+  ] }
+] },
 savarka: { name: 'СВАРКА', desc: 'Автоматические сварочные системы.', img: './images/savarka.jpg', subItems: [] },
-upakovka: { name: 'УПАКОВКА', desc: 'Автоматические упаковочные линии.', img: './images/upakovka.jpg', subItems: [] },
+upakovka: { name: 'УПАКОВКА', desc: 'Автоматические упаковочные линии.', img: './images/upakovka.jpg', subItems: [
+  { name: 'Видео', desc: 'Наши проекты.', videoLinks: [
+    {label:'Видео 1', url:'https://www.youtube.com/embed/F_WR5Z69W1Y'}
+  ] }
+] },
 standart: {
 name: 'СТАНДАРТНЫЕ УЗЛЫ',
 desc: 'Стандартные узлы автоматизации.',
@@ -379,7 +628,13 @@ subItems: [
 { name: 'Конвейеры', desc: 'Конвейерные системы', img: './images/konveyery.jpg' },
 { name: 'Манипуляторы', desc: 'Промышленные манипуляторы', img: './images/manipulyatory.jpg' },
 { name: 'Поворотные столы', desc: 'Поворотные столы', img: './images/povorotnye.jpg' },
-{ name: 'Обрабатывающие головки', desc: 'Обрабатывающие головки', img: './images/golovki.jpg' }
+{ name: 'Обрабатывающие головки', desc: 'Обрабатывающие головки', img: './images/golovki.jpg' },
+{ name: 'Клепальные головки', desc: 'В автоматизационных системах и при многостанционных технических задачах, устанавливая клепальные головки в нужном положении, возможно орбитальным или радиальным способом склёпывать детали горизонтально, вертикально или снизу вверх.', img: './tecinmak_assets/kg.jpg', images: ['./tecinmak_assets/kg.jpg'], videoLinks: [{label:'Видео', url:'./tecinmak_assets/percinpresleriuniteleri.php'}], videoGridLayout: true, specTable: { headers: ['Модель','Усилие','Мин-макс Ø заклёпки','Мотор','Напряжение','Ход','Масса'], rows: [
+  ['P-600 U','600 кг','Ø2,5–Ø6 мм','0,25 кВт','220/380','30 мм','19'],
+  ['P-1100 U','1000 кг','Ø5–Ø8 мм','0,37 кВт','220/380','50 мм','26'],
+  ['P-2200 U','2000 кг','Ø7–Ø12 мм','0,55 кВт','220/380','80 мм','79'],
+  ['P-3300 U','2000 кг','Ø10–Ø16 мм','0,75 кВт','220/380','80 мм','120']
+] }, pdfs: [{label:'P-600 U (PDF)', url:'./tecinmak_assets/kg.pdf'},{label:'P-1100 U (PDF)', url:'./tecinmak_assets/kg.pdf'},{label:'P-2200 U (PDF)', url:'./tecinmak_assets/kg.pdf'},{label:'P-3300 U (PDF)', url:'./tecinmak_assets/kg.pdf'}] }
 ]
 }
 }
@@ -396,10 +651,52 @@ items: {
 linii: {
 title: 'ЛИНИИ ПОД КЛЮЧ',
 items: {
-'shtampovki': { name: 'ЛИНИИ ШТАМПОВКИ', desc: 'Комплексные линии штамповки.', img: './images/shtampovki.jpg', subItems: [] },
+'shtampovki': { name: 'ЛИНИИ ШТАМПОВКИ', desc: 'Комплексные линии штамповки.', img: './images/shtampovki.jpg', subItems: [
+  { name: 'Видео', desc: 'Наши проекты.', videoLinks: [
+    {label:'Видео 1', url:'https://www.youtube.com/embed/QM-GeH6EOmY'},
+    {label:'Видео 2', url:'https://www.youtube.com/embed/JYlks078--I'},
+    {label:'Видео 3', url:'https://www.youtube.com/embed/mpv-eMwlylc'},
+    {label:'Видео 4', url:'https://www.youtube.com/embed/nlJ2LsKMHL4'},
+    {label:'Видео 5', url:'https://www.youtube.com/embed/QyAV-pW_YYI'},
+    {label:'Видео 6', url:'https://www.youtube.com/embed/M9kBmq58Deg'},
+    {label:'Видео 7', url:'https://www.youtube.com/embed/zBdpuMYZXeU'},
+    {label:'Видео 8', url:'https://www.youtube.com/embed/y1eW_YyA7-o'},
+    {label:'Видео 9', url:'https://www.youtube.com/embed/cqdFa4HNcfU'},
+    {label:'Видео 10', url:'https://www.youtube.com/embed/_3f_GNhr-AQ'},
+    {label:'Видео 11', url:'https://www.youtube.com/embed/8eFylWBqu8U'},
+    {label:'Видео 12', url:'https://www.youtube.com/embed/_Eh9iIwuSnc'},
+    {label:'Видео 13', url:'https://www.youtube.com/embed/Tz1CwFXy2v8'}
+  ] }
+] },
 'rotacion': { name: 'ЛИНИИ РОТАЦИОННОЙ ПРОБИВКИ', desc: 'Линии ротационной пробивки.', img: './images/rotacion.jpg', subItems: [] },
-'profilirovaniya': { name: 'ЛИНИИ ПРОФИЛИРОВАНИЯ', desc: 'Линии профилирования.', img: './images/profilirovaniya.jpg', subItems: [] },
-'poperechnaya': { name: 'ЛИНИИ ПОПЕРЕЧНОЙ РЕЗКИ', desc: 'Линии поперечной резки.', img: './images/poperechnaya.jpg', subItems: [] },
+'profilirovaniya': { name: 'ЛИНИИ ПРОФИЛИРОВАНИЯ', desc: 'Линии профилирования.', img: './images/profilirovaniya.jpg', subItems: [
+  { name: 'Видео', desc: 'Наши проекты.', videoLinks: [
+    {label:'Видео 1', url:'https://www.youtube.com/embed/Gsy1h8t6lTI'},
+    {label:'Видео 2', url:'https://www.youtube.com/embed/baSyqzNeFNw'},
+    {label:'Видео 3', url:'https://www.youtube.com/embed/_MBzu3TlVuk'},
+    {label:'Видео 4', url:'https://www.youtube.com/embed/kIyhet8Ao6o'},
+    {label:'Видео 5', url:'https://www.youtube.com/embed/eTFGqbtLUxY'},
+    {label:'Видео 6', url:'https://www.youtube.com/embed/_frL-4R7SkU'},
+    {label:'Видео 7', url:'https://www.youtube.com/embed/DCVI8yFl23M'},
+    {label:'Видео 8', url:'https://www.youtube.com/embed/4M74V7CrbqU'},
+    {label:'Видео 9', url:'https://www.youtube.com/embed/7MJLBKLSu2s'},
+    {label:'Видео 10', url:'https://www.youtube.com/embed/v0dvDDrjAok'},
+    {label:'Видео 11', url:'https://www.youtube.com/embed/tzy3OtDFZeI'},
+    {label:'Видео 12', url:'https://www.youtube.com/embed/EH_CCDXaCRY'},
+    {label:'Видео 13', url:'https://www.youtube.com/embed/ESIe_PzCbSw'}
+  ] }
+] },
+'poperechnaya': { name: 'ЛИНИИ ПОПЕРЕЧНОЙ РЕЗКИ', desc: 'Линии поперечной резки.', img: './images/poperechnaya.jpg', subItems: [
+  { name: 'Видео', desc: 'Наши проекты.', videoLinks: [
+    {label:'Видео 1', url:'https://www.youtube.com/embed/Mpc-LT_CkWk'},
+    {label:'Видео 2', url:'https://www.youtube.com/embed/gDJzQiGsbzQ'},
+    {label:'Видео 3', url:'https://www.youtube.com/embed/T0bi7_evZ_A'},
+    {label:'Видео 4', url:'https://www.youtube.com/embed/4p0_gu7EEhM'},
+    {label:'Видео 5', url:'https://www.youtube.com/embed/kECIoTuqM-o'},
+    {label:'Видео 6', url:'https://www.youtube.com/embed/bH3B6_7bwXI'},
+    {label:'Видео 7', url:'https://www.youtube.com/embed/cL2ocP_OPKY'}
+  ] }
+] },
 'prodolnaya': { name: 'ЛИНИИ ПРОДОЛЬНОЙ РЕЗКИ', desc: 'Линии продольной резки.', img: './images/prodolnaya.jpg', subItems: [] },
 'truby': { name: 'ЛИНИИ ДЛЯ ПРОИЗВОДСТВА ТРУБ ERW/HF', desc: 'Линии производства труб ERW/HF.', img: './images/truby.jpg', subItems: [] }
 }
@@ -413,7 +710,7 @@ desc: 'Оборудование для штамповки.',
 img: './images/shtampovochnoe.jpg',
 subItems: [
 { name: 'Кривошипные прессы', desc: 'Кривошипные (эксцентриковые) прессы С-образные и Н-образные, включая серии для штамповки длинномеров (оконной фурнитуры) и высокоскоростные ламинационные прессы. Производитель: MACROMAK (Турция).', img: './tecinmak_assets/shmc4_1.jpg', subItems: [
-  { name: 'С образные прессы с 4-мя направляющими', desc: 'С-образный эксцентриковый пресс с 4 направляющими ползуна.', img: './tecinmak_assets/shmc4_1.jpg', images: ['./tecinmak_assets/shmc4_1.jpg','./tecinmak_assets/shmc4_2.jpg','./tecinmak_assets/shmc4_3.jpg','./tecinmak_assets/shmc4_4.jpg','./tecinmak_assets/shmc4_5.jpg'], specTable: { headers: ['Характеристики','Изм.','EEP-15','EEP-25','EEP-40','EEP-60','EEP-80','EEP-125','EEP-150','EEP-200','EEP-300'], rows: [
+  { name: 'С образные прессы с 4-мя направляющими', desc: 'С-образный эксцентриковый пресс с 4 направляющими ползуна.', img: './image.png', images: ['./image.png'], specTable: { headers: ['Характеристики','Изм.','EEP-15','EEP-25','EEP-40','EEP-60','EEP-80','EEP-125','EEP-150','EEP-200','EEP-300'], rows: [
     ['Усилие','т','15','25','40','60','80','125','150','200','300'],
     ['Глубина выемки a','мм','140','175','220','260','280','310','320','340','370'],
     ['Просвет b','мм','210','300','380','360','345','465','485','500','530'],
@@ -487,6 +784,72 @@ subItems: [
     ['Расст. между ползуном и столом (мм)','300','350','400','400','450'],
     ['Размеры стола (мм)','600×400','600×400','800×600','800×600','900×700'],
     ['Мощность двигателя (кВт)','5,5','7,5','11','15','18,5']
+  ] } }
+] },
+{ name: 'Трансферные прессы', desc: 'Механические трансферные прессы H-типа. Производитель: Fröhlich (Турция). Источник: germakmakina.com.tr, frohlich.com.tr/products-10/transfer-presleri.php', img: 'https://frohlich.com.tr/dosyalar/H-FRHMT100-1000x952.jpg', subItems: [
+  { name: 'FRHMT 100', desc: 'H-типа 100-тонный механический транспортный пресс. Транспортные движения осуществляются от коленчатого вала. Благодаря механической системе все транспортные движения отличаются высокой точностью, скоростью и качеством. Возможность выполнения нескольких операций на одном станке и минимизация расхода материала. Позволяет также свободно использовать прогрессивные штампы.', img: 'https://frohlich.com.tr/dosyalar/H-FRHMT100-1000x952.jpg', images: ['https://frohlich.com.tr/dosyalar/H-FRHMT100-1000x952.jpg'], specTable: { headers: ['Характеристика','Значение'], rows: [
+    ['Номинальное усилие','100 т'],
+    ['Диапазон регулировки хода (полуавт.)','100 мм'],
+    ['Регулировка ползуна','90 мм'],
+    ['Макс. закрытая высота штампа','750 мм'],
+    ['Макс. высота стола ползуна','850 мм'],
+    ['Число ходов','30–120 об/мин'],
+    ['Опорная поверхность ползуна','8 шт.'],
+    ['Кол-во кривошипов','1 шт.'],
+    ['Кол-во шатунов','2 шт.'],
+    ['Уравновешивающие поршни ползуна','4 шт.'],
+    ['Размеры стола ползуна','1100×670 мм'],
+    ['Размеры нижнего стола','1100×750 мм'],
+    ['Главный двигатель','15 кВт'],
+    ['Примерный вес','12 500 кг']
+  ] } },
+  { name: 'FRHMT 150', desc: 'H-типа 150-тонный механический транспортный пресс.', img: 'https://frohlich.com.tr/dosyalar/H-FRHMT150.jpg-1000x952.jpg', images: ['https://frohlich.com.tr/dosyalar/H-FRHMT150.jpg-1000x952.jpg'], specTable: { headers: ['Характеристика','Значение'], rows: [
+    ['Номинальное усилие','150 т'],
+    ['Диапазон регулировки хода (полуавт.)','150 мм'],
+    ['Регулировка ползуна','120 мм'],
+    ['Макс. закрытая высота штампа','600 мм'],
+    ['Макс. высота стола ползуна','750 мм'],
+    ['Число ходов','30–120 об/мин'],
+    ['Опорная поверхность ползуна','8 шт.'],
+    ['Кол-во кривошипов','1 шт.'],
+    ['Кол-во шатунов','2 шт.'],
+    ['Уравновешивающие поршни ползуна','4 шт.'],
+    ['Размеры стола ползуна','1700×670 мм'],
+    ['Размеры нижнего стола','1500×600 мм'],
+    ['Главный двигатель','18,5 кВт'],
+    ['Примерный вес','20 000 кг']
+  ] } },
+  { name: 'FRHMT 200', desc: 'H-типа 200-тонный механический транспортный пресс.', img: 'https://frohlich.com.tr/dosyalar/200-ton-FRHMT200-1000x952.jpg', images: ['https://frohlich.com.tr/dosyalar/200-ton-FRHMT200-1000x952.jpg'], specTable: { headers: ['Характеристика','Значение'], rows: [
+    ['Номинальное усилие','200 т'],
+    ['Диапазон регулировки хода (полуавт.)','150 мм'],
+    ['Регулировка ползуна','120 мм'],
+    ['Макс. закрытая высота штампа','600 мм'],
+    ['Макс. высота стола ползуна','750 мм'],
+    ['Число ходов','30–120 об/мин'],
+    ['Опорная поверхность ползуна','8 шт.'],
+    ['Кол-во кривошипов','1 шт.'],
+    ['Кол-во шатунов','2 шт.'],
+    ['Уравновешивающие поршни ползуна','4 шт.'],
+    ['Размеры стола ползуна','1700×670 мм'],
+    ['Размеры нижнего стола','1500×600 мм'],
+    ['Главный двигатель','22 кВт'],
+    ['Примерный вес','27 000 кг']
+  ] } },
+  { name: 'FRHMT 250', desc: 'H-типа 250-тонный механический транспортный пресс.', img: 'https://frohlich.com.tr/dosyalar/FRHMT250-1000x952.jpg', images: ['https://frohlich.com.tr/dosyalar/FRHMT250-1000x952.jpg'], specTable: { headers: ['Характеристика','Значение'], rows: [
+    ['Номинальное усилие','250 т'],
+    ['Диапазон регулировки хода (полуавт.)','150 мм'],
+    ['Регулировка ползуна','120 мм'],
+    ['Макс. закрытая высота штампа','600 мм'],
+    ['Макс. высота стола ползуна','750 мм'],
+    ['Число ходов','30–120 об/мин'],
+    ['Опорная поверхность ползуна','8 шт.'],
+    ['Кол-во кривошипов','1 шт.'],
+    ['Кол-во шатунов','2 шт.'],
+    ['Уравновешивающие поршни ползуна','4 шт.'],
+    ['Размеры стола ползуна','2150×670 мм'],
+    ['Размеры нижнего стола','2050×800 мм'],
+    ['Главный двигатель','30 кВт'],
+    ['Примерный вес','35 000 кг']
   ] } }
 ] },
 { name: 'Гидравлические прессы', desc: 'Гидравлические прессы С-типа, D-типа и Н-типа для листовой штамповки, чеканки и трансфертной штамповки. Производитель: REHA MAKINA (Турция).', img: 'https://www.rehamakina.com/upload/c-tipi-hidrolik-pres_k_1412167737.jpg', subItems: [
@@ -702,7 +1065,13 @@ subItems: [
 ]
 },
 'listogiby': { name: 'ЛИСТОГИБЫ', desc: 'Листогибочные станки.', img: './images/listogiby.jpg', subItems: [] },
-'multiformery': { name: 'МУЛЬТИФОРМЕРЫ', desc: 'Мультиформеры.', img: './images/multiformery.jpg', subItems: [] },
+'multiformery': { name: 'МУЛЬТИФОРМЕРЫ', desc: 'Мультиформеры.', img: './images/multiformery.jpg', subItems: [
+  { name: 'Видео', desc: 'Наши проекты.', videoLinks: [
+    {label:'Видео 1', url:'https://www.youtube.com/embed/ZGpc1CGVa7w'},
+    {label:'Видео 2', url:'https://www.youtube.com/embed/Fadr14Ib-xY'},
+    {label:'Видео 3', url:'https://www.youtube.com/embed/2EF2uFWfZVU'}
+  ] }
+] },
 'truby_profil': {
 name: 'ОБРАБОТКА ТРУБ И ПРОФИЛЯ',
 desc: 'Оборудование для обработки труб и профиля.',
@@ -807,13 +1176,29 @@ items: {
 otrasli: {
 title: 'РЕШЕНИЯ ПО ОТРАСЛЯМ',
 items: {
-'avtomobil': { name: 'АВТОМОБИЛЕСТРОЕНИЕ', desc: 'Решения для автомобильной промышленности.', img: './images/avtomobil.jpg', subItems: [] },
-'bytovaya': { name: 'БЫТОВАЯ ТЕХНИКА', desc: 'Решения для производства бытовой техники.', img: './images/bytovaya.jpg', subItems: [] },
-'zamochnye': { name: 'ПРОИЗВОДСТВО ЗАМОЧНЫХ ИЗДЕЛИЙ', desc: 'Решения для производства замков.', img: './images/zamochnye.jpg', subItems: [] },
-'mebel': { name: 'ПРОИЗВОДСТВО МЕБЕЛЬНОЙ ФУРНИТУРЫ', desc: 'Решения для производства мебельной фурнитуры.', img: './images/mebel.jpg', subItems: [] },
-'okonnaya': { name: 'ПРОИЗВОДСТВО ОКОННОЙ ФУРНИТУРЫ', desc: 'Решения для производства оконной фурнитуры.', img: './images/okonnaya.jpg', subItems: [] },
+'avtomobil': { name: 'АВТОМОБИЛЕСТРОЕНИЕ', desc: 'Решения для автомобильной промышленности.', img: './images/avtomobil.jpg', subItems: [
+  { name: 'Видео', desc: 'Наши проекты.', videoLinks: [{label:'Видео 1', url:'https://www.youtube.com/embed/FR2HMS8DW_0'},{label:'Видео 2', url:'https://www.youtube.com/embed/5efnZ2RcNnc'},{label:'Видео 3', url:'https://www.youtube.com/embed/vFlteMl5T8Y'},{label:'Видео 4', url:'https://www.youtube.com/embed/_5HDN-sRX0o'},{label:'Видео 5', url:'https://www.youtube.com/embed/eGLlHKKxaAU'},{label:'Видео 6', url:'https://www.youtube.com/embed/lMMqTVa9Stw'},{label:'Видео 7', url:'https://www.youtube.com/embed/pkGz5UOR9dk'},{label:'Видео 8', url:'https://www.youtube.com/embed/kLNYb8wrQ3s'},{label:'Видео 9', url:'https://www.youtube.com/embed/9AguYjWmDOI'},{label:'Видео 10', url:'https://www.youtube.com/embed/oH1Gj1H45PM'},{label:'Видео 11', url:'https://www.youtube.com/embed/7hkIWmUasMg'},{label:'Видео 12', url:'https://www.youtube.com/embed/10w78fj-x_0'},{label:'Видео 13', url:'https://www.youtube.com/embed/pmKjKKS2kJ4'},{label:'Видео 14', url:'https://www.youtube.com/embed/CD98T2sD7NY'},{label:'Видео 15', url:'https://www.youtube.com/embed/y2M6uE79ruU'},{label:'Видео 16', url:'https://www.youtube.com/embed/-3VIJyxx8FQ'},{label:'Видео 17', url:'https://www.youtube.com/embed/g9Lx7x20nNc'},{label:'Видео 18', url:'https://www.youtube.com/embed/zSiVq1tOTIE'},{label:'Видео 19', url:'https://www.youtube.com/embed/Alx0NmymBgg'},{label:'Видео 20', url:'https://www.youtube.com/embed/FUn3cjVXreQ'},{label:'Видео 21', url:'https://www.youtube.com/embed/EX3Dzl24Pus'},{label:'Видео 22', url:'https://www.youtube.com/embed/T_zZusm53Fc'},{label:'Видео 23', url:'https://www.youtube.com/embed/QEDmZvh0md4'},{label:'Видео 24', url:'https://www.youtube.com/embed/6EP_q88xC_c'},{label:'Видео 25', url:'https://www.youtube.com/embed/Oe81oVPkDaU'},{label:'Видео 26', url:'https://www.youtube.com/embed/BXN9o0oFO88'}] }
+] },
+'bytovaya': { name: 'БЫТОВАЯ ТЕХНИКА', desc: 'Решения для производства бытовой техники.', img: './images/bytovaya.jpg', subItems: [
+  { name: 'Видео', desc: 'Наши проекты.', videoLinks: [{label:'Видео 1', url:'https://www.youtube.com/embed/yz7ufq6iW2E'}] }
+] },
+'zamochnye': { name: 'ПРОИЗВОДСТВО ЗАМОЧНЫХ ИЗДЕЛИЙ', desc: 'Решения для производства замков.', img: './images/zamochnye.jpg', subItems: [
+  { name: 'Видео', desc: 'Наши проекты.', videoLinks: [{label:'Видео 1', url:'https://www.youtube.com/embed/kZoMPcVolTA'},{label:'Видео 2', url:'https://www.youtube.com/embed/Vqy2O-gA_mQ'},{label:'Видео 3', url:'https://www.youtube.com/embed/Ebh7cZ_awdI'},{label:'Видео 4', url:'https://www.youtube.com/embed/mcHFecNVR2U'},{label:'Видео 5', url:'https://www.youtube.com/embed/8yu0mOZ1gNw'},{label:'Видео 6', url:'https://www.youtube.com/embed/fpPAlGjqTFk'},{label:'Видео 7', url:'https://www.youtube.com/embed/Q6P-KhnXwhM'},{label:'Видео 8', url:'https://www.youtube.com/embed/WNlACpS4_EU'},{label:'Видео 9', url:'https://www.youtube.com/embed/Un_hsl82PdA'},{label:'Видео 10', url:'https://www.youtube.com/embed/-f0T97WhkdM'}] }
+] },
+'mebel': { name: 'ПРОИЗВОДСТВО МЕБЕЛЬНОЙ ФУРНИТУРЫ', desc: 'Решения для производства мебельной фурнитуры.', img: './images/mebel.jpg', subItems: [
+  { name: 'Видео', desc: 'Наши проекты.', videoLinks: [{label:'Видео 1', url:'https://www.youtube.com/embed/dwg_uKTEFzg'},{label:'Видео 2', url:'https://www.youtube.com/embed/8yu0mOZ1gNw'},{label:'Видео 3', url:'https://www.youtube.com/embed/fpPAlGjqTFk'},{label:'Видео 4', url:'https://www.youtube.com/embed/Q6P-KhnXwhM'},{label:'Видео 5', url:'https://www.youtube.com/embed/Hg3A8jvaKQw'}] }
+] },
+'okonnaya': { name: 'ПРОИЗВОДСТВО ОКОННОЙ ФУРНИТУРЫ', desc: 'Решения для производства оконной фурнитуры.', img: './images/okonnaya.jpg', subItems: [
+  { name: 'Видео', desc: 'Наши проекты.', videoLinks: [{label:'Видео 1', url:'https://www.youtube.com/embed/zxLAMdeQdx4'},{label:'Видео 2', url:'https://www.youtube.com/embed/mpv-eMwlylc'},{label:'Видео 3', url:'https://www.youtube.com/embed/nlJ2LsKMHL4'},{label:'Видео 4', url:'https://www.youtube.com/embed/QyAV-pW_YYI'},{label:'Видео 5', url:'https://www.youtube.com/embed/sJSLd4rfj3A'},{label:'Видео 6', url:'https://www.youtube.com/embed/PsmjvFatOmg'},{label:'Видео 7', url:'https://www.youtube.com/embed/xBrTbsn2p8s'},{label:'Видео 8', url:'https://www.youtube.com/embed/PNBMHpZYMso'},{label:'Видео 9', url:'https://www.youtube.com/embed/Dq0_BOtOD30'},{label:'Видео 10', url:'https://www.youtube.com/embed/jCBPOe8JD0Y'},{label:'Видео 11', url:'https://www.youtube.com/embed/lFGx6n1CM3c'},{label:'Видео 12', url:'https://www.youtube.com/embed/IpwU7C-E1jc'},{label:'Видео 13', url:'https://www.youtube.com/embed/B5RlGgPob3E'}] }
+] },
 'stroitel': { name: 'ПРОИЗВОДСТВО СТРОИТЕЛЬНЫХ МАТЕРИАЛОВ', desc: 'Решения для производства стройматериалов.', img: './images/stroitel.jpg', subItems: [] },
-'santehnika': { name: 'САНТЕХНИКА, ГАЗОВАЯ АППАРАТУРА', desc: 'Решения для сантехники и газового оборудования.', img: './images/santehnika.jpg', subItems: [] }
+'santehnika': { name: 'САНТЕХНИКА, ГАЗОВАЯ АППАРАТУРА', desc: 'Решения для сантехники и газового оборудования.', img: './images/santehnika.jpg', subItems: [
+  { name: 'Видео', desc: 'Наши проекты.', videoLinks: [{label:'Видео 1', url:'https://www.youtube.com/embed/BF70si2zPuU'},{label:'Видео 2', url:'https://www.youtube.com/embed/8S6LdfM5Lxg'},{label:'Видео 3', url:'https://www.youtube.com/embed/aPu0bpMiBUQ'},{label:'Видео 4', url:'https://www.youtube.com/embed/wMdLOpWcRe4'},{label:'Видео 5', url:'https://www.youtube.com/embed/V-5OEvPh-qA'},{label:'Видео 6', url:'https://www.youtube.com/embed/F_WR5Z69W1Y'},{label:'Видео 7', url:'https://www.youtube.com/embed/c4s2yj2Hb58'},{label:'Видео 8', url:'https://www.youtube.com/embed/hMFAoY32zM8'},{label:'Видео 9', url:'https://www.youtube.com/embed/y1eW_YyA7-o'},{label:'Видео 10', url:'https://www.youtube.com/embed/cqdFa4HNcfU'},{label:'Видео 11', url:'https://www.youtube.com/embed/2EF2uFWfZVU'},{label:'Видео 12', url:'https://www.youtube.com/embed/Oc7dSdLf9ro'}] }
+] },
+'elektrokomponentov': { name: 'ПРОИЗВОДСТВО ЭЛЕКТРОКОМПОНЕНТОВ', desc: 'Решения для производства электрокомпонентов.', subItems: [] },
+'skladskoe': { name: 'ПРОИЗВОДСТВО СКЛАДСКОГО ОБОРУДОВАНИЯ', desc: 'Решения для производства складского оборудования.', subItems: [
+  { name: 'Видео', desc: 'Наши проекты.', videoLinks: [{label:'Видео 1', url:'https://www.youtube.com/embed/kIyhet8Ao6o'},{label:'Видео 2', url:'https://www.youtube.com/embed/tzy3OtDFZeI'},{label:'Видео 3', url:'https://www.youtube.com/embed/7MJLBKLSu2s'},{label:'Видео 4', url:'https://www.youtube.com/embed/v0dvDDrjAok'},{label:'Видео 5', url:'https://www.youtube.com/embed/EH_CCDXaCRY'},{label:'Видео 6', url:'https://www.youtube.com/embed/ESIe_PzCbSw'}] }
+] }
 }
 }
 };
@@ -870,13 +1255,13 @@ let ptGalleryImages = [];
 
 function ptBuildTable(specTable, pdfs) {
   const hasPdfs = pdfs && pdfs.length > 0;
-  return `<div style="overflow-x:auto;"><table class="w-full" style="border-collapse:collapse;border:2px solid #5ec9c4;table-layout:fixed;font-size:10.5px;"><thead><tr>${specTable.headers.map(h => `<th style="border:1px solid #5ec9c4;background:#fff;color:#111;font-weight:700;" class="px-1 py-2 text-center">${h}</th>`).join('')}</tr></thead><tbody>${specTable.rows.map((row) => {
+  return `<div style="overflow-x:auto;"><table class="w-full" style="border-collapse:collapse;border:2px solid #5ec9c4;table-layout:auto;font-size:12px;"><thead><tr>${specTable.headers.map(h => `<th style="border:1px solid #5ec9c4;background:#fff;color:#111;font-weight:700;white-space:nowrap;" class="px-2 py-2 text-center">${h}</th>`).join('')}</tr></thead><tbody>${specTable.rows.map((row) => {
     const modelName = row[0];
     const matchedPdf = hasPdfs ? pdfs.find(p => p.label.indexOf(modelName) === 0) : null;
     const modelCell = matchedPdf
       ? `<a href="${matchedPdf.url}" target="_blank" class="text-blue-600 font-semibold hover:underline">${modelName}</a><br/><span style="color:#c0392b;font-size:9px;font-weight:700;">▤ PDF</span>`
       : `<span class="font-semibold">${modelName}</span>`;
-    return `<tr>${[modelCell, ...row.slice(1)].map((c, ci) => `<td style="border:1px solid #5ec9c4;word-break:break-word;" class="px-1 py-2 text-center${ci===0 ? ' bg-white' : ''}">${c}</td>`).join('')}</tr>`;
+    return `<tr>${[modelCell, ...row.slice(1)].map((c, ci) => `<td style="border:1px solid #5ec9c4;white-space:nowrap;" class="px-2 py-2 text-center${ci===0 ? ' bg-white' : ''}">${c}</td>`).join('')}</tr>`;
   }).join('')}</tbody></table></div>`;
 }
 
@@ -906,11 +1291,16 @@ function ptShowSeries(idx) {
 
 function ptOpenVideoModal() {
   const s = ptSeriesData[ptCurSeriesIdx];
-  if (!s || !s.videoLinks || !s.videoLinks.length) return;
   const section = document.getElementById('pt-video-section');
   const grid = document.getElementById('pt-video-grid');
   if (!section || !grid) return;
   grid.innerHTML = '';
+  if (!s || !s.videoLinks || !s.videoLinks.length) {
+    grid.innerHTML = '<p style="color:#6b7280;font-size:14px;grid-column:1/-1;">Видео пока недоступно — будет добавлено позже.</p>';
+    section.style.display = 'block';
+    section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    return;
+  }
   s.videoLinks.forEach(function (v) {
     const slot = document.createElement('div');
     slot.setAttribute('style', 'aspect-ratio:16/10;background:#111;border-radius:10px;display:flex;align-items:center;justify-content:center;color:#fff;cursor:pointer;position:relative;overflow:hidden;');
@@ -942,6 +1332,28 @@ function ptStartAutoSlide() {
   if (ptGalleryImages.length > 1) {
     ptAutoSlideTimer = setInterval(() => { ptGalleryNav(1); }, 5000);
   }
+}
+
+function ptOpenLightbox(src) {
+  let overlay = document.getElementById('pt-lightbox-overlay');
+  if (!overlay) {
+    overlay = document.createElement('div');
+    overlay.id = 'pt-lightbox-overlay';
+    overlay.style.cssText = 'display:none;position:fixed;inset:0;background:rgba(0,0,0,.8);z-index:400;align-items:center;justify-content:center;padding:24px;';
+    const img = document.createElement('img');
+    img.id = 'pt-lightbox-img';
+    img.style.cssText = 'max-width:90vw;max-height:85vh;border-radius:8px;';
+    const closeBtn = document.createElement('button');
+    closeBtn.textContent = '\u2715';
+    closeBtn.style.cssText = 'position:absolute;top:20px;right:24px;background:#111;color:#fff;border:none;width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:16px;';
+    closeBtn.onclick = function () { overlay.style.display = 'none'; };
+    overlay.appendChild(img);
+    overlay.appendChild(closeBtn);
+    overlay.addEventListener('click', function (e) { if (e.target === overlay) overlay.style.display = 'none'; });
+    document.body.appendChild(overlay);
+  }
+  document.getElementById('pt-lightbox-img').src = src;
+  overlay.style.display = 'flex';
 }
 
 function ptSwapGallery(el) {
@@ -1028,8 +1440,8 @@ function renderPage() {
           ptCurSeriesIdx = 0;
 
           const galleryThumbs = images.length > 1 ? `
-            <div class="flex gap-2 mt-2" id="pt-gallery-thumbs">
-              ${images.map((im, ii) => `<img src="${im}" data-idx="${ii}" onclick="ptSwapGallery(this)" class="pt-thumb w-14 h-11 object-cover rounded-lg border-2 ${ii===0 ? 'border-orange-500' : 'border-gray-200'} cursor-pointer" onerror="this.style.display='none'" />`).join('')}
+            <div class="" id="pt-gallery-thumbs" style="width:300px;display:grid;grid-template-columns:repeat(2,1fr);gap:10px;">
+              ${images.map((im, ii) => `<img src="${im}" data-idx="${ii}" onclick="ptOpenLightbox('${im}')" class="pt-thumb w-36 h-36 object-cover rounded-lg border-2 ${ii===0 ? 'border-orange-500' : 'border-gray-200'} cursor-zoom-in" onerror="this.style.display='none'" />`).join('')}
             </div>` : '';
 
           const videoBox = `
@@ -1046,14 +1458,13 @@ function renderPage() {
             <p class="description mt-3 mb-5 max-w-3xl">${item.desc || ''}</p>
             <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
               <div>
-                <div class="relative">
-                  <img id="pt-gallery-main" data-cur="0" data-total="${images.length}" src="${images[0]}" alt="${item.name}" class="w-full rounded-xl border border-gray-200" onerror="this.src='https://placehold.co/600x400/f3f4f6/888?text=${encodeURIComponent(item.name)}'" />
-                  ${images.length > 1 ? `
-                  <button onclick="ptGalleryNav(-1)" class="absolute top-1/2 left-2 -translate-y-1/2 bg-black/50 hover:bg-black/75 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm"><i class="fas fa-chevron-left"></i></button>
-                  <button onclick="ptGalleryNav(1)" class="absolute top-1/2 right-2 -translate-y-1/2 bg-black/50 hover:bg-black/75 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm"><i class="fas fa-chevron-right"></i></button>
-                  ` : ''}
+                <div class="flex gap-2">
+                  <div class="relative" style="max-width:460px;">
+                    <img id="pt-gallery-main" data-cur="0" data-total="${images.length}" src="${images[0]}" alt="${item.name}" class="w-full rounded-xl border border-gray-200 cursor-zoom-in" onclick="ptOpenLightbox(this.src)" onerror="this.src='https://placehold.co/600x400/f3f4f6/888?text=${encodeURIComponent(item.name)}'" />
+                    
+                  </div>
+                  ${galleryThumbs}
                 </div>
-                ${galleryThumbs}
                 ${videoBox}
                 <button onclick="alert('Форма заявки скоро будет добавлена. Свяжитесь с нами: info@tecinmak.com')" class="w-full mt-3 bg-orange-500 hover:bg-orange-600 text-white font-bold uppercase text-xs tracking-wide py-3 rounded-xl border-2 border-black transition">Отправить запрос</button>
               </div>
@@ -1073,7 +1484,7 @@ function renderPage() {
           return;
         }
 
-        if (hasSpecs || hasSpecTable) {
+        if (hasSpecs || hasSpecTable || (item.videoLinks && item.videoLinks.length > 0)) {
           const hasFeatures = item.features && item.features.length > 0;
           const hasPdfs = item.pdfs && item.pdfs.length > 0;
           const images = (item.images && item.images.length > 0) ? item.images : [item.img || imgFallback];
@@ -1088,18 +1499,20 @@ function renderPage() {
 
           const charsHTML = hasSpecTable
             ? ptBuildTable(item.specTable, item.pdfs)
-            : `<ul class="list-none p-0 m-0 bg-white border-2 border-gray-100 rounded-xl divide-y divide-gray-100">${item.specs.map(r => `<li class="flex justify-between px-4 py-2.5 text-sm"><span class="text-gray-500">${r[0]}</span><span class="font-semibold text-right">${r[1]}</span></li>`).join('')}</ul>`
-              + (hasPdfs ? `<div class="mt-4 flex flex-wrap gap-3">${item.pdfs.map(p => `<a href="${p.url}" target="_blank" class="text-orange-500 hover:text-orange-600 font-semibold text-xs"><i class="fas fa-file-pdf mr-1"></i>${p.label}</a>`).join('')}</div>` : '');
+            : hasSpecs
+            ? `<ul class="list-none p-0 m-0 bg-white border-2 border-gray-100 rounded-xl divide-y divide-gray-100">${item.specs.map(r => `<li class="flex justify-between px-4 py-2.5 text-sm"><span class="text-gray-500">${r[0]}</span><span class="font-semibold text-right">${r[1]}</span></li>`).join('')}</ul>`
+              + (hasPdfs ? `<div class="mt-4 flex flex-wrap gap-3">${item.pdfs.map(p => `<a href="${p.url}" target="_blank" class="text-orange-500 hover:text-orange-600 font-semibold text-xs"><i class="fas fa-file-pdf mr-1"></i>${p.label}</a>`).join('')}</div>` : '')
+            : '<p class="text-sm text-gray-500">Технические характеристики будут добавлены позже.</p>';
 
           const galleryThumbs = images.length > 1 ? `
-            <div class="flex gap-2 mt-2" id="pt-gallery-thumbs">
-              ${images.map((im, ii) => `<img src="${im}" data-idx="${ii}" onclick="ptSwapGallery(this)" class="pt-thumb w-14 h-11 object-cover rounded-lg border-2 ${ii===0 ? 'border-orange-500' : 'border-gray-200'} cursor-pointer" onerror="this.style.display='none'" />`).join('')}
+            <div class="" id="pt-gallery-thumbs" style="width:300px;display:grid;grid-template-columns:repeat(2,1fr);gap:10px;">
+              ${images.map((im, ii) => `<img src="${im}" data-idx="${ii}" onclick="ptOpenLightbox('${im}')" class="pt-thumb w-36 h-36 object-cover rounded-lg border-2 ${ii===0 ? 'border-orange-500' : 'border-gray-200'} cursor-zoom-in" onerror="this.style.display='none'" />`).join('')}
             </div>` : '';
 
-          const videoBtnHTML = (combinedVideoLinks.length > 0) ? `
-            <button id="pt-series-video-btn" onclick="ptOpenVideoModal()" class="w-full mt-3 flex items-center justify-center gap-2 bg-gray-800 hover:bg-black text-white font-bold uppercase text-xs tracking-wide py-3 rounded-xl transition">
+          const videoBtnHTML = `
+            <button id="pt-series-video-btn" onclick="ptOpenVideoModal()" class="w-full flex items-center justify-center gap-2 bg-gray-800 hover:bg-black text-white font-bold uppercase text-xs tracking-wide py-3 rounded-xl transition">
               <i class="fas fa-play-circle text-orange-500"></i>Видео
-            </button>` : '';
+            </button>`;
 
           ptSeriesData = [{ name: item.name, note: '', specTable: item.specTable, pdfs: item.pdfs, videoLinks: combinedVideoLinks }];
           ptCurSeriesIdx = 0;
@@ -1109,29 +1522,25 @@ function renderPage() {
             <h1 class="subpage-title mt-2">${item.name}</h1>
             <p class="breadcrumb">${breadcrumb}</p>
             <div class="mt-3">${introHTML}</div>
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-              <div>
-                <div class="relative">
-                  <img id="pt-gallery-main" data-cur="0" data-total="${images.length}" src="${images[0]}" alt="${item.name}" class="w-full rounded-xl border border-gray-200" onerror="this.src='https://placehold.co/600x400/f3f4f6/888?text=${encodeURIComponent(item.name)}'" />
-                  ${images.length > 1 ? `
-                  <button onclick="ptGalleryNav(-1)" class="absolute top-1/2 left-2 -translate-y-1/2 bg-black/50 hover:bg-black/75 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm"><i class="fas fa-chevron-left"></i></button>
-                  <button onclick="ptGalleryNav(1)" class="absolute top-1/2 right-2 -translate-y-1/2 bg-black/50 hover:bg-black/75 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm"><i class="fas fa-chevron-right"></i></button>
-                  ` : ''}
-                </div>
-                ${galleryThumbs}
-                ${videoBtnHTML}
-                <button onclick="alert('Форма заявки скоро будет добавлена. Свяжитесь с нами: info@tecinmak.com')" class="w-full mt-3 bg-orange-500 hover:bg-orange-600 text-white font-bold uppercase text-xs tracking-wide py-3 rounded-xl border-2 border-black transition">Отправить запрос</button>
+            <div class="flex flex-wrap gap-3 items-start">
+              <div class="relative" style="max-width:460px;">
+                <img id="pt-gallery-main" data-cur="0" data-total="${images.length}" src="${images[0]}" alt="${item.name}" class="w-full max-h-[380px] object-contain rounded-xl border border-gray-200 cursor-zoom-in bg-gray-50" style="max-width:460px;" onclick="ptOpenLightbox(this.src)" onerror="this.src='https://placehold.co/600x400/f3f4f6/888?text=${encodeURIComponent(item.name)}'" />
+                
               </div>
-              <div class="md:col-span-3" style="min-width:0;">
-                <h3 class="font-bold text-base mb-3">Характеристики</h3>
-                ${charsHTML}
+              ${galleryThumbs}
+              <div class="flex flex-col gap-2 flex-1" style="min-width:180px;">
+                ${videoBtnHTML}
+                <button onclick="alert('Форма заявки скоро будет добавлена. Свяжитесь с нами: info@tecinmak.com')" class="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold uppercase text-xs tracking-wide py-3 rounded-xl border-2 border-black transition">Отправить запрос</button>
               </div>
             </div>
-            ${(combinedVideoLinks.length > 0) ? `
+            <div class="mt-6">
+              <h3 class="font-bold text-base mb-3">Характеристики</h3>
+              ${charsHTML}
+            </div>
             <div id="pt-video-section" style="display:none;margin-top:28px;">
               <h3 style="font-weight:800;font-size:16px;margin-bottom:12px;"><i class="fas fa-play-circle text-orange-500 mr-2"></i>Видео</h3>
               <div id="pt-video-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;"></div>
-            </div>` : ''}
+            </div>
           `;
           ptStartAutoSlide();
           return;
