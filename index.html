@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Tecinmak — avadanlıq və maşınqayırma</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+<style>
+body.pt-dark {
+  background:#fff !important;
+  filter: invert(1) hue-rotate(180deg);
+  min-height: 100vh;
+}
+body.pt-dark img,
+body.pt-dark video,
+body.pt-dark iframe,
+body.pt-dark svg,
+body.pt-dark picture {
+  filter: invert(1) hue-rotate(180deg);
+}
+body.pt-dark .sticky-header,
+body.pt-dark .bg-orange-500,
+body.pt-dark .bg-orange-600,
+body.pt-dark .text-orange-500 {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+.sticky-header {
+position: sticky;
+top: 0;
+z-index: 100;
+background: #f97316;
+}
+.dropdown-group:hover .dropdown-menu { display: block; }
+.dropdown-menu { display: none; position: absolute; top: 100%; left: 0; min-width: 320px; background: #ffffff; border-radius: 10px; border: 2px solid #1a1a1a; box-shadow: 0 20px 50px rgba(0,0,0,0.15); padding: 0.5rem 0; z-index: 50; }
+.dropdown-menu .sub-dropdown { position: relative; }
+.dropdown-menu .sub-dropdown:hover .sub-menu { display: block; }
+.sub-menu { display: none; position: absolute; top: -4px; left: 100%; min-width: 250px; background: #ffffff; border-radius: 10px; border: 2px solid #1a1a1a; box-shadow: 0 20px 50px rgba(0,0,0,0.15); padding: 0.5rem 0; }
+.mega-hover:hover .mega-content { display: flex !important; }
+.mega-content { display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); background: #ffffff; border-top: 2px solid #1a1a1a; border-bottom: 2px solid #1a1a1a; padding: 1.5rem 2rem; box-shadow: 0 20px 50px rgba(0,0,0,0.12); border-radius: 0 0 12px 12px; gap: 2rem; justify-content: center; flex-wrap: wrap; z-index: 60; flex-direction: row !important; min-width: 500px; }
+.dropdown-menu .sub-dropdown > a {
+color: #1a1a1a !important;
+padding: 8px 16px;
+border-radius: 6px;
+transition: 0.15s;
+cursor: pointer;
+background: transparent !important;
+text-decoration: none !important;
+display: flex !important;
+justify-content: space-between !important;
+align-items: center !important;
+}
+.dropdown-menu .sub-dropdown > a:hover {
+background: #f97316 !important;
+color: #ffffff !important;
+}
+.dropdown-menu .sub-dropdown > a:hover span {
+color: #ffffff !important;
+}
+.dropdown-menu .sub-dropdown > a:hover .fa-chevron-right {
+color: #ffffff !important;
+}
+.dropdown-menu .sub-dropdown:hover > a {
+background: #f97316 !important;
+color: #ffffff !important;
+}
+.dropdown-menu .sub-dropdown:hover > a span {
+color: #ffffff !important;
+}
+.dropdown-menu .sub-dropdown:hover > a .fa-chevron-right {
+color: #ffffff !important;
+}
+.sub-menu a {
+color: #1a1a1a !important;
+padding: 8px 16px;
+display: block;
+font-size: 0.85rem;
+border-radius: 6px;
+transition: 0.15s;
+font-weight: 500;
+background: #ffffff !important;
+text-decoration: none !important;
+}
+.sub-menu a:hover {
+background: #f97316 !important;
+color: #ffffff !important;
+}
+.main-nav-link {
+color: #1a1a1a !important;
+font-weight: 700;
+font-size: 0.9rem;
+padding: 4px 2px;
+position: relative;
+transition: 0.2s;
+letter-spacing: 0.5px;
+background: transparent !important;
+text-decoration: none !important;
+}
+.main-nav-link:hover {
+color: #1a1a1a !important;
+background: transparent !important;
+}
+.main-nav-link::after {
+content: '';
+position: absolute;
+bottom: -2px;
+left: 0;
+width: 0;
+height: 2px;
+background: #1a1a1a;
+transition: width 0.25s;
+border-radius: 2px;
+}
+.main-nav-link:hover::after {
+width: 100%;
+}
+.main-nav-link-products {
+color: #ffffff;
+font-weight: 700;
+font-size: 0.9rem;
+padding: 4px 2px;
+position: relative;
+letter-spacing: 0.5px;
+background: transparent !important;
+text-decoration: none !important;
+}
+.main-nav-link-products:hover {
+color: #ffffff !important;
+background: transparent !important;
+}
+.main-nav-link-products::after {
+content: '';
+position: absolute;
+bottom: -2px;
+left: 0;
+width: 100%;
+height: 2px;
+background: #1a1a1a;
+border-radius: 2px;
+}
+.main-nav-link-products i {
+color: #ffffff;
+}
+.slide-text {
+position: absolute;
+top: 30px;
+left: 40px;
+z-index: 15;
+color: white;
+font-size: 2rem;
+font-weight: 800;
+text-shadow: 0 4px 20px rgba(0,0,0,0.6);
+letter-spacing: 1px;
+background: rgba(0,0,0,0.35);
+padding: 10px 22px;
+border-radius: 12px;
+backdrop-filter: blur(4px);
+border-left: 5px solid #f97316;
+}
+.slide-text span {
+display: block;
+font-size: 0.9rem;
+font-weight: 400;
+opacity: 0.85;
+margin-top: 4px;
+letter-spacing: 0.5px;
+}
+.slide-text-small {
+position: absolute;
+top: 30px;
+left: 40px;
+z-index: 15;
+color: white;
+font-size: 1.5rem;
+font-weight: 700;
+text-shadow: 0 4px 20px rgba(0,0,0,0.6);
+letter-spacing: 0.5px;
+background: rgba(0,0,0,0.3);
+padding: 8px 18px;
+border-radius: 10px;
+backdrop-filter: blur(4px);
+border-left: 4px solid #f97316;
+}
+.slide-text-small span {
+display: block;
+font-size: 0.75rem;
+font-weight: 400;
+opacity: 0.85;
+margin-top: 2px;
+letter-spacing: 0.3px;
+}
+.slide-split {
+display: flex;
+width: 100%;
+height: 100%;
+}
+.slide-split img {
+width: 50%;
+height: 100%;
+object-fit: cover;
+}
+@media (max-width: 768px) {
+.mega-content { min-width: auto; gap: 1rem; padding: 1rem; left: 0; transform: none; }
+.mega-item img { width: 60px; height: 50px; }
+.mega-item span { font-size: 0.65rem; white-space: normal; }
+.slide-text { top: 16px; left: 16px; font-size: 1.2rem; padding: 8px 14px; }
+.slide-text span { font-size: 0.65rem; }
+.slide-text-small { top: 16px; left: 16px; font-size: 1rem; padding: 6px 14px; }
+.slide-text-small span { font-size: 0.6rem; }
+.slide-split { flex-direction: column; }
+.slide-split img { width: 100%; height: 50%; }
+.dropdown-menu { min-width: 240px; }
+.sub-menu { min-width: 200px; left: 90%; }
+}
+@media (max-width: 480px) {
+.mega-content { flex-direction: column !important; align-items: center; gap: 0.6rem; padding: 0.8rem; min-width: 180px; }
+.mega-item { flex-direction: row; gap: 0.8rem; width: 100%; justify-content: flex-start; }
+.mega-item img { width: 50px; height: 40px; }
+.mega-item span { white-space: normal; font-size: 0.8rem; }
+.slide-text { top: 12px; left: 12px; font-size: 0.9rem; padding: 5px 10px; }
+.slide-text span { font-size: 0.55rem; }
+.slide-text-small { top: 12px; left: 12px; font-size: 0.8rem; padding: 4px 10px; }
+.slide-text-small span { font-size: 0.5rem; }
+.dropdown-menu { min-width: 200px; }
+.sub-menu { min-width: 180px; left: 85%; }
+}
+</style>
+</head>
+<body>
+<!-- ===== HEADER ===== -->
+<header class="sticky-header">
+<div class="bg-orange-500 border-b-2 border-black py-1.5">
+<div class="max-w-7xl mx-auto px-4 sm:px-6">
+<div class="flex flex-wrap items-center justify-between gap-2">
+<a href="index.html" class="flex items-center gap-3">
+<div class="w-11 h-11 rounded-xl border-2 border-black bg-white flex items-center justify-center overflow-hidden flex-shrink-0">
+<img src="./WhatsApp Image 2026-07-28 at 13.07.51.jpeg" alt="Tecinmak Logo" class="w-full h-full object-cover" />
+</div>
+<div>
+<div class="text-2xl font-extrabold tracking-wide text-black leading-none">TECIN<span class="text-white">MAK</span></div>
+<div class="text-[0.55rem] font-semibold text-black uppercase tracking-wider opacity-80 mt-0.5">Оборудование и технологии для обработки металла</div>
+</div>
+</a>
+<div class="flex flex-wrap items-center gap-3">
+<div class="flex flex-wrap items-center gap-1 text-sm">
+<a href="mailto:info@tecinmak.com" class="text-black font-semibold text-[0.8rem] px-2 py-0.5 rounded hover:bg-black/10 hover:text-white transition flex items-center gap-1"><i class="fas fa-envelope text-black text-xs"></i> info@tecinmak.com</a>
+<span class="hidden sm:inline text-black/35">|</span>
+<a href="tel:+74996383818" class="text-black font-semibold text-[0.8rem] px-2 py-0.5 rounded hover:bg-black/10 hover:text-white transition flex items-center gap-1"><i class="fas fa-phone-alt text-black text-xs"></i> 8 (499) 638 38 18</a>
+<span class="hidden sm:inline text-black/35">|</span>
+<a href="tel:+79151256157" class="text-black font-semibold text-[0.8rem] px-2 py-0.5 rounded hover:bg-black/10 hover:text-white transition flex items-center gap-1"><i class="fas fa-mobile-alt text-black text-xs"></i> +7 (915) 125 61 57</a>
+</div>
+<div class="flex items-center gap-1.5">
+<a href="#" class="w-8 h-8 rounded-full bg-black text-white text-sm flex items-center justify-center hover:bg-[#E4405F] hover:scale-105 transition shadow-md"><i class="fab fa-instagram"></i></a>
+<a href="#" class="w-8 h-8 rounded-full bg-black text-white text-sm flex items-center justify-center hover:bg-[#1877F2] hover:scale-105 transition shadow-md"><i class="fab fa-facebook-f"></i></a>
+<a href="https://www.youtube.com/@OOO-wy1xk" target="_blank" class="w-8 h-8 rounded-full bg-black text-white text-sm flex items-center justify-center hover:bg-[#FF0000] hover:scale-105 transition shadow-md"><i class="fab fa-youtube"></i></a>
+<a href="#" class="w-8 h-8 rounded-full bg-black text-white text-sm flex items-center justify-center hover:bg-[#0A66C2] hover:scale-105 transition shadow-md"><i class="fab fa-linkedin-in"></i></a>
+<a href="https://wa.me/79151256157" target="_blank" class="w-8 h-8 rounded-full bg-black text-white text-sm flex items-center justify-center hover:bg-[#25D366] hover:scale-105 transition shadow-md"><i class="fab fa-whatsapp"></i></a>
+<a href="https://t.me/79151256157" target="_blank" class="w-8 h-8 rounded-full bg-black text-white text-sm flex items-center justify-center hover:bg-[#0088CC] hover:scale-105 transition shadow-md"><i class="fab fa-telegram-plane"></i></a>
+<a href="https://cabinet.vkvideo.ru/dashboard/@club241148851" target="_blank" class="w-8 h-8 rounded-full bg-black text-white text-sm flex items-center justify-center hover:bg-[#0077FF] hover:scale-105 transition shadow-md"><i class="fab fa-vk"></i></a>
+<a href="#" target="_blank" class="w-8 h-8 rounded-full bg-black text-white text-sm flex items-center justify-center hover:bg-[#EE1B24] hover:scale-105 transition shadow-md"><i class="fas fa-video"></i></a>
+<a href="#" target="_blank" class="w-8 h-8 rounded-full bg-black text-white text-sm flex items-center justify-center hover:bg-[#F58220] hover:scale-105 transition shadow-md"><i class="fas fa-user-circle"></i></a>
+<button id="pt-theme-toggle" onclick="ptToggleTheme()" class="w-8 h-8 rounded-full bg-black text-white text-sm flex items-center justify-center hover:bg-gray-700 hover:scale-105 transition shadow-md" title="Тёмная/светлая тема"><i class="fas fa-moon" id="pt-theme-icon"></i></button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- NAV -->
+<nav class="bg-orange-500 py-1.5">
+<div class="max-w-7xl mx-auto px-4 sm:px-6">
+<div class="flex flex-wrap items-center justify-between gap-2">
+<!-- KATALOQ -->
+<div class="dropdown-group relative">
+<button class="bg-black text-white px-4 py-1.5 rounded-lg font-bold text-[0.9rem] tracking-wide flex items-center gap-2 shadow-md hover:bg-black hover:scale-105 transition uppercase">
+<i class="fas fa-bars"></i> КАТАЛОГ
+</button>
+<div class="dropdown-menu">
+<div class="sub-dropdown px-1 py-0.5">
+<a href="katalog.html?cat=avtomatizaciya" class="flex justify-between items-center text-sm text-black px-3 py-1.5 rounded cursor-pointer no-underline">
+<span class="font-medium">АВТОМАТИЗАЦИЯ</span>
+<i class="fas fa-chevron-right text-orange-500 text-xs"></i>
+</a>
+<div class="sub-menu">
+<a href="subpage.html?cat=avtomatizaciya&sub=sborka">СБОРКА</a>
+<a href="subpage.html?cat=avtomatizaciya&sub=mexanika">МЕХАНИЧЕСКАЯ ОБРАБОТКА</a>
+<a href="subpage.html?cat=avtomatizaciya&sub=shtampovka">ШТАМПОВКА</a>
+<a href="subpage.html?cat=avtomatizaciya&sub=ispytaniya">ИСПЫТАНИЯ</a>
+<a href="subpage.html?cat=avtomatizaciya&sub=savarka">СВАРКА</a>
+<a href="subpage.html?cat=avtomatizaciya&sub=upakovka">УПАКОВКА</a>
+<a href="subpage.html?cat=avtomatizaciya&sub=standart">СТАНДАРТНЫЕ УЗЛЫ</a>
+</div>
+</div>
+<div class="sub-dropdown px-1 py-0.5">
+<a href="katalog.html?cat=robotizaciya" class="flex justify-between items-center text-sm text-black px-3 py-1.5 rounded cursor-pointer no-underline">
+<span class="font-medium">РОБОТИЗАЦИЯ</span>
+<i class="fas fa-chevron-right text-orange-500 text-xs"></i>
+</a>
+<div class="sub-menu">
+<a href="subpage.html?cat=robotizaciya&sub=savarka_rezka">СВАРКА И РЕЗКА</a>
+<a href="subpage.html?cat=robotizaciya&sub=zagruzka">ЗАГРУЗКА И РАЗГРУЗКА</a>
+<a href="subpage.html?cat=robotizaciya&sub=palletirovanie">ПАЛЛЕТИРОВАНИЕ</a>
+<a href="subpage.html?cat=robotizaciya&sub=upakovka_rob">УПАКОВКА</a>
+</div>
+</div>
+<div class="sub-dropdown px-1 py-0.5">
+<a href="katalog.html?cat=linii" class="flex justify-between items-center text-sm text-black px-3 py-1.5 rounded cursor-pointer no-underline">
+<span class="font-medium">ЛИНИИ ПОД КЛЮЧ</span>
+<i class="fas fa-chevron-right text-orange-500 text-xs"></i>
+</a>
+<div class="sub-menu">
+<a href="subpage.html?cat=linii&sub=shtampovki">ЛИНИИ ШТАМПОВКИ</a>
+<a href="subpage.html?cat=linii&sub=rotacion">ЛИНИИ РОТАЦИОННОЙ ПРОБИВКИ</a>
+<a href="subpage.html?cat=linii&sub=profilirovaniya">ЛИНИИ ПРОФИЛИРОВАНИЯ</a>
+<a href="subpage.html?cat=linii&sub=poperechnaya">ЛИНИИ ПОПЕРЕЧНОЙ РЕЗКИ</a>
+<a href="subpage.html?cat=linii&sub=prodolnaya">ЛИНИИ ПРОДОЛЬНОЙ РЕЗКИ</a>
+<a href="subpage.html?cat=linii&sub=truby">ЛИНИИ ДЛЯ ПРОИЗВОДСТВА ТРУБ ERW/HF</a>
+</div>
+</div>
+<div class="sub-dropdown px-1 py-0.5">
+<a href="katalog.html?cat=stanki" class="flex justify-between items-center text-sm text-black px-3 py-1.5 rounded cursor-pointer no-underline">
+<span class="font-medium">СТАНДАРТНОЕ ОБОРУДОВАНИЕ</span>
+<i class="fas fa-chevron-right text-orange-500 text-xs"></i>
+</a>
+<div class="sub-menu">
+<a href="subpage.html?cat=stanki&sub=shtampovochnoe">ШТАМПОВОЧНОЕ ОБОРУДОВАНИЕ</a>
+<a href="subpage.html?cat=stanki&sub=raskroy">СТАНКИ ДЛЯ РАСКРОЯ ЛИСТА</a>
+<a href="subpage.html?cat=stanki&sub=listogiby">ЛИСТОГИБЫ</a>
+<a href="subpage.html?cat=stanki&sub=multiformery">МУЛЬТИФОРМЕРЫ</a>
+<a href="subpage.html?cat=stanki&sub=truby_profil">ОБРАБОТКА ТРУБ И ПРОФИЛЯ</a>
+<a href="subpage.html?cat=stanki&sub=lentochnye">ЛЕНТОЧНОПИЛЬНЫЕ И ДИСКОВЫЕ ОТРЕЗНЫЕ СТАНКИ</a>
+<a href="subpage.html?cat=stanki&sub=provoloka">ОБРАБОТКА ПРОВОЛОКИ</a>
+<a href="subpage.html?cat=stanki&sub=klepka">КЛЕПАЛЬНОЕ ОБОРУДОВАНИЕ</a>
+<a href="subpage.html?cat=stanki&sub=litie">ОБОРУДОВАНИЕ ДЛЯ ЛИТЬЯ ПОД ДАВЛЕНИЕМ</a>
+</div>
+</div>
+<div class="sub-dropdown px-1 py-0.5">
+<a href="katalog.html?cat=osnastka" class="flex justify-between items-center text-sm text-black px-3 py-1.5 rounded cursor-pointer no-underline">
+<span class="font-medium">ОСНАСТКА, ИНСТРУМЕНТ, ВСПОМОГАТЕЛЬНОЕ ОБОРУДОВАНИЕ</span>
+<i class="fas fa-chevron-right text-orange-500 text-xs"></i>
+</a>
+<div class="sub-menu">
+<a href="subpage.html?cat=osnastka&sub=shtampy">ШТАМПЫ, ПРЕССФОРМЫ</a>
+<a href="subpage.html?cat=osnastka&sub=komponenty">СТАНДАРТНЫЕ КОМПОНЕНТЫ ДЛЯ ШТАМПОВ И ПРЕССФОРМ</a>
+<a href="subpage.html?cat=osnastka&sub=uzly_metall">УЗЛЫ ДЛЯ МЕТАЛЛОРЕЖУЩИХ СТАНКОВ</a>
+<a href="subpage.html?cat=osnastka&sub=uzly_avtomat">УЗЛЫ ДЛЯ АВТОМАТИЗАЦИИ</a>
+<a href="subpage.html?cat=osnastka&sub=bystro">БЫСТРОЗАЖИМНЫЕ УСТРОЙСТВА</a>
+</div>
+</div>
+<div class="sub-dropdown px-1 py-0.5">
+<a href="katalog.html?cat=otrasli" class="flex justify-between items-center text-sm text-black px-3 py-1.5 rounded cursor-pointer no-underline">
+<span class="font-medium">РЕШЕНИЯ ПО ОТРАСЛЯМ</span>
+<i class="fas fa-chevron-right text-orange-500 text-xs"></i>
+</a>
+<div class="sub-menu">
+<a href="subpage.html?cat=otrasli&sub=avtomobil">АВТОМОБИЛЕСТРОЕНИЕ</a>
+<a href="subpage.html?cat=otrasli&sub=bytovaya">БЫТОВАЯ ТЕХНИКА</a>
+<a href="subpage.html?cat=otrasli&sub=zamochnye">ПРОИЗВОДСТВО ЗАМОЧНЫХ ИЗДЕЛИЙ</a>
+<a href="subpage.html?cat=otrasli&sub=mebel">ПРОИЗВОДСТВО МЕБЕЛЬНОЙ ФУРНИТУРЫ</a>
+<a href="subpage.html?cat=otrasli&sub=okonnaya">ПРОИЗВОДСТВО ОКОННОЙ ФУРНИТУРЫ</a>
+<a href="subpage.html?cat=otrasli&sub=stroitel">ПРОИЗВОДСТВО СТРОИТЕЛЬНЫХ МАТЕРИАЛОВ</a>
+<a href="subpage.html?cat=otrasli&sub=santehnika">САНТЕХНИКА, ГАЗОВАЯ АППАРАТУРА</a>
+</div>
+</div>
+</div>
+</div>
+<!-- MENYU - "Продукции" linki kataloqa yönləndirir -->
+<div class="hidden md:flex items-center gap-5">
+<a href="index.html" class="main-nav-link">Главная</a>
+<a href="kompany.html" class="main-nav-link">О компании</a>
+<div class="relative mega-hover">
+<a href="katalog.html" class="main-nav-link-products flex items-center gap-1.5">
+Продукции <i class="fas fa-chevron-down text-[10px]"></i>
+</a>
+<div class="mega-content">
+<a href="katalog.html?cat=avtomatizaciya" class="mega-item flex flex-col items-center min-w-[80px] hover:-translate-y-1 transition no-underline">
+<img src="https://placehold.co/80x65/f3f4f6/888?text=Автоматизация" alt="avtomatizasiya" class="w-20 h-16 object-cover rounded-lg bg-gray-100 p-1 border-2 border-orange-500 hover:scale-105 hover:border-black transition" />
+<span class="block mt-1 font-semibold text-[0.8rem] text-black whitespace-nowrap">Автоматизация</span>
+</a>
+<a href="katalog.html?cat=robotizaciya" class="mega-item flex flex-col items-center min-w-[80px] hover:-translate-y-1 transition no-underline">
+<img src="https://placehold.co/80x65/f3f4f6/888?text=Роботизация" alt="robotizasiya" class="w-20 h-16 object-cover rounded-lg bg-gray-100 p-1 border-2 border-orange-500 hover:scale-105 hover:border-black transition" />
+<span class="block mt-1 font-semibold text-[0.8rem] text-black whitespace-nowrap">Роботизация</span>
+</a>
+<a href="katalog.html?cat=linii" class="mega-item flex flex-col items-center min-w-[80px] hover:-translate-y-1 transition no-underline">
+<img src="https://placehold.co/80x65/f3f4f6/888?text=Линии" alt="linii" class="w-20 h-16 object-cover rounded-lg bg-gray-100 p-1 border-2 border-orange-500 hover:scale-105 hover:border-black transition" />
+<span class="block mt-1 font-semibold text-[0.8rem] text-black whitespace-nowrap">Линии под ключ</span>
+</a>
+<a href="katalog.html?cat=stanki" class="mega-item flex flex-col items-center min-w-[80px] hover:-translate-y-1 transition no-underline">
+<img src="https://placehold.co/80x65/f3f4f6/888?text=Оборудование" alt="stanki" class="w-20 h-16 object-cover rounded-lg bg-gray-100 p-1 border-2 border-orange-500 hover:scale-105 hover:border-black transition" />
+<span class="block mt-1 font-semibold text-[0.8rem] text-black whitespace-nowrap">Стандартное оборудование</span>
+</a>
+<a href="katalog.html?cat=osnastka" class="mega-item flex flex-col items-center min-w-[80px] hover:-translate-y-1 transition no-underline">
+<img src="https://placehold.co/80x65/f3f4f6/888?text=Оснастка" alt="osnastka" class="w-20 h-16 object-cover rounded-lg bg-gray-100 p-1 border-2 border-orange-500 hover:scale-105 hover:border-black transition" />
+<span class="block mt-1 font-semibold text-[0.8rem] text-black whitespace-nowrap">Оснастка, инструмент</span>
+</a>
+<a href="katalog.html?cat=otrasli" class="mega-item flex flex-col items-center min-w-[80px] hover:-translate-y-1 transition no-underline">
+<img src="https://placehold.co/80x65/f3f4f6/888?text=Отрасли" alt="otrasli" class="w-20 h-16 object-cover rounded-lg bg-gray-100 p-1 border-2 border-orange-500 hover:scale-105 hover:border-black transition" />
+<span class="block mt-1 font-semibold text-[0.8rem] text-black whitespace-nowrap">Решения по отраслям</span>
+</a>
+</div>
+</div>
+<a href="#" class="main-nav-link">Сервис</a>
+<a href="#" class="main-nav-link">Новости</a>
+<a href="kontakt.html" class="main-nav-link">Контакты</a>
+</div>
+<!-- AXTARIŞ -->
+<div class="flex items-center gap-3">
+<div class="border-2 border-black rounded-full px-3.5 py-1 bg-white flex items-center gap-1.5 focus-within:shadow-[0_0_0_4px_rgba(0,0,0,0.08)] transition">
+<i class="fas fa-search text-black text-sm"></i>
+<input type="text" placeholder="Поиск..." class="border-none outline-none bg-transparent text-[0.8rem] min-w-[120px] text-black placeholder-gray-400" />
+</div>
+<button class="md:hidden text-black text-xl"><i class="fas fa-bars"></i></button>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<!-- ===== SLAYDER ===== -->
+<section class="max-w-7xl mx-auto px-4 sm:px-6 pt-6">
+<div class="relative w-full h-64 sm:h-80 md:h-96 lg:h-[420px] overflow-hidden rounded-2xl shadow-lg bg-gray-200">
+<div class="slider-slide absolute top-0 left-0 w-full h-full transition-opacity duration-1000 ease-in-out opacity-100">
+<img src="./2.jpg" alt="Slide 1" class="w-full h-full object-cover" />
+<div class="slide-text">АВТОМАТИЗАЦИЯ СБОРКИ<span>Современные решения для вашего производства</span></div>
+</div>
+<div class="slider-slide absolute top-0 left-0 w-full h-full transition-opacity duration-1000 ease-in-out opacity-0">
+<div class="slide-split"><img src="./IMG_2158.gif" alt="Slide 2 sol" class="w-1/2 h-full object-cover" /><img src="./IMG_2165.gif" alt="Slide 2 sag" class="w-1/2 h-full object-cover" /></div>
+<div class="slide-text-small">АВТОМАТИЗАЦИЯ МЕХАНИЧЕСКОЙ ОБРАБОТКИ<span>Высокоточные решения для вашего производства</span></div>
+</div>
+<div class="slider-slide absolute top-0 left-0 w-full h-full transition-opacity duration-1000 ease-in-out opacity-0">
+<img src="./sistem_4.jpg" alt="Slide 3" class="w-full h-full object-cover" />
+<div class="slide-text" style="font-size:1.6rem;padding:8px 18px;">АВТОМАТИЗАЦИЯ ШТАМПОВКИ<span>Современные решения для вашего производства</span></div>
+</div>
+<div class="slider-slide absolute top-0 left-0 w-full h-full transition-opacity duration-1000 ease-in-out opacity-0">
+<div class="slide-split"><img src="./А4.jpg" alt="Slide 4 sol" class="w-1/2 h-full object-cover" /><img src="./1.jpg" alt="Slide 4 sag" class="w-1/2 h-full object-cover" /></div>
+<div class="slide-text-small">РОБОТИЗАЦИЯ<span>Современные решения для вашего производства</span></div>
+</div>
+<div class="slider-slide absolute top-0 left-0 w-full h-full transition-opacity duration-1000 ease-in-out opacity-0">
+<div class="slide-split"><img src="./1.png" alt="Slide 5 sol" class="w-1/2 h-full object-cover" /><img src="./5.png" alt="Slide 5 sag" class="w-1/2 h-full object-cover" /></div>
+<div class="slide-text" style="font-size:1.6rem;padding:8px 18px;">ЛИНИИ ПРОФИЛИРОВАНИЯ<span>Современные решения для вашего производства</span></div>
+</div>
+<div class="slider-slide absolute top-0 left-0 w-full h-full transition-opacity duration-1000 ease-in-out opacity-0">
+<img src="./4.jpg" alt="Slide 6" class="w-full h-full object-cover" />
+<div class="slide-text" style="font-size:1.6rem;padding:8px 18px;">ЛИНИИ ШТАМПОВКИ<span>Современные решения для вашего производства</span></div>
+</div>
+<div class="slider-slide absolute top-0 left-0 w-full h-full transition-opacity duration-1000 ease-in-out opacity-0">
+<img src="./3.jpg" alt="Slide 7" class="w-full h-full object-cover" />
+<div class="slide-text" style="font-size:1.6rem;padding:8px 18px;">ЛИНИИ ПОПЕРЕЧНОЙ И ПРОДОЛЬНОЙ РЕЗКИ<span>Современные решения для вашего производства</span></div>
+</div>
+<button onclick="changeSlide(-1)" class="absolute top-1/2 left-3 md:left-5 -translate-y-1/2 bg-black/50 hover:bg-black/75 text-white w-9 h-9 md:w-12 md:h-12 rounded-full flex items-center justify-center text-base md:text-xl transition-all duration-300 hover:scale-105 z-10 shadow-lg"><i class="fas fa-chevron-left"></i></button>
+<button onclick="changeSlide(1)" class="absolute top-1/2 right-3 md:right-5 -translate-y-1/2 bg-black/50 hover:bg-black/75 text-white w-9 h-9 md:w-12 md:h-12 rounded-full flex items-center justify-center text-base md:text-xl transition-all duration-300 hover:scale-105 z-10 shadow-lg"><i class="fas fa-chevron-right"></i></button>
+<div class="absolute bottom-3 md:bottom-5 left-1/2 -translate-x-1/2 flex gap-2 md:gap-3 z-10">
+<button onclick="currentSlide(0)" class="slider-dot w-2.5 h-2.5 md:w-3.5 md:h-3.5 rounded-full bg-white/70 hover:bg-white transition-all duration-300"></button>
+<button onclick="currentSlide(1)" class="slider-dot w-2.5 h-2.5 md:w-3.5 md:h-3.5 rounded-full bg-white/40 hover:bg-white/70 transition-all duration-300"></button>
+<button onclick="currentSlide(2)" class="slider-dot w-2.5 h-2.5 md:w-3.5 md:h-3.5 rounded-full bg-white/40 hover:bg-white/70 transition-all duration-300"></button>
+<button onclick="currentSlide(3)" class="slider-dot w-2.5 h-2.5 md:w-3.5 md:h-3.5 rounded-full bg-white/40 hover:bg-white/70 transition-all duration-300"></button>
+<button onclick="currentSlide(4)" class="slider-dot w-2.5 h-2.5 md:w-3.5 md:h-3.5 rounded-full bg-white/40 hover:bg-white/70 transition-all duration-300"></button>
+<button onclick="currentSlide(5)" class="slider-dot w-2.5 h-2.5 md:w-3.5 md:h-3.5 rounded-full bg-white/40 hover:bg-white/70 transition-all duration-300"></button>
+<button onclick="currentSlide(6)" class="slider-dot w-2.5 h-2.5 md:w-3.5 md:h-3.5 rounded-full bg-white/40 hover:bg-white/70 transition-all duration-300"></button>
+</div>
+</div>
+</section>
+<!-- ===== ANA SƏHİFƏ ===== -->
+<main class="max-w-7xl mx-auto px-4 sm:px-6 pt-8 pb-10">
+<h1 class="text-3xl font-bold text-gray-900 mb-2">Каталог оборудования</h1>
+<p class="text-gray-500 text-sm mb-8">Основные разделы — нажмите на изображение</p>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+<a href="katalog.html?cat=avtomatizaciya" class="bg-white rounded-xl border-2 border-gray-200 overflow-hidden hover:-translate-y-1.5 hover:border-orange-500 hover:shadow-[0_12px_40px_rgba(249,115,22,0.08)] transition cursor-pointer no-underline block"><img src="https://placehold.co/400x160/f3f4f6/888?text=АВТОМАТИЗАЦИЯ" alt="автоматизация" class="w-full h-40 object-cover bg-gray-100 border-b-2 border-gray-200 hover:border-orange-500 transition" /><div class="p-4"><h3 class="font-bold text-gray-900 text-[0.9rem]">АВТОМАТИЗАЦИЯ</h3><span class="text-orange-500 text-[0.85rem] font-semibold inline-block mt-1">Подробнее →</span></div></a>
+<a href="katalog.html?cat=robotizaciya" class="bg-white rounded-xl border-2 border-gray-200 overflow-hidden hover:-translate-y-1.5 hover:border-orange-500 hover:shadow-[0_12px_40px_rgba(249,115,22,0.08)] transition cursor-pointer no-underline block"><img src="https://placehold.co/400x160/f3f4f6/888?text=РОБОТИЗАЦИЯ" alt="роботизация" class="w-full h-40 object-cover bg-gray-100 border-b-2 border-gray-200 hover:border-orange-500 transition" /><div class="p-4"><h3 class="font-bold text-gray-900 text-[0.9rem]">РОБОТИЗАЦИЯ</h3><span class="text-orange-500 text-[0.85rem] font-semibold inline-block mt-1">Подробнее →</span></div></a>
+<a href="katalog.html?cat=linii" class="bg-white rounded-xl border-2 border-gray-200 overflow-hidden hover:-translate-y-1.5 hover:border-orange-500 hover:shadow-[0_12px_40px_rgba(249,115,22,0.08)] transition cursor-pointer no-underline block"><img src="https://placehold.co/400x160/f3f4f6/888?text=ЛИНИИ+ПОД+КЛЮЧ" alt="линии под ключ" class="w-full h-40 object-cover bg-gray-100 border-b-2 border-gray-200 hover:border-orange-500 transition" /><div class="p-4"><h3 class="font-bold text-gray-900 text-[0.9rem]">ЛИНИИ ПОД КЛЮЧ</h3><span class="text-orange-500 text-[0.85rem] font-semibold inline-block mt-1">Подробнее →</span></div></a>
+<a href="katalog.html?cat=stanki" class="bg-white rounded-xl border-2 border-gray-200 overflow-hidden hover:-translate-y-1.5 hover:border-orange-500 hover:shadow-[0_12px_40px_rgba(249,115,22,0.08)] transition cursor-pointer no-underline block"><img src="https://placehold.co/400x160/f3f4f6/888?text=СТАНДАРТНОЕ+ОБОРУДОВАНИЕ" alt="стандартное оборудование" class="w-full h-40 object-cover bg-gray-100 border-b-2 border-gray-200 hover:border-orange-500 transition" /><div class="p-4"><h3 class="font-bold text-gray-900 text-[0.9rem]">СТАНДАРТНОЕ ОБОРУДОВАНИЕ</h3><span class="text-orange-500 text-[0.85rem] font-semibold inline-block mt-1">Подробнее →</span></div></a>
+<a href="katalog.html?cat=osnastka" class="bg-white rounded-xl border-2 border-gray-200 overflow-hidden hover:-translate-y-1.5 hover:border-orange-500 hover:shadow-[0_12px_40px_rgba(249,115,22,0.08)] transition cursor-pointer no-underline block"><img src="https://placehold.co/400x160/f3f4f6/888?text=ОСНАСТКА,+ИНСТРУМЕНТ,+ВСПОМОГАТЕЛЬНОЕ+ОБОРУДОВАНИЕ" alt="оснастка, инструмент, вспомогательное оборудование" class="w-full h-40 object-cover bg-gray-100 border-b-2 border-gray-200 hover:border-orange-500 transition" /><div class="p-4"><h3 class="font-bold text-gray-900 text-[0.9rem]">ОСНАСТКА, ИНСТРУМЕНТ, ВСПОМОГАТЕЛЬНОЕ ОБОРУДОВАНИЕ</h3><span class="text-orange-500 text-[0.85rem] font-semibold inline-block mt-1">Подробнее →</span></div></a>
+<a href="katalog.html?cat=otrasli" class="bg-white rounded-xl border-2 border-gray-200 overflow-hidden hover:-translate-y-1.5 hover:border-orange-500 hover:shadow-[0_12px_40px_rgba(249,115,22,0.08)] transition cursor-pointer no-underline block"><img src="https://placehold.co/400x160/f3f4f6/888?text=РЕШЕНИЯ+ПО+ОТРАСЛЯМ" alt="решения по отраслям" class="w-full h-40 object-cover bg-gray-100 border-b-2 border-gray-200 hover:border-orange-500 transition" /><div class="p-4"><h3 class="font-bold text-gray-900 text-[0.9rem]">РЕШЕНИЯ ПО ОТРАСЛЯМ</h3><span class="text-orange-500 text-[0.85rem] font-semibold inline-block mt-1">Подробнее →</span></div></a>
+</div>
+</main>
+<!-- ===== FOOTER ===== -->
+<footer class="bg-gray-50 border-t-2 border-gray-200 py-5 mt-10">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 text-sm flex flex-wrap justify-between items-center gap-3">
+<span class="text-gray-500 font-medium">© 2026 TECINMAK — оборудование и технологии для обработки металла</span>
+<span class="flex gap-5"><a href="#" class="text-gray-500 font-medium hover:text-orange-500 transition">Политика</a><a href="#" class="text-gray-500 font-medium hover:text-orange-500 transition">Условия</a></span>
+</div>
+</footer>
+<!-- ===== SLAYDER JAVASCRIPT ===== -->
+<script>
+function ptToggleTheme() {
+  const isDark = document.body.classList.toggle('pt-dark');
+  document.documentElement.style.background = isDark ? '#0e0f11' : '';
+  localStorage.setItem('pt-theme', isDark ? 'dark' : 'light');
+  const icon = document.getElementById('pt-theme-icon');
+  if (icon) { icon.classList.toggle('fa-moon', !isDark); icon.classList.toggle('fa-sun', isDark); }
+}
+(function () {
+  const saved = localStorage.getItem('pt-theme');
+  if (saved === 'dark') {
+    document.addEventListener('DOMContentLoaded', function () {
+      document.body.classList.add('pt-dark');
+      document.documentElement.style.background = '#0e0f11';
+      const icon = document.getElementById('pt-theme-icon');
+      if (icon) { icon.classList.remove('fa-moon'); icon.classList.add('fa-sun'); }
+    });
+  }
+})();
+
+let slideIndex = 0;
+const slides = document.querySelectorAll('.slider-slide');
+const dots = document.querySelectorAll('.slider-dot');
+let autoSlideInterval;
+function showSlide(index) {
+if (index >= slides.length) { slideIndex = 0; }
+else if (index < 0) { slideIndex = slides.length - 1; }
+else { slideIndex = index; }
+slides.forEach(slide => { slide.classList.remove('opacity-100'); slide.classList.add('opacity-0'); });
+dots.forEach(dot => { dot.classList.remove('bg-white/70'); dot.classList.add('bg-white/40'); });
+slides[slideIndex].classList.remove('opacity-0');
+slides[slideIndex].classList.add('opacity-100');
+dots[slideIndex].classList.remove('bg-white/40');
+dots[slideIndex].classList.add('bg-white/70');
+}
+function changeSlide(direction) {
+clearInterval(autoSlideInterval);
+showSlide(slideIndex + direction);
+startAutoSlide();
+}
+function currentSlide(index) {
+clearInterval(autoSlideInterval);
+showSlide(index);
+startAutoSlide();
+}
+function startAutoSlide() {
+autoSlideInterval = setInterval(() => { showSlide(slideIndex + 1); }, 7000);
+}
+showSlide(0);
+startAutoSlide();
+document.addEventListener('keydown', function(e) {
+if (e.key === 'ArrowLeft') { changeSlide(-1); }
+else if (e.key === 'ArrowRight') { changeSlide(1); }
+});
+</script>
+</body>
+</html>
