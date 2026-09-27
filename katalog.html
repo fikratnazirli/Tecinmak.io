@@ -7,6 +7,32 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <style>
+body.pt-dark {
+  background:#fff !important;
+  filter: invert(1) hue-rotate(180deg);
+  min-height: 100vh;
+}
+body.pt-dark img,
+body.pt-dark video,
+body.pt-dark iframe,
+body.pt-dark svg,
+body.pt-dark picture {
+  filter: invert(1) hue-rotate(180deg);
+}
+body.pt-dark .sticky-header,
+body.pt-dark .bg-orange-500,
+body.pt-dark .bg-orange-600,
+body.pt-dark .text-orange-500 {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+.pt-video-wrap:fullscreen { display:flex; align-items:center; justify-content:center; background:#000; }
+.pt-video-wrap:fullscreen video { width:100%; height:100%; object-fit:contain; }
+.pt-video-wrap:fullscreen .pt-logo-cover { width:9vw !important; height:4.5vw !important; top:2vh !important; right:12vw !important; }
+.pt-video-wrap:-webkit-full-screen { display:flex; align-items:center; justify-content:center; background:#000; }
+.pt-video-wrap:-webkit-full-screen video { width:100%; height:100%; object-fit:contain; }
+.pt-video-wrap:-webkit-full-screen .pt-logo-cover { width:9vw !important; height:4.5vw !important; top:2vh !important; right:12vw !important; }
+
     .sticky-header {
       position: sticky;
       top: 0;
@@ -107,6 +133,7 @@
             <a href="https://cabinet.vkvideo.ru/dashboard/@club241148851" target="_blank" class="w-8 h-8 rounded-full bg-black text-white text-sm flex items-center justify-center hover:bg-[#0077FF] hover:scale-105 transition shadow-md"><i class="fab fa-vk"></i></a>
             <a href="#" target="_blank" class="w-8 h-8 rounded-full bg-black text-white text-sm flex items-center justify-center hover:bg-[#EE1B24] hover:scale-105 transition shadow-md"><i class="fas fa-video"></i></a>
             <a href="#" target="_blank" class="w-8 h-8 rounded-full bg-black text-white text-sm flex items-center justify-center hover:bg-[#F58220] hover:scale-105 transition shadow-md"><i class="fas fa-user-circle"></i></a>
+<button id="pt-theme-toggle" onclick="ptToggleTheme()" class="w-8 h-8 rounded-full bg-black text-white text-sm flex items-center justify-center hover:bg-gray-700 hover:scale-105 transition shadow-md" title="Тёмная/светлая тема"><i class="fas fa-moon" id="pt-theme-icon"></i></button>
           </div>
         </div>
       </div>
@@ -289,7 +316,7 @@
           subItems: [
             { name: 'Клепальные автоматы', desc: 'Автоматические машины для клепки в составе сборочных линий.', img: './images/klepalnye.jpg', subItems: [
               { name: 'Клепальные комплексы с автоматизацией оснастки', shortDesc: 'Клепальные машины с ЧПУ типа PLC.', desc: 'Клепальные машины с ЧПУ типа PLC. Источник: macromak.com/klepalcpu.php', img: './klepal_cpu.gif', images: ['./klepal_cpu.gif'], videoLinks: [
-                {label:'Видео 1', url:'https://www.youtube.com/embed/5efnZ2RcNnc'},
+                {label:'Клепальный комплекс с автоматизацией оснастки 1', url:'https://www.youtube.com/embed/5efnZ2RcNnc'},
                 {label:'Видео 2', url:'https://www.youtube.com/embed/Zia--2qsnZM'},
                 {label:'Видео 3', url:'https://www.youtube.com/embed/vFlteMl5T8Y'}
               ], specTable: { headers: ['Модель','Мин/Макс диаметр заклёпки','Двигатель','Напряжение (V)','Рабочий ход','Ход корпуса'], rows: [
@@ -300,13 +327,11 @@
                 ['RP-20-AG','Ø 14 – Ø 20 мм','1,1 кВт','220/380','50 мм','100/250 мм']
               ] } },
               { name: 'Координатно-клепальные центры', shortDesc: 'Координатно-клепальный центр с ЧПУ типа CNC.', desc: 'Координатно-клепальный центр с ЧПУ типа CNC. Рабочая площадь: по оси X — 300 мм, по оси Y — 200 мм, механический ход по оси Z — 150 мм, скорость хода по осям X и Y — 20 000 мм/мин. Станционно-поворотный стол: диаметр стола 850 мм, количество станций 2/4, длительность передвижения станции 1,5 сек, масса станции 4×9 кг. Основное напряжение: 400В ±10%, частота: 50/60Гц ±1%, сжатый воздух: 6 бар. Источник: macromak.com/klepalcnc.php', img: './klepa_cnc.gif', images: ['./klepa_cnc.gif'], videoLinks: [
-                {label:'Видео 1', url:'https://www.youtube.com/embed/kZoMPcVolTA'},
+                {label:'Координатно-клепальные машины с ЧПУ-1', url:'https://www.youtube.com/embed/kZoMPcVolTA'},
                 {label:'Видео 2', url:'https://www.youtube.com/embed/Vqy2O-gA_mQ'},
                 {label:'Видео 3', url:'https://www.youtube.com/embed/Ebh7cZ_awdI'},
                 {label:'Видео 4', url:'https://www.youtube.com/embed/mcHFecNVR2U'},
-                {label:'Видео 5', url:'https://www.youtube.com/embed/8yu0mOZ1gNw'},
-                {label:'Видео 6', url:'https://www.youtube.com/embed/fpPAlGjqTFk'},
-                {label:'Видео 7', url:'https://www.youtube.com/embed/Q6P-KhnXwhM'}
+                {label:'Видео 5', url:'https://www.youtube.com/embed/Q6P-KhnXwhM'}
               ], specTable: { headers: ['Радиально-клепальный механизм','Ед.','RPC 600','RPC 1100','RPC 2200'], rows: [
                 ['Макс. диаметр заклёпки','мм','8','12','16'],
                 ['Двигатель','кВт','0,37','0,55','1,1'],
@@ -323,9 +348,14 @@
                 {label:'Видео 3', url:'https://www.youtube.com/embed/xBrTbsn2p8s'}
               ] }
             ] },
-            { name: 'Автоматические шуруповёрты', desc: 'Автоматические винтоверты. Источник: factorh.com.tr', videoLinks: [
-              {label:'Видео 1', url:'https://www.youtube.com/embed/V-5OEvPh-qA'},
-              {label:'Видео 2', url:'https://www.youtube.com/embed/wMdLOpWcRe4'}
+            { name: 'Автоматические шуруповёрты', desc: 'Автоматические винтоверты. Источник: factorh.com.tr', img: 'https://www.factorh.com.tr/images/urunler/vida-takma/otomatik-vida-takma-beslemeli-vidalama-sistemleri-endustriyel-otomasyon-cozumlari-factorh-automation-makina-imalat-uretimi-1.jpg', subItems: [
+              { name: 'Стандартное применение', desc: 'Автоматические винтоверты — стандартное применение.', img: 'https://img.youtube.com/vi/V-5OEvPh-qA/hqdefault.jpg', videoLinks: [
+                {label:'Видео 1', url:'https://www.youtube.com/embed/V-5OEvPh-qA'},
+                {label:'Видео 2', url:'https://www.youtube.com/embed/wMdLOpWcRe4'}
+              ] },
+              { name: 'Координатные системы', desc: 'Автоматические винтоверты с координатными системами.', img: 'https://img.youtube.com/vi/S6d0KJbW0Ys/hqdefault.jpg', videoLinks: [
+                {label:'Видео 1', url:'https://www.youtube.com/embed/S6d0KJbW0Ys'}
+              ] }
             ] },
             { name: 'Сборочные комплексы', desc: 'Комплексные сборочные линии — наши проекты.', videoLinks: [
               {label:'Видео 1', url:'https://www.youtube.com/embed/_5HDN-sRX0o'},
@@ -345,7 +375,7 @@
               {label:'Видео 15', url:'https://www.youtube.com/embed/B5RlGgPob3E'},
               {label:'Видео 16', url:'https://www.youtube.com/embed/aPu0bpMiBUQ'},
               {label:'Видео 17', url:'https://www.youtube.com/embed/Hg3A8jvaKQw'},
-              {label:'Видео 18', url:'https://www.youtube.com/embed/c4s2yj2Hb58'},
+              {label:'Производство сантехнических хомутов: Сборка в комплект', url:'https://www.youtube.com/embed/c4s2yj2Hb58'},
               {label:'Видео 19', url:'https://www.youtube.com/embed/hMFAoY32zM8'},
               {label:'Видео 20', url:'https://www.youtube.com/embed/Iq12lLzgjCQ'},
               {label:'Видео 21', url:'https://www.youtube.com/embed/Oc7dSdLf9ro'}
@@ -378,7 +408,8 @@
                   {label:'Видео 13', url:'https://www.youtube.com/embed/iYL8v5oqqRs'},
                   {label:'Видео 14', url:'https://www.youtube.com/embed/zSiVq1tOTIE'},
                   {label:'Видео 15', url:'https://www.youtube.com/embed/QEDmZvh0md4'},
-                  {label:'Видео 16', url:'https://www.youtube.com/embed/6EP_q88xC_c'}
+                  {label:'Видео 16', url:'https://www.youtube.com/embed/6EP_q88xC_c'},
+  {label:'Агрегатный станок для обработки рулевых тяг и труб реактивной штанги', url:'https://www.youtube.com/embed/22-FVTvswe4'}
                 ] },
                 { name: 'Агрегатные станки с поворотным столом', desc: 'Станки с поворотным столом — наши проекты.', videoLinks: [
                   {label:'Видео 1', url:'https://www.youtube.com/embed/Un_hsl82PdA'},
@@ -405,11 +436,17 @@
               {label:'Видео 10', url:'https://www.youtube.com/embed/hn4-XGa_AeQ'},
               {label:'Видео 11', url:'https://www.youtube.com/embed/BXN9o0oFO88'}
             ] },
-            { name: 'Накатка резьбы', desc: 'Накатка резьбы — наши проекты.', videoLinks: [
-              {label:'Видео 1', url:'https://www.youtube.com/embed/XvKV52XhA0s'},
-              {label:'Видео 2', url:'https://www.youtube.com/embed/9TrM_aE8xp8'},
-              {label:'Видео 3', url:'https://www.youtube.com/embed/txMdJ863xi8'},
-              {label:'Видео 4', url:'https://www.youtube.com/embed/gb3hg9NXuTk'}
+            { name: 'Нанесение резьбы', desc: 'Нанесение резьбы — нарезка и накатка.', img: 'https://img.youtube.com/vi/qzPeVshsjp8/hqdefault.jpg', subItems: [
+              { name: 'Нарезка резьбы', desc: 'Нарезка резьбы — наши проекты.', img: 'https://img.youtube.com/vi/qzPeVshsjp8/hqdefault.jpg', videoLinks: [
+                {label:'Видео 1', url:'https://www.youtube.com/embed/qzPeVshsjp8'},
+                {label:'Видео 2', url:'https://www.youtube.com/embed/PNBMHpZYMso'}
+              ] },
+              { name: 'Накатка резьбы', desc: 'Накатка резьбы — наши проекты.', img: 'https://img.youtube.com/vi/XvKV52XhA0s/hqdefault.jpg', videoLinks: [
+                {label:'Видео 1', url:'https://www.youtube.com/embed/XvKV52XhA0s'},
+                {label:'Видео 2', url:'https://www.youtube.com/embed/9TrM_aE8xp8'},
+                {label:'Видео 3', url:'https://www.youtube.com/embed/txMdJ863xi8'},
+                {label:'Видео 4', url:'https://www.youtube.com/embed/gb3hg9NXuTk'}
+              ] }
             ] },
             {
               name: 'Стандартные узлы',
@@ -597,25 +634,81 @@
 ] },
                 { name: 'Автоматизация подачи отдельных заготовок', desc: 'Подача отдельных заготовок', img: './images/otdelnye.jpg', subItems: [
                   { name: 'Роботизированная загрузка/выгрузка', desc: 'Наши проекты.', videoLinks: [
-                    {label:'Видео 1', url:'https://www.youtube.com/embed/Hnkj06fJJuU'},
-                    {label:'Видео 2', url:'https://www.youtube.com/embed/wvuq3QfvlHQ'}
+                    {label:'Видео 1', url:'https://www.youtube.com/embed/eqDi6ZayMIY'},
+                    {label:'Видео 2', url:'https://www.youtube.com/embed/KY6Jm38UoLM'},
+                    {label:'Видео 3', url:'https://www.youtube.com/embed/ukxxFdIx9LU'}
                   ] },
                   { name: 'Системы трансфера заготовки', desc: 'Источник: coiltech.com.tr/pres-transfer-robotlari/', subItems: [
-                    { name: 'Дестакеры', desc: 'Устройства для разделения стопок заготовок.', subItems: [] },
-                    { name: 'Трансфер внутри штампа', desc: 'Системы внутриштамповой передачи заготовки.', subItems: [] },
-                    { name: 'Трансфер между прессами', desc: 'Системы передачи заготовки между прессами. Источник: germakmakina.com.tr/Groups/Default.aspx?LanguageID=1&GroupID=3&ContentID=91', subItems: [] }
+                    { name: 'Дестакеры', img: 'https://coiltech.com.tr/wp-content/uploads/2023/03/destacker_donus.jpg', heroTitle: 'Системы дестакеров', shortDesc: 'Устройства для разделения стопок листового металла.', desc: 'В проектах дестакеров расположение погрузочных тележек, оси перемещения и конструкция декартового робота проектируются индивидуально в зависимости от скорости работы трансферного пресса и размеров листового металла. Тележки дестакера могут перемещаться в сторону, вперёд или назад; они могут располагаться справа и слева от конвейера, только с одной стороны или позади него. Наши системы дестакеров совместимы со 100% трансферных прессов любых марок и работают в составе линий транспортировки от пресса к прессу, внутри пресса и в тандемных прессовых линиях.', mediaSlides: [
+  { title: 'Одна тележка с двумя станциями', desc: 'Система имеет две станции загрузки на одной тележке. Пока производство продолжается на одной станции, на другую можно загрузить новую пачку. Благодаря этому смена пачек происходит быстрее, вмешательство оператора сокращается, а эффективность линии повышается. Компактная конструкция сочетается с высокой производительностью и легко адаптируется к разным производственным задачам.', videos: ['https://lightsalmon-gull-685111.hostingersite.com/wp-content/uploads/2026/03/Izmakpar_Destacker_V1.mp4'] },
+  { title: 'Поворотный стол с двумя станциями', desc: 'Благодаря поворотному столу с двумя станциями, пока на одной станции продолжается производство, на другую можно загрузить и подготовить новую пачку. При смене пачки стол быстро поворачивается, подводя новую пачку в рабочее положение. Это сокращает простои, повышает непрерывность производства и обеспечивает максимальную эффективность.', videos: ['https://lightsalmon-gull-685111.hostingersite.com/wp-content/uploads/2026/03/SKP_Destacker_V1.mp4'] },
+  { title: 'Две тележки с двумя станциями', desc: 'Система с двумя тележками позволяет одной тележке работать в зоне производства, пока другая одновременно готовится в позиции загрузки — это устраняет простой при смене тележки по окончании пачки. Благодаря функции автоматического извлечения тележки время наладки минимизируется, непрерывность производства сохраняется, а эффективность максимальна, особенно на высокообъёмных линиях.', videos: ['https://lightsalmon-gull-685111.hostingersite.com/wp-content/uploads/2026/03/Beycelik_Destacker_V1.mp4', 'https://lightsalmon-gull-685111.hostingersite.com/wp-content/uploads/2023/03/destacker-yukleme-istasyonu.mp4'] },
+  { title: 'Узел разворота дестакера', desc: 'Узел разворота обеспечивает поворот листа декартовым дестакером на 90° или 180° в зависимости от требований процесса, обеспечивая максимальную гибкость трансферных операций и меньшее разнообразие запасов. Сервоуправляемый узел разворота может быть интегрирован в существующий декартовый механизм или применяться как отдельный узел. Это снижает разнообразие хранимых рулонов и повышает гибкость использования рулона одной ширины в разных операциях — итог: более низкие затраты на хранение и высокая гибкость производства.', videos: ['https://lightsalmon-gull-685111.hostingersite.com/wp-content/uploads/2026/03/Cevirme-Unitesi.mp4'] },
+  { title: 'Шаттл', desc: 'Лист, взятый декартовым дестакером, передаётся узлу шаттла для переноса в трансферную систему. Шаттл перемещается по одной оси, доставляя лист в позицию приёма трансферной системы. Модульная регулируемая фикстура легко адаптируется к деталям без правильной геометрии. Прочная жёсткая конструкция обеспечивает рабочие скорости до 20 ходов/мин.', videos: ['https://lightsalmon-gull-685111.hostingersite.com/wp-content/uploads/2026/03/Shuttle-System_V1.mp4'] },
+  { title: 'Конвейер', desc: 'Регулируемая по ширине конструкция для разных ширин листа. Различные варианты центрирования и сервоуправляемое перемещение для точного позиционирования деталей. Специальный механизм подъёма для мелких деталей. Мощная динамичная конструкция для работы на высоких скоростях, телескопическое выдвижение над столом пресса для штампов разных размеров, низкие требования к обслуживанию и высокая надёжность.', videos: ['https://lightsalmon-gull-685111.hostingersite.com/wp-content/uploads/2026/03/Coiltech_Konveyor_V1.mp4', 'https://lightsalmon-gull-685111.hostingersite.com/wp-content/uploads/2026/03/Coiltech_Konveyor_V2.mp4'] },
+  { title: 'Дисковая транспортировка', desc: 'Надёжное разделение немагнитных листов, снижение риска захвата двойного листа, сохранение поверхности благодаря бесконтактной работе, высокая эффективность для тонких и склонных к слипанию листов, лёгкая интеграция с роботизированными и автоматическими системами дестакеров.', videos: ['https://lightsalmon-gull-685111.hostingersite.com/wp-content/uploads/2026/03/Vestel_Destacker_V1.mp4'] },
+  { title: 'Воздушный нож', desc: 'Надёжное разделение немагнитных листов, снижение риска захвата двойного листа, сохранение поверхности благодаря бесконтактной работе, высокая эффективность для тонких и склонных к слипанию листов, лёгкая интеграция с роботизированными и автоматическими системами дестакеров.', videos: ['https://lightsalmon-gull-685111.hostingersite.com/wp-content/uploads/2026/03/Hava_Ayirici.mp4'] },
+  { title: 'Стационарные и подвижные (акробат) магнитные разделители', desc: 'Магнитные разделители снижают эффект слипания в пачках листов, обеспечивая надёжное отделение верхнего листа и повышая производительность систем дестакеров. Стационарные разделители дают постоянную разделяющую силу в заданных точках — экономичное решение для стандартных применений. Разделители с подвижными (акробат) рычагами благодаря подвижной конструкции легко адаптируются к разным размерам листа и высотам пачки, позиционируясь в наиболее подходящих точках. Обе системы снижают риск захвата двойного листа и способствуют непрерывному производству.', videos: ['https://lightsalmon-gull-685111.hostingersite.com/wp-content/uploads/2026/03/Yukleme_arabasi_Akrobat_kollar.mp4', 'https://lightsalmon-gull-685111.hostingersite.com/wp-content/uploads/2026/03/Manyetik_ayiricilar.mp4'] },
+  { title: 'Автоматическая смена станции', desc: 'После завершения пачки листов тележка дестакера автоматически переходит на другую станцию загрузки без вмешательства оператора, обеспечивая непрерывность производства. Возможность заблаговременной подготовки новой пачки минимизирует время смены, сокращает простои и повышает эффективность линии. Система работает синхронно с производственной линией.', videos: ['https://lightsalmon-gull-685111.hostingersite.com/wp-content/uploads/2023/03/destacker.mp4'] },
+  { title: 'Датчики обнаружения двойного листа', desc: 'Датчики обнаружения двойного листа повышают безопасность пресса и штампа, выявляя одновременный захват более одного листа. Система производит измерение перед подачей листа и мгновенно определяет двойной лист, останавливая линию для предотвращения повреждений оборудования. Высокая точность обнаружения и надёжная работа особенно востребованы в автомобильной и бытовой электротехнической отраслях.', videos: ['https://lightsalmon-gull-685111.hostingersite.com/wp-content/uploads/2026/03/Roland.mp4', 'https://lightsalmon-gull-685111.hostingersite.com/wp-content/uploads/2026/03/sac-Kalinlik-Sensoru.mp4'] }
+] },
+                    { name: 'Трансфер внутри штампа', desc: 'Servo-управляемая система внутриштамповой передачи деталей между операциями — однобарная или двухбарная (2–3 оси), с точным программируемым ходом и высотой подъёма. Превращает стандартный пресс в многостанционный центр, работает как с рулонной, так и с листовой подачей. Наши проекты:', videoLinks: [
+  {label:'Видео 1', url:'https://www.youtube.com/embed/hK-bf7tOpQQ'},
+  {label:'Видео 2', url:'https://www.youtube.com/embed/vct0PvYq9Pk'},
+  {label:'Видео 3', url:'https://www.youtube.com/embed/D7gjjlYs0V8'}
+] },
+                    { name: 'Трансфер между прессами', img: 'https://img.youtube.com/vi/TAzjMiQdw7Y/hqdefault.jpg', shortDesc: 'Роботизированные системы трансфера деталей от пресса к прессу.', desc: 'Трансфер между прессами — это системы, предназначенные для операций трансфера деталей от пресса к прессу. Метод трансфера между прессами может варьироваться в зависимости от типа прессов, конструкции штампов и особенностей процесса. В зависимости от этих переменных может быть выбрана подходящая система: робот Monobar, робот T или система Bar Feeder. Благодаря разнообразию линейки продукции эти системы способны удовлетворить самые разные потребности. Для решений трансферных прессов также может применяться 3-осевая система «Трансферные системы пресса». Источник: coiltech.com.tr/pres-transfer-robotlari/', mediaSlides: [
+  { title: 'Робот Monobar', desc: 'Минимальная площадь размещения благодаря однобалочной конструкции. Трансферное расстояние до 5 500 мм. Высокодинамичное движение с сервоуправлением. Низкие требования к обслуживанию. Время цикла до 4 секунд.', videos: ['https://coiltech.com.tr/wp-content/uploads/2023/03/Coiltech-Monobar.mp4'] },
+  { title: 'Робот T', desc: 'Жёсткая двухосевая конструкция. Трансферное расстояние до 5 500 мм. Высокая грузоподъёмность для тяжёлых деталей. Высокая скорость и точное позиционирование. Время цикла до 4 секунд.', videos: ['https://coiltech.com.tr/wp-content/uploads/2026/06/T-Robot_2.mp4'] },
+  { title: 'Bar Feeder', desc: 'Компактная конструкция приводного блока. Быстрая смена изделия. Адаптация к различным геометриям деталей. Рабочая зона до 5 500 мм. Время цикла до 4 секунд.', videos: ['https://coiltech.com.tr/wp-content/uploads/2026/03/SKP_Destacker_V1.mp4'] }
+] },
                   ] }
                 ] },
-                { name: 'Комбинированные системы', desc: 'Комбинированные системы подачи и трансфера.', subItems: [] }
+                { name: 'Комбинированные системы', img: 'https://img.youtube.com/vi/vCh3Si0zkos/hqdefault.jpg', heroTitle: 'Трансферные системы', shortDesc: 'Системы трансфера деталей внутри пресса.', desc: 'Системы трансфера пресса могут быть спроектированы для работы между колоннами пресса либо спереди и сзади пресса — в зависимости от конструкции пресса, на котором будет применяться трансфер. Благодаря этому обеспечивается 100% совместимость с гидравлическими, эксцентриковыми и сервотрансферными прессами любых марок. Перед трансферной системой также может быть реализована система подачи рулона и дестакер — по отдельности или совместно, в зависимости от конфигурации линии. Для операций трансфера от пресса к прессу предлагаются различные решения для перемещения деталей с помощью системы «Трансфер между прессами». Общие характеристики: рабочая скорость до 30 ходов/мин; программируемое трансферное движение по 3 осям; варианты трансферных балок, оптимизированные под размеры стола пресса; автоматическая смена балки с пневматической системой блокировки; автоматическое подключение воздуха и электричества при смене балки; высокоточные оси с приводом по системе рейка-шестерня.', mediaSlides: [
+  { title: 'Система подачи рулона с дестакером и трансферной системой', desc: 'Система, в зависимости от производственной задачи, может быть спроектирована для работы с системой подачи рулонной стали или со станцией загрузки дестакера. В рулонных применениях компактные и петлевые системы подачи обеспечивают непрерывную подачу материала, а в системах дестакера пачки листов автоматически разделяются и подаются в линию пресса. В обоих способах подачи трансфер деталей внутри пресса осуществляется точно и синхронно системой внутрипрессового трансфера.', videos: ['https://www.youtube.com/embed/vCh3Si0zkos', 'https://www.youtube.com/embed/5lzdFGGEA3Y'] },
+  { title: 'Система подачи рулона и трансферная система', desc: 'В рулонных применениях непрерывная подача материала обеспечивается системами разматывателя и сервоприводного правильного устройства, а в системах дестакера пачки листов автоматически разделяются и подаются в линию пресса. Трансферная система точно и синхронно позиционирует детали, обеспечивая безопасное и эффективное протекание прессовой операции. Благодаря интегрированной работе системы подачи рулона и трансферной системы производственный процесс становится полностью автоматическим — это снижает ручное вмешательство и значительно повышает непрерывность производства и эффективность линии.', videos: ['https://www.youtube.com/embed/1u79ymop7oI'] },
+  { title: 'Дестакер и трансферные системы', desc: 'Системы дестакера обеспечивают автоматическое разделение деталей из пачек листов и их контролируемую подачу в линию пресса. Детали, взятые с узла дестакера, перемещаются трансферной системой между станциями внутри пресса. Трансферная система точно и синхронно позиционирует детали, обеспечивая безопасное и эффективное протекание прессовой операции. Благодаря интегрированной работе дестакера и трансферной системы производственный процесс становится полностью автоматическим, снижая ручное вмешательство и повышая непрерывность и эффективность линии.', videos: ['https://www.youtube.com/embed/zBSrZkAYgvM'] },
+  { title: 'Системы трансфера через переднее-заднее окно пресса', desc: 'На прессах, не спроектированных как трансферные, или с недостаточными боковыми проёмами для трансферной системы, трансфер может быть реализован через переднее и заднее окна пресса. Благодаря этому подходу существующая конструкция пресса сохраняется, а внутрипрессовый трансфер деталей осуществляется безопасно и синхронно.', videos: ['https://www.youtube.com/embed/haykhLQqQ9w'] },
+  { title: 'Дестакер и трансферная система с шаттлом', desc: 'Благодаря конструкции дестакера с шаттлом и двумя станциями загрузки, остановка линии во время загрузки пачек листов исключается. Механизм шаттла обеспечивает автоматическое переключение между станциями загрузки, гарантируя непрерывное производство. Детали перемещаются внутрь пресса системой трансфера через переднее-заднее окно, обеспечивая высокоточное и синхронное трансферное движение.', videos: ['https://www.youtube.com/embed/XBDqM2-OvDs'] },
+  { title: 'Вариант работы с подачей рулона или загрузкой дестакера', desc: 'Система может быть спроектирована для работы с системой подачи рулонной стали или со станцией загрузки дестакера — в зависимости от производственной задачи. В рулонных применениях компактная система подачи, состоящая из разматывателя и правильного привода, обеспечивает непрерывную подачу материала, а в системах дестакера пачки листов автоматически разделяются и подаются в линию пресса. В обоих способах подачи трансфер деталей внутри пресса осуществляется точно и синхронно системой трансфера через переднее-заднее окно.', videos: ['https://www.youtube.com/embed/_Fhbp9gH480'] },
+  { title: 'Дестакер и трансферная система с поворотным столом', desc: 'Благодаря станции загрузки с поворотным столом пачки листов подаются в систему быстро и эргономично. Автоматическая подача, осуществляемая фидер-роботом, обеспечивает стабильный и надёжный поток деталей. Детали перемещаются внутрь пресса системой трансфера через переднее-заднее окно, обеспечивая высокоточное трансферное движение.', videos: ['https://www.youtube.com/embed/uSCCoylRlxE'] },
+  { title: 'Скорость трансфера до 30 ходов/мин', desc: 'Наши трансферные системы благодаря оптимизированной конструкции и прочной механической структуре способны достигать рабочих скоростей до 30 ходов/мин. Достигаемые значения скорости могут варьироваться в зависимости от размеров детали, трансферного расстояния (шага) и требований процесса.', videos: ['https://coiltech.com.tr/wp-content/uploads/2026/03/Innova_Transfer_Linkedin_V1.3.mp4'] },
+  { title: 'Автоматическая смена балки', desc: 'Трансферные балки могут быстро, безопасно и точно сниматься и устанавливаться благодаря пневматической автоматической системе блокировки. В процессе смены воздушные и электрические соединения на балках подключаются автоматически. Благодаря высокопрочной направляющей конструкции, изготовленной из цементируемой стали, система работает центрированно и стабильно, не повреждая механизм блокировки. Специальная конструкция блокировки с усиленной безопасностью предотвращает открытие замков балки даже при отключении подачи воздуха.', videos: ['https://coiltech.com.tr/wp-content/uploads/2026/03/Otomatik-Bar-Alma.mp4'] },
+  { title: 'Динамический контроль крутящего момента', desc: 'Система динамического контроля крутящего момента автоматически останавливает трансферную систему при достижении заданного предельного значения момента. Благодаря этому чрезмерные нагрузки на систему мгновенно выявляются, предотвращая механические перегрузки. Эта функция безопасности защищает оборудование и минимизирует риски повреждений и производственного травматизма.', videos: ['https://coiltech.com.tr/videolar/dinamik.mp4'] }
+] }
               ]
             },
             {
               name: 'Прогрессивные и трансферные штампы',
-              desc: 'Современные штамповочные системы',
+              shortDesc: 'Два подхода к серийной листовой штамповке.',
+              desc: 'Прогрессивные и трансферные штампы — два основных подхода к серийной листовой штамповке, различающиеся способом перемещения детали между операциями. В прогрессивном штампе лента непрерывно продвигается через ряд последовательных станций в одном инструменте, что обеспечивает высокую скорость и экономичность при массовом производстве мелких и средних деталей. В трансферном штампе деталь после каждой операции механически переносится отдельной транспортной системой на следующую станцию — это позволяет работать с более крупными и сложными по геометрии деталями, обеспечивая контролируемую глубокую вытяжку и высокую гибкость процесса. Выбор между этими подходами зависит от объёма выпуска, геометрии и размеров детали, требуемых допусков и производственных целей.',
               img: './images/progressivnye.jpg',
               subItems: [
-                { name: 'Прогрессивные штампы', desc: 'Разработка прогрессивных штампов.', img: './images/progressiv.jpg' },
-                { name: 'Трансферные штампы', desc: 'Разработка трансферных штампов.', img: './images/transfer.jpg' }
+                { name: 'Прогрессивные штампы', shortDesc: 'Непрерывное продвижение ленты через последовательные операции в одном штампе.', desc: 'В прогрессивных штампах листовая лента непрерывно продвигается через ряд станций, на каждой из которых выполняется своя операция — вырубка, гибка или формовка — последовательно в одном штампе. Это обеспечивает непрерывность производства и значительное преимущество по времени при больших объёмах. Преимущества: высокая эффективность при серийном производстве, сохранение стабильного качества при снижении участия оператора, более быстрый цикл производства за счёт непрерывного потока, возможность выполнения нескольких операций в одном штампе. Наиболее экономичное решение для деталей малого и среднего размера при высоком объёме выпуска.', img: './images/progressiv.jpg', specTable: { headers: ['Критерий','Прогрессивный штамп','Трансферный штамп'], rows: [
+                  ['Метод производства','Лента непрерывно продвигается','Детали транспортируются по отдельности'],
+                  ['Подходящий тип производства','Серийное производство большими партиями','Крупные и сложные детали'],
+                  ['Структура операций','Последовательные операции в одном штампе','Независимые операции на отдельных станциях'],
+                  ['Скорость производства','Очень высокая','Зависит от конструкции детали'],
+                  ['Область применения','Мелкие и средние детали','Крупногабаритные детали']
+                ] } },
+                { name: 'Трансферные штампы', shortDesc: 'Механический перенос детали между станциями для крупных и сложных деталей.', desc: 'Трансферный штамп — это многостанционная система, в которой деталь на первой станции полностью отделяется (вырубается) от металлической ленты, после чего синхронизированная механическая система трансфера (роботизированные рычаги, пальцы или трансферные балки) переносит независимую деталь от станции к станции. На каждой станции выполняется своя операция — глубокая вытяжка, вырубка, формовка, отбортовка или пробивка. Независимое перемещение детали между станциями (включая поворот и наклон) придаёт этой технологии уникальную гибкость. Преимущества: возможность производства крупногабаритных деталей без ограничения шириной ленты (панели кузова, баки стиральных машин); превосходная способность к глубокой вытяжке, недостижимая в прогрессивных штампах; гибкость конструкции для сложных асимметричных геометрий; интеграция вторичных операций (сварка, клёпка, сборка) прямо в штамп; автоматический межстанционный перенос снижает участие человека, число ошибок и производственный травматизм. Область применения: автомобилестроение (панели кузова, элементы шасси, топливные баки), бытовая техника (баки стиральных машин, дверцы холодильников, камеры духовых шкафов, мойки), HVAC (корпуса вентиляторов, кожухи компрессоров, панели теплообменников), промышленное оборудование (корпуса двигателей, сосуды под давлением). Источники: celikkalip.com/transfer-kalip, eminmekatronik.com/urun/transfer-kalibi/', img: 'https://eminmekatronik.com/wp-content/uploads/2025/04/Transfer-Kalibi.png', images: [
+  'https://eminmekatronik.com/wp-content/uploads/2025/04/Transfer-Kalibi.png',
+  'https://www.celikkalip.com/yuklemeler/urun-gorselleri/arka-koltuk-baglanti-saci.png',
+  'https://www.celikkalip.com/yuklemeler/urun-gorselleri/sasi-baglanti-saci.png',
+  'https://www.celikkalip.com/yuklemeler/urun-gorselleri/ic-camurluk-saci.png',
+  'https://www.celikkalip.com/yuklemeler/urun-gorselleri/on-panel-destek-saci.png',
+  'https://www.celikkalip.com/yuklemeler/urun-gorselleri/amortisor-kulesi-saci.png',
+  'https://www.celikkalip.com/yuklemeler/urun-gorselleri/taban-doseme-kabarti-saci.jpg',
+  'https://www.celikkalip.com/yuklemeler/urun-gorselleri/koltuk-baglanti-tabani.jpg',
+  'https://www.celikkalip.com/yuklemeler/urun-gorselleri/koltuk-tabani-destek-saci.jpg',
+  'https://www.celikkalip.com/yuklemeler/urun-gorselleri/govde-yan-baglanti-saci.jpg'
+], videoLinks: [{label:'Видео 1', url:'https://www.youtube.com/embed/hK-bf7tOpQQ'},{label:'Видео 2', url:'https://www.youtube.com/embed/vct0PvYq9Pk'},{label:'Видео 3', url:'https://www.youtube.com/embed/D7gjjlYs0V8'}], specTable: { headers: ['Критерий','Прогрессивный штамп','Трансферный штамп'], rows: [
+                  ['Метод производства','Лента непрерывно продвигается','Детали транспортируются по отдельности'],
+                  ['Подходящий тип производства','Серийное производство большими партиями','Крупные и сложные детали'],
+                  ['Структура операций','Последовательные операции в одном штампе','Независимые операции на отдельных станциях'],
+                  ['Скорость производства','Очень высокая','Зависит от конструкции детали'],
+                  ['Область применения','Мелкие и средние детали','Крупногабаритные детали']
+                ] } }
               ]
             },
             { name: 'Штамповочные комплексы', desc: 'Наши проекты.', videoLinks: [
@@ -674,7 +767,7 @@
       items: {
         'shtampovki': { name: 'ЛИНИИ ШТАМПОВКИ', desc: 'Комплексные линии штамповки.', img: './images/shtampovki.jpg', subItems: [
   { name: 'Видео', desc: 'Наши проекты.', videoLinks: [
-    {label:'Видео 1', url:'https://www.youtube.com/embed/QM-GeH6EOmY'},
+    {label:'Автоматическая линия штамповки стальных дюбелей 2', url:'https://www.youtube.com/embed/QM-GeH6EOmY'},
     {label:'Видео 2', url:'https://www.youtube.com/embed/JYlks078--I'},
     {label:'Видео 3', url:'https://www.youtube.com/embed/mpv-eMwlylc'},
     {label:'Видео 4', url:'https://www.youtube.com/embed/nlJ2LsKMHL4'},
@@ -686,14 +779,23 @@
     {label:'Видео 10', url:'https://www.youtube.com/embed/_3f_GNhr-AQ'},
     {label:'Видео 11', url:'https://www.youtube.com/embed/8eFylWBqu8U'},
     {label:'Видео 12', url:'https://www.youtube.com/embed/_Eh9iIwuSnc'},
-    {label:'Видео 13', url:'https://www.youtube.com/embed/Tz1CwFXy2v8'}
+    {label:'Видео 13', url:'https://www.youtube.com/embed/Tz1CwFXy2v8'},
+                {label:'Линия штамповки листов ротора и статора с пакетированием — 1', url:'https://www.youtube.com/embed/bS3cMe0S-wk'},
+                {label:'Линия штамповки листов ротора и статора с пакетированием — 2', url:'https://www.youtube.com/embed/NkAWRCT59gE'},
+    {label:'Линия штамповки листов ротора и статора с пакетированием — 1', url:'https://www.youtube.com/embed/bS3cMe0S-wk'},
+    {label:'Линия штамповки листов ротора и статора с пакетированием — 2', url:'https://www.youtube.com/embed/NkAWRCT59gE'}
   ] }
 ] },
-        'rotacion': { name: 'ЛИНИИ РОТАЦИОННОЙ ПРОБИВКИ', desc: 'Линии ротационной пробивки.', img: './images/rotacion.jpg', subItems: [] },
+        'rotacion': { name: 'ЛИНИИ РОТАЦИОННОЙ ПРОБИВКИ', desc: 'Линии ротационной пробивки.', img: './images/rotacion.jpg', subItems: [
+  { name: 'Видео', desc: 'Наши проекты.', videoLinks: [
+    {label:'Видео 1', url:'https://www.youtube.com/embed/9mYj-n29BHg'},
+    {label:'Видео 2', url:'https://www.youtube.com/embed/LWLmTWVzIHk'}
+  ] }
+] },
         'profilirovaniya': { name: 'ЛИНИИ ПРОФИЛИРОВАНИЯ', desc: 'Линии профилирования.', img: './images/profilirovaniya.jpg', subItems: [
   { name: 'Видео', desc: 'Наши проекты.', videoLinks: [
     {label:'Видео 1', url:'https://www.youtube.com/embed/Gsy1h8t6lTI'},
-    {label:'Видео 2', url:'https://www.youtube.com/embed/baSyqzNeFNw'},
+    {label:'Линия для производства С, П и STRUT профилей 2', url:'https://www.youtube.com/embed/baSyqzNeFNw'},
     {label:'Видео 3', url:'https://www.youtube.com/embed/_MBzu3TlVuk'},
     {label:'Видео 4', url:'https://www.youtube.com/embed/kIyhet8Ao6o'},
     {label:'Видео 5', url:'https://www.youtube.com/embed/eTFGqbtLUxY'},
@@ -704,16 +806,20 @@
     {label:'Видео 10', url:'https://www.youtube.com/embed/v0dvDDrjAok'},
     {label:'Видео 11', url:'https://www.youtube.com/embed/tzy3OtDFZeI'},
     {label:'Видео 12', url:'https://www.youtube.com/embed/EH_CCDXaCRY'},
-    {label:'Видео 13', url:'https://www.youtube.com/embed/ESIe_PzCbSw'}
+    {label:'Видео 13', url:'https://www.youtube.com/embed/ESIe_PzCbSw'},
+                {label:'Линия для производства С, П и STRUT профилей 3', url:'https://www.youtube.com/embed/AF50QpxTtAU'},
+                {label:'Линия для производства ступени стремянки', url:'https://www.youtube.com/embed/2XfQKTYJIzw'},
+    {label:'Линия для производства С, П и STRUT профилей 3', url:'https://www.youtube.com/embed/AF50QpxTtAU'},
+    {label:'Линия для производства ступени стремянки', url:'https://www.youtube.com/embed/2XfQKTYJIzw'}
   ] }
 ] },
         'poperechnaya': { name: 'ЛИНИИ ПОПЕРЕЧНОЙ РЕЗКИ', desc: 'Линии поперечной резки.', img: './images/poperechnaya.jpg', subItems: [
   { name: 'Видео', desc: 'Наши проекты.', videoLinks: [
-    {label:'Видео 1', url:'https://www.youtube.com/embed/Mpc-LT_CkWk'},
-    {label:'Видео 2', url:'https://www.youtube.com/embed/gDJzQiGsbzQ'},
-    {label:'Видео 3', url:'https://www.youtube.com/embed/T0bi7_evZ_A'},
-    {label:'Видео 4', url:'https://www.youtube.com/embed/4p0_gu7EEhM'},
-    {label:'Видео 5', url:'https://www.youtube.com/embed/kECIoTuqM-o'},
+    {label:'Линия поперечной резки рулона 2', url:'https://www.youtube.com/embed/Mpc-LT_CkWk'},
+    {label:'Линия поперечной резки рулона 3', url:'https://www.youtube.com/embed/gDJzQiGsbzQ'},
+    {label:'Автоматический укладчик листов 3', url:'https://www.youtube.com/embed/T0bi7_evZ_A'},
+    {label:'Линия поперечной резки рулона 4', url:'https://www.youtube.com/embed/4p0_gu7EEhM'},
+    {label:'Автоматический укладчик листов 1', url:'https://www.youtube.com/embed/kECIoTuqM-o'},
     {label:'Видео 6', url:'https://www.youtube.com/embed/bH3B6_7bwXI'},
     {label:'Видео 7', url:'https://www.youtube.com/embed/cL2ocP_OPKY'}
   ] }
@@ -875,6 +981,34 @@
     ['Примерный вес','35 000 кг']
   ] } }
 ] },
+{ name: 'Серво прессы', shortDesc: 'Серво-приводные прессы, сочетающие эффективность механических и мощность гидравлических прессов.', desc: 'Серво-приводные прессы сочетают эффективность механических прессов с высокой формовочной мощностью гидравлических — новое поколение классических прессовых машин. Особая конструкция серво-пресса позволяет реализовать различные режимы хода: многоточечный режим (MULTI-POINT), маятниковый режим (PENDULUM) и многоточечный маятниковый режим. Серво-пресс потребляет электроэнергию только во время работы, что обеспечивает высокую энергоэффективность. Производитель: Dirinler (Турция). Источник: dirinler.com.tr/servo-presses/servo-pres', img: 'https://www.dirinler.com.tr/Uploads/urunler/servo-press.png', images: [
+  'https://www.dirinler.com.tr/Uploads/urunler/servo-press.png',
+  'https://www.dirinler.com.tr/Uploads/urunler/servo-press-1.png',
+  'https://www.dirinler.com.tr/Uploads/urunler/control_panel.jpg',
+  'https://www.dirinler.com.tr/Uploads/urunler/control_cabinet.png'
+], specTable: { headers: ['Характеристика','Ед. изм.','CDSH 1500 S'], rows: [
+  ['Номинальное усилие','т','150'],
+  ['Точка номинального усилия','мм','1,4'],
+  ['Макс. закрытая высота штампа','мм','500'],
+  ['Величина хода','мм','100'],
+  ['Скорость пресса','ход/мин','100'],
+  ['Регулировка ползуна','мм','100'],
+  ['Размер стола','мм','1200×1000'],
+  ['Высота стола от пола','мм','1040'],
+  ['Ориентировочный вес пресса','кг','~19200'],
+  ['Ориентировочная высота пресса','мм','4550'],
+  ['Ориентировочная глубина пресса','мм','3160'],
+  ['Ориентировочная ширина пресса','мм','2930'],
+  ['Количество шатунов','шт.','1'],
+  ['Макс. потребление энергии','кВт','40'],
+  ['Электропитание','—','3ф~/N/PE 380В 50Гц'],
+  ['Мощность серво-двигателя','кВт','270'],
+  ['Крутящий момент серво-двигателя','Нм','3300'],
+  ['Передаточное отношение редуктора','—','5,882'],
+  ['Система централизованной смазки','—','Рециркулируемая жидкость'],
+  ['Регулировка штампа маховиком','—','Стандарт'],
+  ['Технический паспорт (PDF)','—','<a href="https://www.dirinler.com.tr/Uploads/PDF/servo-pres.pdf" target="_blank" style="color:#f97316;font-weight:700;">Скачать PDF</a>']
+] }, pdfs: [{label:'Servo Pres (PDF)', url:'https://www.dirinler.com.tr/Uploads/PDF/servo-pres.pdf'}] },
 { name: 'Гидравлические прессы', desc: 'Гидравлические прессы С-типа, D-типа и Н-типа для листовой штамповки, чеканки и трансфертной штамповки. Производитель: REHA MAKINA (Турция).', img: 'https://www.rehamakina.com/upload/c-tipi-hidrolik-pres_k_1412167737.jpg', subItems: [
   { name: 'C-типа гидравлический пресс', desc: 'Гидравлический пресс C-типа для листовой штамповки.', img: 'https://www.rehamakina.com/upload/c-tipi-hidrolik-pres_b_1412167737.jpg', images: ['https://www.rehamakina.com/upload/c-tipi-hidrolik-pres_b_1412167737.jpg','https://www.rehamakina.com/upload/i_c-tipi-hidrolik-pres_1412172981.jpg','https://www.rehamakina.com/upload/i_c-tipi-hidrolik-pres_1412172989.jpg','https://www.rehamakina.com/upload/i_c-tipi-hidrolik-pres_1412172992.jpg','https://www.rehamakina.com/upload/i_c-tipi-hidrolik-pres_1412172994.jpg','https://www.rehamakina.com/upload/i_c-tipi-hidrolik-pres-tablasi_1412173032.jpg'], specTable: { headers: ['Модель','Ед.','RHCP 30180','RHCP 40200','RHCP 60200','RHCP 80250','RHCP 100250','RHCP 125275','RHCP 150300','RHCP 200325','RHCP 250350','RHCP 300350'], rows: [
     ['КАПАЦИТЕТ','т','30','40','60','80','100','125','150','200','250','300'],
@@ -1074,6 +1208,10 @@
     { name: 'Сервоприводы с выпрямителем толстой серии', note: '', img: './DogrultmaliServoSuruculerKALIN.jpg', images: ['./DogrultmaliServoSuruculerKALIN.jpg'] }
   ] }
 ] },
+            { name: 'Штампы', desc: 'Штампы для холодной листовой штамповки — вырубные, гибочные, вытяжные и комбинированные.', subItems: [] },
+            { name: 'Стандартные компоненты для штампов и прессформ', desc: 'Стандартные компоненты для штампов и пресс-форм (направляющие колонки и втулки, пружины, толкатели, крепёж и др.). Источник: guvenal.net; каталог: disk.yandex.ru/i/iBNIl1J8vKlHUw', subItems: [] },
+            { name: 'Системы быстрой смены штампов', desc: 'Системы быстрой смены штампов (Quick Die Change) для сокращения времени переналадки пресса. Источник: er-el.com.tr/ru/katalogi', subItems: [] },
+            { name: 'Вспомогательное оборудование', desc: 'Вспомогательное оборудование для штамповочного производства. Источники: promakmakina.com, fada.com.tr, veltix.com.tr', subItems: [] },
           ]
         },
         'raskroy': {
@@ -1204,13 +1342,13 @@
       img: './images/otrasli.jpg',
       items: {
         'avtomobil': { name: 'АВТОМОБИЛЕСТРОЕНИЕ', desc: 'Решения для автомобильной промышленности.', img: './images/avtomobil.jpg', subItems: [
-  { name: 'Видео', desc: 'Наши проекты.', videoLinks: [{label:'Видео 1', url:'https://www.youtube.com/embed/FR2HMS8DW_0'},{label:'Видео 2', url:'https://www.youtube.com/embed/5efnZ2RcNnc'},{label:'Видео 3', url:'https://www.youtube.com/embed/vFlteMl5T8Y'},{label:'Видео 4', url:'https://www.youtube.com/embed/_5HDN-sRX0o'},{label:'Видео 5', url:'https://www.youtube.com/embed/eGLlHKKxaAU'},{label:'Видео 6', url:'https://www.youtube.com/embed/lMMqTVa9Stw'},{label:'Видео 7', url:'https://www.youtube.com/embed/pkGz5UOR9dk'},{label:'Видео 8', url:'https://www.youtube.com/embed/kLNYb8wrQ3s'},{label:'Видео 9', url:'https://www.youtube.com/embed/9AguYjWmDOI'},{label:'Видео 10', url:'https://www.youtube.com/embed/oH1Gj1H45PM'},{label:'Видео 11', url:'https://www.youtube.com/embed/7hkIWmUasMg'},{label:'Видео 12', url:'https://www.youtube.com/embed/10w78fj-x_0'},{label:'Видео 13', url:'https://www.youtube.com/embed/pmKjKKS2kJ4'},{label:'Видео 14', url:'https://www.youtube.com/embed/CD98T2sD7NY'},{label:'Видео 15', url:'https://www.youtube.com/embed/y2M6uE79ruU'},{label:'Видео 16', url:'https://www.youtube.com/embed/-3VIJyxx8FQ'},{label:'Видео 17', url:'https://www.youtube.com/embed/g9Lx7x20nNc'},{label:'Видео 18', url:'https://www.youtube.com/embed/zSiVq1tOTIE'},{label:'Видео 19', url:'https://www.youtube.com/embed/Alx0NmymBgg'},{label:'Видео 20', url:'https://www.youtube.com/embed/FUn3cjVXreQ'},{label:'Видео 21', url:'https://www.youtube.com/embed/EX3Dzl24Pus'},{label:'Видео 22', url:'https://www.youtube.com/embed/T_zZusm53Fc'},{label:'Видео 23', url:'https://www.youtube.com/embed/QEDmZvh0md4'},{label:'Видео 24', url:'https://www.youtube.com/embed/6EP_q88xC_c'},{label:'Видео 25', url:'https://www.youtube.com/embed/Oe81oVPkDaU'},{label:'Видео 26', url:'https://www.youtube.com/embed/BXN9o0oFO88'}] }
+  { name: 'Видео', desc: 'Наши проекты.', videoLinks: [{label:'Видео 1', url:'https://www.youtube.com/embed/FR2HMS8DW_0'},{label:'Клепальный комплекс с автоматизацией оснастки 1', url:'https://www.youtube.com/embed/5efnZ2RcNnc'},{label:'Видео 3', url:'https://www.youtube.com/embed/vFlteMl5T8Y'},{label:'Видео 4', url:'https://www.youtube.com/embed/_5HDN-sRX0o'},{label:'Видео 5', url:'https://www.youtube.com/embed/eGLlHKKxaAU'},{label:'Видео 6', url:'https://www.youtube.com/embed/lMMqTVa9Stw'},{label:'Видео 7', url:'https://www.youtube.com/embed/pkGz5UOR9dk'},{label:'Видео 8', url:'https://www.youtube.com/embed/kLNYb8wrQ3s'},{label:'Видео 9', url:'https://www.youtube.com/embed/9AguYjWmDOI'},{label:'Видео 10', url:'https://www.youtube.com/embed/oH1Gj1H45PM'},{label:'Видео 11', url:'https://www.youtube.com/embed/7hkIWmUasMg'},{label:'Видео 12', url:'https://www.youtube.com/embed/10w78fj-x_0'},{label:'Видео 13', url:'https://www.youtube.com/embed/pmKjKKS2kJ4'},{label:'Видео 14', url:'https://www.youtube.com/embed/CD98T2sD7NY'},{label:'Видео 15', url:'https://www.youtube.com/embed/y2M6uE79ruU'},{label:'Видео 16', url:'https://www.youtube.com/embed/-3VIJyxx8FQ'},{label:'Видео 17', url:'https://www.youtube.com/embed/g9Lx7x20nNc'},{label:'Видео 18', url:'https://www.youtube.com/embed/zSiVq1tOTIE'},{label:'Видео 19', url:'https://www.youtube.com/embed/Alx0NmymBgg'},{label:'Видео 20', url:'https://www.youtube.com/embed/FUn3cjVXreQ'},{label:'Видео 21', url:'https://www.youtube.com/embed/EX3Dzl24Pus'},{label:'Видео 22', url:'https://www.youtube.com/embed/T_zZusm53Fc'},{label:'Видео 23', url:'https://www.youtube.com/embed/QEDmZvh0md4'},{label:'Видео 24', url:'https://www.youtube.com/embed/6EP_q88xC_c'},{label:'Видео 25', url:'https://www.youtube.com/embed/Oe81oVPkDaU'},{label:'Видео 26', url:'https://www.youtube.com/embed/BXN9o0oFO88'}] }
 ] },
         'bytovaya': { name: 'БЫТОВАЯ ТЕХНИКА', desc: 'Решения для производства бытовой техники.', img: './images/bytovaya.jpg', subItems: [
   { name: 'Видео', desc: 'Наши проекты.', videoLinks: [{label:'Видео 1', url:'https://www.youtube.com/embed/yz7ufq6iW2E'}] }
 ] },
         'zamochnye': { name: 'ПРОИЗВОДСТВО ЗАМОЧНЫХ ИЗДЕЛИЙ', desc: 'Решения для производства замков.', img: './images/zamochnye.jpg', subItems: [
-  { name: 'Видео', desc: 'Наши проекты.', videoLinks: [{label:'Видео 1', url:'https://www.youtube.com/embed/kZoMPcVolTA'},{label:'Видео 2', url:'https://www.youtube.com/embed/Vqy2O-gA_mQ'},{label:'Видео 3', url:'https://www.youtube.com/embed/Ebh7cZ_awdI'},{label:'Видео 4', url:'https://www.youtube.com/embed/mcHFecNVR2U'},{label:'Видео 5', url:'https://www.youtube.com/embed/8yu0mOZ1gNw'},{label:'Видео 6', url:'https://www.youtube.com/embed/fpPAlGjqTFk'},{label:'Видео 7', url:'https://www.youtube.com/embed/Q6P-KhnXwhM'},{label:'Видео 8', url:'https://www.youtube.com/embed/WNlACpS4_EU'},{label:'Видео 9', url:'https://www.youtube.com/embed/Un_hsl82PdA'},{label:'Видео 10', url:'https://www.youtube.com/embed/-f0T97WhkdM'}] }
+  { name: 'Видео', desc: 'Наши проекты.', videoLinks: [{label:'Координатно-клепальные машины с ЧПУ-1', url:'https://www.youtube.com/embed/kZoMPcVolTA'},{label:'Видео 2', url:'https://www.youtube.com/embed/Vqy2O-gA_mQ'},{label:'Видео 3', url:'https://www.youtube.com/embed/Ebh7cZ_awdI'},{label:'Видео 4', url:'https://www.youtube.com/embed/mcHFecNVR2U'},{label:'Видео 5', url:'https://www.youtube.com/embed/8yu0mOZ1gNw'},{label:'Видео 6', url:'https://www.youtube.com/embed/fpPAlGjqTFk'},{label:'Видео 7', url:'https://www.youtube.com/embed/Q6P-KhnXwhM'},{label:'Видео 8', url:'https://www.youtube.com/embed/WNlACpS4_EU'},{label:'Видео 9', url:'https://www.youtube.com/embed/Un_hsl82PdA'},{label:'Видео 10', url:'https://www.youtube.com/embed/-f0T97WhkdM'}] }
 ] },
         'mebel': { name: 'ПРОИЗВОДСТВО МЕБЕЛЬНОЙ ФУРНИТУРЫ', desc: 'Решения для производства мебельной фурнитуры.', img: './images/mebel.jpg', subItems: [
   { name: 'Видео', desc: 'Наши проекты.', videoLinks: [{label:'Видео 1', url:'https://www.youtube.com/embed/dwg_uKTEFzg'},{label:'Видео 2', url:'https://www.youtube.com/embed/8yu0mOZ1gNw'},{label:'Видео 3', url:'https://www.youtube.com/embed/fpPAlGjqTFk'},{label:'Видео 4', url:'https://www.youtube.com/embed/Q6P-KhnXwhM'},{label:'Видео 5', url:'https://www.youtube.com/embed/Hg3A8jvaKQw'}] }
@@ -1220,7 +1358,7 @@
 ] },
         'stroitel': { name: 'ПРОИЗВОДСТВО СТРОИТЕЛЬНЫХ МАТЕРИАЛОВ', desc: 'Решения для производства стройматериалов.', img: './images/stroitel.jpg', subItems: [] },
         'santehnika': { name: 'САНТЕХНИКА, ГАЗОВАЯ АППАРАТУРА', desc: 'Решения для сантехники и газового оборудования.', img: './images/santehnika.jpg', subItems: [
-  { name: 'Видео', desc: 'Наши проекты.', videoLinks: [{label:'Видео 1', url:'https://www.youtube.com/embed/BF70si2zPuU'},{label:'Видео 2', url:'https://www.youtube.com/embed/8S6LdfM5Lxg'},{label:'Видео 3', url:'https://www.youtube.com/embed/aPu0bpMiBUQ'},{label:'Видео 4', url:'https://www.youtube.com/embed/wMdLOpWcRe4'},{label:'Видео 5', url:'https://www.youtube.com/embed/V-5OEvPh-qA'},{label:'Видео 6', url:'https://www.youtube.com/embed/F_WR5Z69W1Y'},{label:'Видео 7', url:'https://www.youtube.com/embed/c4s2yj2Hb58'},{label:'Видео 8', url:'https://www.youtube.com/embed/hMFAoY32zM8'},{label:'Видео 9', url:'https://www.youtube.com/embed/y1eW_YyA7-o'},{label:'Видео 10', url:'https://www.youtube.com/embed/cqdFa4HNcfU'},{label:'Видео 11', url:'https://www.youtube.com/embed/2EF2uFWfZVU'},{label:'Видео 12', url:'https://www.youtube.com/embed/Oc7dSdLf9ro'}] }
+  { name: 'Видео', desc: 'Наши проекты.', videoLinks: [{label:'Видео 1', url:'https://www.youtube.com/embed/BF70si2zPuU'},{label:'Видео 2', url:'https://www.youtube.com/embed/8S6LdfM5Lxg'},{label:'Видео 3', url:'https://www.youtube.com/embed/aPu0bpMiBUQ'},{label:'Видео 4', url:'https://www.youtube.com/embed/wMdLOpWcRe4'},{label:'Видео 5', url:'https://www.youtube.com/embed/V-5OEvPh-qA'},{label:'Видео 6', url:'https://www.youtube.com/embed/F_WR5Z69W1Y'},{label:'Производство сантехнических хомутов: Сборка в комплект', url:'https://www.youtube.com/embed/c4s2yj2Hb58'},{label:'Видео 8', url:'https://www.youtube.com/embed/hMFAoY32zM8'},{label:'Видео 9', url:'https://www.youtube.com/embed/y1eW_YyA7-o'},{label:'Видео 10', url:'https://www.youtube.com/embed/cqdFa4HNcfU'},{label:'Видео 11', url:'https://www.youtube.com/embed/2EF2uFWfZVU'},{label:'Видео 12', url:'https://www.youtube.com/embed/Oc7dSdLf9ro'}] }
 ] },
 'elektrokomponentov': { name: 'ПРОИЗВОДСТВО ЭЛЕКТРОКОМПОНЕНТОВ', desc: 'Решения для производства электрокомпонентов.', subItems: [] },
 'skladskoe': { name: 'ПРОИЗВОДСТВО СКЛАДСКОГО ОБОРУДОВАНИЯ', desc: 'Решения для производства складского оборудования.', subItems: [
@@ -1314,6 +1452,19 @@
   }
 
   let ptSeriesData = [];
+  let ptMediaSlidesData = [];
+  function ptShowMediaSlide(idx) {
+    const s = ptMediaSlidesData[idx];
+    if (!s) return;
+    document.getElementById('pt-media-title').textContent = s.title;
+    document.getElementById('pt-media-desc').textContent = s.desc || '';
+    const videosHTML = (s.videos && s.videos.length) ? s.videos.map(v => `<video controls preload="metadata" style="width:100%;border-radius:10px;background:#000;margin-bottom:10px;"><source src="${v}" type="video/mp4"></video>`).join('') : '<p class="text-sm text-gray-500">Видео будет добавлено позже.</p>';
+    document.getElementById('pt-media-videos').innerHTML = videosHTML;
+    document.querySelectorAll('.pt-media-btn').forEach((b, i) => {
+      if (i === idx) { b.classList.add('bg-orange-500','text-white'); b.classList.remove('bg-black'); }
+      else { b.classList.remove('bg-orange-500'); b.classList.add('bg-black','text-white'); }
+    });
+  }
   let ptCurSeriesIdx = 0;
   function ptShowSeries(idx) {
     const s = ptSeriesData[idx];
@@ -1351,15 +1502,27 @@ function ptOpenVideoModal() {
     }
     s.videoLinks.forEach(function (v) {
       const slot = document.createElement('div');
-      slot.setAttribute('style', 'aspect-ratio:16/10;background:#111;border-radius:10px;display:flex;align-items:center;justify-content:center;color:#fff;cursor:pointer;position:relative;overflow:hidden;');
+      slot.setAttribute('style', 'aspect-ratio:16/10;background:#111;border-radius:10px;cursor:pointer;position:relative;overflow:hidden;');
+      const idMatch = v.url.match(/embed\/([^?&]+)/);
+      const ytId = idMatch ? idMatch[1] : null;
+      if (ytId) {
+        const thumb = document.createElement('img');
+        thumb.src = 'https://img.youtube.com/vi/' + ytId + '/hqdefault.jpg';
+        thumb.setAttribute('style', 'width:100%;height:100%;object-fit:cover;display:block;');
+        thumb.onerror = function () { thumb.style.display = 'none'; };
+        slot.appendChild(thumb);
+      }
       const playIcon = document.createElement('div');
       playIcon.textContent = '\u25b6';
-      playIcon.setAttribute('style', 'font-size:26px;');
-      const label = document.createElement('span');
-      label.textContent = v.label;
-      label.setAttribute('style', 'position:absolute;bottom:6px;left:0;right:0;text-align:center;font-size:11px;font-weight:700;');
+      playIcon.setAttribute('style', 'position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:30px;color:#fff;text-shadow:0 2px 8px rgba(0,0,0,.7);pointer-events:none;');
+      const isGenericLabel = /^Видео\s*\d*$/.test(v.label.trim());
       slot.appendChild(playIcon);
-      slot.appendChild(label);
+      if (!isGenericLabel) {
+        const label = document.createElement('div');
+        label.textContent = v.label;
+        label.setAttribute('style', 'position:absolute;top:0;left:0;right:0;background:linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,0));color:#fff;font-size:12px;font-weight:700;padding:6px 10px;pointer-events:none;');
+        slot.appendChild(label);
+      }
       slot.onclick = function () {
         const iframe = document.createElement('iframe');
         iframe.src = v.url;
@@ -1367,6 +1530,12 @@ function ptOpenVideoModal() {
         iframe.setAttribute('allowfullscreen', 'true');
         slot.innerHTML = '';
         slot.appendChild(iframe);
+        if (!isGenericLabel) {
+          const label2 = document.createElement('div');
+          label2.textContent = v.label;
+          label2.setAttribute('style', 'position:absolute;top:0;left:0;right:0;background:rgba(0,0,0,.6);color:#fff;font-size:12px;font-weight:700;padding:6px 10px;pointer-events:none;');
+          slot.appendChild(label2);
+        }
       };
       grid.appendChild(slot);
     });
@@ -1381,6 +1550,38 @@ function ptOpenVideoModal() {
       ptAutoSlideTimer = setInterval(() => { ptGalleryNav(1); }, 5000);
     }
   }
+
+  function ptHandleFsChange() {
+    const fsEl = document.fullscreenElement || document.webkitFullscreenElement;
+    if (fsEl && fsEl.tagName === 'VIDEO') {
+      const wrap = fsEl.closest('.pt-video-wrap');
+      if (wrap && wrap !== fsEl) {
+        if (wrap.requestFullscreen) wrap.requestFullscreen().catch(function(){});
+        else if (wrap.webkitRequestFullscreen) wrap.webkitRequestFullscreen();
+      }
+    }
+  }
+  document.addEventListener('fullscreenchange', ptHandleFsChange);
+  document.addEventListener('webkitfullscreenchange', ptHandleFsChange);
+
+  function ptToggleTheme() {
+    const isDark = document.body.classList.toggle('pt-dark');
+    document.documentElement.style.background = isDark ? '#0e0f11' : '';
+    localStorage.setItem('pt-theme', isDark ? 'dark' : 'light');
+    const icon = document.getElementById('pt-theme-icon');
+    if (icon) { icon.classList.toggle('fa-moon', !isDark); icon.classList.toggle('fa-sun', isDark); }
+  }
+  (function () {
+    const saved = localStorage.getItem('pt-theme');
+    if (saved === 'dark') {
+      document.addEventListener('DOMContentLoaded', function () {
+        document.body.classList.add('pt-dark');
+        document.documentElement.style.background = '#0e0f11';
+        const icon = document.getElementById('pt-theme-icon');
+        if (icon) { icon.classList.remove('fa-moon'); icon.classList.add('fa-sun'); }
+      });
+    }
+  })();
 
   function ptOpenLightbox(src) {
     let overlay = document.getElementById('pt-lightbox-overlay');
@@ -1457,6 +1658,7 @@ function ptOpenVideoModal() {
               <a href="${backHref}" class="back-btn"><i class="fas fa-arrow-left"></i> ${backLabel}</a>
               <h1 class="subpage-title mt-2">${item.name}</h1>
               <p class="breadcrumb">${breadcrumb}</p>
+              ${item.desc ? `<p class="description mt-3 mb-2 max-w-3xl">${item.desc}</p>` : ''}
               ${renderItemGrid(item.subItems, params.cat, params.sub, params.path)}
             `;
             return;
@@ -1464,6 +1666,42 @@ function ptOpenVideoModal() {
             const hasSpecs = item.specs && item.specs.length > 0;
             const hasSpecTable = item.specTable && item.specTable.rows && item.specTable.rows.length > 0;
             const hasSeriesTables = item.seriesTables && item.seriesTables.length > 0;
+            const hasMediaSlides = item.mediaSlides && item.mediaSlides.length > 0;
+
+            if (hasMediaSlides) {
+              const soloForceFull = ['Автоматическая смена станции'];
+              const cardsHTML = item.mediaSlides.map(s => {
+                const isFull = (s.videos && s.videos.length > 1) || soloForceFull.includes(s.title);
+                const videosHTML = (s.videos && s.videos.length) ? `
+                  <div class="${isFull ? 'grid grid-cols-1 sm:grid-cols-2 gap-4' : ''}">
+                    ${s.videos.map(v => v.indexOf('youtube.com') > -1 ? `
+                      <div style="position:relative;margin-bottom:10px;aspect-ratio:16/9;">
+                        <iframe src="${v}" style="width:100%;height:100%;border:0;border-radius:10px;" allowfullscreen></iframe>
+                      </div>` : `
+                      <div class="pt-video-wrap" style="position:relative;margin-bottom:10px;">
+                        <video controls preload="metadata" style="width:100%;border-radius:10px;background:#000;display:block;"><source src="${v}" type="video/mp4"></video>
+                        <div class="pt-logo-cover" style="position:absolute;top:8px;right:25px;width:70px;height:34px;background:#fff;border-radius:6px;pointer-events:none;display:flex;align-items:center;justify-content:center;overflow:hidden;padding:2px;"><img src="./WhatsApp Image 2026-07-28 at 13.07.51.jpeg" style="max-width:100%;max-height:100%;object-fit:contain;" /></div>
+                      </div>`).join('')}
+                  </div>` : '<p class="text-sm text-gray-500 mb-2">Видео будет добавлено позже.</p>';
+                return `
+                  <div class="${isFull ? 'md:col-span-2' : ''}">
+                    <h3 style="font-weight:800;font-size:16px;margin-bottom:10px;${isFull ? 'text-align:center;' : ''}">${s.title}</h3>
+                    ${videosHTML}
+                    <p class="text-xs text-gray-600" style="${isFull ? 'max-width:700px;margin:0 auto;text-align:center;' : ''}">${s.desc || ''}</p>
+                  </div>
+                `;
+              }).join('');
+              container.innerHTML = `
+                <a href="${backHref}" class="back-btn"><i class="fas fa-arrow-left"></i> ${backLabel}</a>
+                <h1 class="subpage-title mt-2">${item.name}</h1>
+                <p class="breadcrumb">${breadcrumb}</p>
+                ${item.img ? `<img src="${item.img}" alt="${item.name}" style="width:100%;max-width:700px;border-radius:12px;margin:16px 0;display:block;" onerror="this.style.display='"none"'" />` : ''}
+                <p class="description mt-3 mb-6 max-w-3xl">${item.desc || ''}</p>
+                <h2 style="font-weight:900;font-size:28px;color:#f97316;text-align:center;margin-bottom:24px;">${item.heroTitle || item.name}</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">${cardsHTML}</div>
+              `;
+              return;
+            }
 
             if (hasSeriesTables) {
               const images = (item.images && item.images.length > 0) ? item.images : [item.img || imgFallback];
