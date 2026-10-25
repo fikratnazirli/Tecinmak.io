@@ -660,6 +660,7 @@ body.pt-menu #pt-ov{opacity:1;pointer-events:auto}body.pt-menu #pt-drawer{visibi
 
 
 
+
 /* ===== PT-HDR ===== */
 .sticky-header.hd,body:not(.pt-dark) .sticky-header.hd,body.pt-dark .sticky-header.hd{background:none !important;border:0 !important;box-shadow:none !important;backdrop-filter:none !important;position:sticky;top:0;z-index:100}
 .hd-top{background:#0b1423;color:#cbd5e1;font-size:.78rem;border-bottom:1px solid rgba(255,255,255,.06)}
@@ -739,6 +740,15 @@ body.pt-dark .cm-b input,body.pt-dark .cm-b textarea{background:#1a2130;border-c
 #cm-toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%);background:#0f1b2d;color:#fff;padding:11px 18px;border-radius:12px;border-left:4px solid #f97316;z-index:10001;display:none;font-size:.88rem}
 #pt-burger{display:none;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;background:#1e293b;color:#fff;border:0;font-size:1.25rem;box-shadow:0 4px 12px rgba(0,0,0,.25);cursor:pointer}
 body.pt-dark #pt-burger{background:#f97316}
+
+/* katalog dropdown text fix */
+body:not(.pt-dark) .hd .dropdown-menu,body:not(.pt-dark) .hd .sub-menu{background:#fff !important}
+body:not(.pt-dark) .hd .dropdown-menu a,body:not(.pt-dark) .hd .dropdown-menu a *,body:not(.pt-dark) .hd .dropdown-menu .text-black,body:not(.pt-dark) .hd .sub-menu a{color:#1e293b !important}
+body:not(.pt-dark) .hd .dropdown-menu a:hover,body:not(.pt-dark) .hd .dropdown-menu a:hover *,body:not(.pt-dark) .hd .sub-menu a:hover{color:#fff !important;background:#f97316 !important}
+body:not(.pt-dark) .hd .dropdown-menu .fa-chevron-right{color:#f97316 !important}
+body:not(.pt-dark) .hd .dropdown-menu a:hover .fa-chevron-right{color:#fff !important}
+body.pt-dark .hd .dropdown-menu a,body.pt-dark .hd .dropdown-menu a *,body.pt-dark .hd .sub-menu a{color:#e8ecf4 !important}
+body.pt-dark .hd .dropdown-menu a:hover,body.pt-dark .hd .sub-menu a:hover{background:#f97316 !important;color:#fff !important}
 @media(max-width:1320px){.hd-logo small{display:none}.hd-sw{width:150px}.hd-sw:focus-within{width:210px}.hd-wh{display:none}}
 @media(max-width:1023.98px){
  .hd-top,.hd-nav,.hd-cat,.hd-cta,.hd-sw{display:none !important}
@@ -810,7 +820,7 @@ if(document.readyState==='complete')hide();else window.addEventListener('load',h
 </a>
 <div class="sub-menu">
 <a href="subpage.html?cat=linii&sub=shtampovki">ЛИНИИ ШТАМПОВКИ</a>
-<a href="subpage.html?cat=linii&sub=rotacion">ЛИНИИ РОТАЦИОННОЙ ПРОБИВКИ</a>
+<a href="subpage.html?cat=linii&sub=rotacion">ЛИНИИ РОТАЦИОННОЙ ПЕРФОРАЦИИ</a>
 <a href="subpage.html?cat=linii&sub=profilirovaniya">ЛИНИИ ПРОФИЛИРОВАНИЯ</a>
 <a href="subpage.html?cat=linii&sub=poperechnaya">ЛИНИИ ПОПЕРЕЧНОЙ РЕЗКИ</a>
 <a href="subpage.html?cat=linii&sub=prodolnaya">ЛИНИИ ПРОДОЛЬНОЙ РЕЗКИ</a>
@@ -923,12 +933,12 @@ if(document.readyState==='complete')hide();else window.addEventListener('load',h
 <h1 class="text-3xl font-bold text-gray-900 mb-2">Каталог оборудования</h1>
 <p class="text-gray-500 text-sm mb-8">Основные разделы — нажмите на изображение</p>
 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-<a href="katalog.html?cat=avtomatizaciya" class="bg-white rounded-xl border-2 border-gray-200 overflow-hidden hover:-translate-y-1.5 hover:border-orange-500 hover:shadow-[0_12px_40px_rgba(249,115,22,0.08)] transition cursor-pointer no-underline block"><img src="https://placehold.co/400x160/f3f4f6/888?text=АВТОМАТИЗАЦИЯ" alt="автоматизация" class="w-full h-40 object-cover bg-gray-100 border-b-2 border-gray-200 hover:border-orange-500 transition" /><div class="p-4"><h3 class="font-bold text-gray-900 text-[0.9rem]">АВТОМАТИЗАЦИЯ</h3><span class="text-orange-500 text-[0.85rem] font-semibold inline-block mt-1">Подробнее →</span></div></a>
-<a href="katalog.html?cat=robotizaciya" class="bg-white rounded-xl border-2 border-gray-200 overflow-hidden hover:-translate-y-1.5 hover:border-orange-500 hover:shadow-[0_12px_40px_rgba(249,115,22,0.08)] transition cursor-pointer no-underline block"><img src="https://placehold.co/400x160/f3f4f6/888?text=РОБОТИЗАЦИЯ" alt="роботизация" class="w-full h-40 object-cover bg-gray-100 border-b-2 border-gray-200 hover:border-orange-500 transition" /><div class="p-4"><h3 class="font-bold text-gray-900 text-[0.9rem]">РОБОТИЗАЦИЯ</h3><span class="text-orange-500 text-[0.85rem] font-semibold inline-block mt-1">Подробнее →</span></div></a>
-<a href="katalog.html?cat=linii" class="bg-white rounded-xl border-2 border-gray-200 overflow-hidden hover:-translate-y-1.5 hover:border-orange-500 hover:shadow-[0_12px_40px_rgba(249,115,22,0.08)] transition cursor-pointer no-underline block"><img src="https://placehold.co/400x160/f3f4f6/888?text=ЛИНИИ+ПОД+КЛЮЧ" alt="линии под ключ" class="w-full h-40 object-cover bg-gray-100 border-b-2 border-gray-200 hover:border-orange-500 transition" /><div class="p-4"><h3 class="font-bold text-gray-900 text-[0.9rem]">ЛИНИИ ПОД КЛЮЧ</h3><span class="text-orange-500 text-[0.85rem] font-semibold inline-block mt-1">Подробнее →</span></div></a>
-<a href="katalog.html?cat=stanki" class="bg-white rounded-xl border-2 border-gray-200 overflow-hidden hover:-translate-y-1.5 hover:border-orange-500 hover:shadow-[0_12px_40px_rgba(249,115,22,0.08)] transition cursor-pointer no-underline block"><img src="https://placehold.co/400x160/f3f4f6/888?text=СТАНДАРТНОЕ+ОБОРУДОВАНИЕ" alt="стандартное оборудование" class="w-full h-40 object-cover bg-gray-100 border-b-2 border-gray-200 hover:border-orange-500 transition" /><div class="p-4"><h3 class="font-bold text-gray-900 text-[0.9rem]">СТАНДАРТНОЕ ОБОРУДОВАНИЕ</h3><span class="text-orange-500 text-[0.85rem] font-semibold inline-block mt-1">Подробнее →</span></div></a>
-<a href="katalog.html?cat=osnastka" class="bg-white rounded-xl border-2 border-gray-200 overflow-hidden hover:-translate-y-1.5 hover:border-orange-500 hover:shadow-[0_12px_40px_rgba(249,115,22,0.08)] transition cursor-pointer no-underline block"><img src="https://placehold.co/400x160/f3f4f6/888?text=ОСНАСТКА,+ИНСТРУМЕНТ,+ВСПОМОГАТЕЛЬНОЕ+ОБОРУДОВАНИЕ" alt="оснастка, инструмент, вспомогательное оборудование" class="w-full h-40 object-cover bg-gray-100 border-b-2 border-gray-200 hover:border-orange-500 transition" /><div class="p-4"><h3 class="font-bold text-gray-900 text-[0.9rem]">ОСНАСТКА, ИНСТРУМЕНТ, ВСПОМОГАТЕЛЬНОЕ ОБОРУДОВАНИЕ</h3><span class="text-orange-500 text-[0.85rem] font-semibold inline-block mt-1">Подробнее →</span></div></a>
-<a href="katalog.html?cat=otrasli" class="bg-white rounded-xl border-2 border-gray-200 overflow-hidden hover:-translate-y-1.5 hover:border-orange-500 hover:shadow-[0_12px_40px_rgba(249,115,22,0.08)] transition cursor-pointer no-underline block"><img src="https://placehold.co/400x160/f3f4f6/888?text=РЕШЕНИЯ+ПО+ОТРАСЛЯМ" alt="решения по отраслям" class="w-full h-40 object-cover bg-gray-100 border-b-2 border-gray-200 hover:border-orange-500 transition" /><div class="p-4"><h3 class="font-bold text-gray-900 text-[0.9rem]">РЕШЕНИЯ ПО ОТРАСЛЯМ</h3><span class="text-orange-500 text-[0.85rem] font-semibold inline-block mt-1">Подробнее →</span></div></a>
+<a href="katalog.html?cat=avtomatizaciya" class="bg-white rounded-xl border-2 border-gray-200 overflow-hidden hover:-translate-y-1.5 hover:border-orange-500 hover:shadow-[0_12px_40px_rgba(249,115,22,0.08)] transition cursor-pointer no-underline block"><img src="./IMG/2.jpg" alt="автоматизация" class="w-full h-40 object-cover bg-gray-100 border-b-2 border-gray-200 hover:border-orange-500 transition" /><div class="p-4"><h3 class="font-bold text-gray-900 text-[0.9rem]">АВТОМАТИЗАЦИЯ</h3><span class="text-orange-500 text-[0.85rem] font-semibold inline-block mt-1">Подробнее →</span></div></a>
+<a href="katalog.html?cat=robotizaciya" class="bg-white rounded-xl border-2 border-gray-200 overflow-hidden hover:-translate-y-1.5 hover:border-orange-500 hover:shadow-[0_12px_40px_rgba(249,115,22,0.08)] transition cursor-pointer no-underline block"><img src="./IMG/А4.jpg" alt="роботизация" class="w-full h-40 object-cover bg-gray-100 border-b-2 border-gray-200 hover:border-orange-500 transition" /><div class="p-4"><h3 class="font-bold text-gray-900 text-[0.9rem]">РОБОТИЗАЦИЯ</h3><span class="text-orange-500 text-[0.85rem] font-semibold inline-block mt-1">Подробнее →</span></div></a>
+<a href="katalog.html?cat=linii" class="bg-white rounded-xl border-2 border-gray-200 overflow-hidden hover:-translate-y-1.5 hover:border-orange-500 hover:shadow-[0_12px_40px_rgba(249,115,22,0.08)] transition cursor-pointer no-underline block"><img src="./IMG/4.jpg" alt="линии под ключ" class="w-full h-40 object-cover bg-gray-100 border-b-2 border-gray-200 hover:border-orange-500 transition" /><div class="p-4"><h3 class="font-bold text-gray-900 text-[0.9rem]">ЛИНИИ ПОД КЛЮЧ</h3><span class="text-orange-500 text-[0.85rem] font-semibold inline-block mt-1">Подробнее →</span></div></a>
+<a href="katalog.html?cat=stanki" class="bg-white rounded-xl border-2 border-gray-200 overflow-hidden hover:-translate-y-1.5 hover:border-orange-500 hover:shadow-[0_12px_40px_rgba(249,115,22,0.08)] transition cursor-pointer no-underline block"><img src="./IMG/doganer/dms-20-cnc-m1-pr69.jpg" alt="стандартное оборудование" class="w-full h-40 object-cover bg-gray-100 border-b-2 border-gray-200 hover:border-orange-500 transition" /><div class="p-4"><h3 class="font-bold text-gray-900 text-[0.9rem]">СТАНДАРТНОЕ ОБОРУДОВАНИЕ</h3><span class="text-orange-500 text-[0.85rem] font-semibold inline-block mt-1">Подробнее →</span></div></a>
+<a href="katalog.html?cat=osnastka" class="bg-white rounded-xl border-2 border-gray-200 overflow-hidden hover:-translate-y-1.5 hover:border-orange-500 hover:shadow-[0_12px_40px_rgba(249,115,22,0.08)] transition cursor-pointer no-underline block"><img src="https://img.youtube.com/vi/e-n6b68lQ_E/hqdefault.jpg" alt="оснастка, инструмент, вспомогательное оборудование" class="w-full h-40 object-cover bg-gray-100 border-b-2 border-gray-200 hover:border-orange-500 transition" /><div class="p-4"><h3 class="font-bold text-gray-900 text-[0.9rem]">ОСНАСТКА, ИНСТРУМЕНТ, ВСПОМОГАТЕЛЬНОЕ ОБОРУДОВАНИЕ</h3><span class="text-orange-500 text-[0.85rem] font-semibold inline-block mt-1">Подробнее →</span></div></a>
+<a href="katalog.html?cat=otrasli" class="bg-white rounded-xl border-2 border-gray-200 overflow-hidden hover:-translate-y-1.5 hover:border-orange-500 hover:shadow-[0_12px_40px_rgba(249,115,22,0.08)] transition cursor-pointer no-underline block"><img src="./IMG/sistem_4.jpg" alt="решения по отраслям" class="w-full h-40 object-cover bg-gray-100 border-b-2 border-gray-200 hover:border-orange-500 transition" /><div class="p-4"><h3 class="font-bold text-gray-900 text-[0.9rem]">РЕШЕНИЯ ПО ОТРАСЛЯМ</h3><span class="text-orange-500 text-[0.85rem] font-semibold inline-block mt-1">Подробнее →</span></div></a>
 </div>
 </main>
 <div id="pg-home" class="pg-wrap" style="padding-top:0">
@@ -1098,6 +1108,7 @@ function touch(){
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',function(){build();touch()});else{build();touch()}
 })();
 </script>
+
 
 
 <script>/* PT-HDR */
